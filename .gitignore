@@ -2,4 +2,5 @@ Client/bin
 Client/obj
 Service/bin
 Service/obj
+Service/.vs/Service
 *.TMP

@@ -2,5 +2,7 @@ Client/bin
 Client/obj
 Service/bin
 Service/obj
-Service/.vs/Service
+Service/.vs/Service/
 *.TMP
+*.cache
+*.suo

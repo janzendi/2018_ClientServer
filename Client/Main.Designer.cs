@@ -33,9 +33,9 @@
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tODOToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.richTextBox_Info = new System.Windows.Forms.RichTextBox();
-            this.tabPTCWizardStandardOPC = new System.Windows.Forms.TabPage();
             this.tabControl = new System.Windows.Forms.TabControl();
+            this.tabPTCWizardStandardOPC = new System.Windows.Forms.TabPage();
+            this.richTextBox_Info = new System.Windows.Forms.RichTextBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statuslbl_copyright = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
@@ -94,26 +94,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 426);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
-            // richTextBox_Info
-            // 
-            this.richTextBox_Info.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox_Info.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox_Info.Location = new System.Drawing.Point(3, 317);
-            this.richTextBox_Info.Name = "richTextBox_Info";
-            this.richTextBox_Info.ReadOnly = true;
-            this.richTextBox_Info.Size = new System.Drawing.Size(794, 106);
-            this.richTextBox_Info.TabIndex = 2;
-            this.richTextBox_Info.Text = "";
-            // 
-            // tabPTCWizardStandardOPC
-            // 
-            this.tabPTCWizardStandardOPC.Location = new System.Drawing.Point(4, 22);
-            this.tabPTCWizardStandardOPC.Name = "tabPTCWizardStandardOPC";
-            this.tabPTCWizardStandardOPC.Size = new System.Drawing.Size(786, 282);
-            this.tabPTCWizardStandardOPC.TabIndex = 4;
-            this.tabPTCWizardStandardOPC.Text = "tabPTCWizardStandardOPC";
-            this.tabPTCWizardStandardOPC.UseVisualStyleBackColor = true;
-            // 
             // tabControl
             // 
             this.tabControl.Controls.Add(this.tabPTCWizardStandardOPC);
@@ -124,6 +104,26 @@
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(794, 308);
             this.tabControl.TabIndex = 1;
+            // 
+            // tabPTCWizardStandardOPC
+            // 
+            this.tabPTCWizardStandardOPC.Location = new System.Drawing.Point(4, 22);
+            this.tabPTCWizardStandardOPC.Name = "tabPTCWizardStandardOPC";
+            this.tabPTCWizardStandardOPC.Size = new System.Drawing.Size(786, 282);
+            this.tabPTCWizardStandardOPC.TabIndex = 4;
+            this.tabPTCWizardStandardOPC.Text = "tabPTCWizardStandardOPC";
+            this.tabPTCWizardStandardOPC.UseVisualStyleBackColor = true;
+            // 
+            // richTextBox_Info
+            // 
+            this.richTextBox_Info.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBox_Info.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox_Info.Location = new System.Drawing.Point(3, 317);
+            this.richTextBox_Info.Name = "richTextBox_Info";
+            this.richTextBox_Info.ReadOnly = true;
+            this.richTextBox_Info.Size = new System.Drawing.Size(794, 106);
+            this.richTextBox_Info.TabIndex = 2;
+            this.richTextBox_Info.Text = "";
             // 
             // statusStrip1
             // 

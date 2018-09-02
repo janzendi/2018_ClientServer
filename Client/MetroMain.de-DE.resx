@@ -121,11 +121,17 @@
   <data name="menuBar.Size" type="System.Drawing.Size, System.Drawing">
     <value>769, 24</value>
   </data>
+  <data name="statusStripbtm.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 423</value>
+  </data>
+  <data name="statusStripbtm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>769, 26</value>
+  </data>
   <data name="statuslbl_copyright.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 21</value>
   </data>
   <data name="statuslbl_copyright.Text" xml:space="preserve">
-    <value>©Dimitri Janzen_1001</value>
+    <value>©Dimitri Janzen_1000</value>
   </data>
   <data name="statusprgbar.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 20</value>
@@ -134,28 +140,22 @@
     <value>98, 21</value>
   </data>
   <data name="statusprgtxt.Text" xml:space="preserve">
-    <value>statusprgtxt_1000</value>
-  </data>
-  <data name="statusStripbtm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 423</value>
-  </data>
-  <data name="statusStripbtm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>769, 26</value>
-  </data>
-  <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>769, 339</value>
+    <value>statusprgtxt_1001</value>
   </data>
   <data name="tabControl.Size" type="System.Drawing.Size, System.Drawing">
     <value>763, 243</value>
-  </data>
-  <data name="tabPTCWizardStandardOPC.Size" type="System.Drawing.Size, System.Drawing">
-    <value>755, 201</value>
   </data>
   <data name="richTextBox_Info.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 252</value>
   </data>
   <data name="richTextBox_Info.Size" type="System.Drawing.Size, System.Drawing">
     <value>763, 84</value>
+  </data>
+  <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>769, 339</value>
+  </data>
+  <data name="tabPTCWizardStandardOPC.Size" type="System.Drawing.Size, System.Drawing">
+    <value>755, 201</value>
   </data>
   <data name="$this.BackImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

@@ -1,0 +1,28 @@
+25.08.2018 14:25:14:	LogFile-System initialized
+25.08.2018 14:25:14:	Call -> Void .ctor()
+25.08.2018 14:25:14:	Local used drive letter: C:\
+25.08.2018 14:25:14:	Local used drive letter: O:\
+25.08.2018 14:25:14:	Local used drive letter: P:\
+25.08.2018 14:25:14:	Local used drive letter: T:\
+25.08.2018 14:25:14:	Local used drive letter: W:\
+25.08.2018 14:25:14:	Local used drive letter: X:\
+25.08.2018 14:25:14:	Local used drive letter: Y:\
+25.08.2018 14:25:14:	Load default config file. Filename: Config/default.xml
+25.08.2018 14:25:14:	Default config file version: 1.0
+25.08.2018 14:25:14:	Methode Client.Config.XML.SaveAndLoadConfig.GetXmlNodeNetwork(XmlNodeList list). ChildNode item: machines
+25.08.2018 14:25:14:	Methode GetXmlNetworkList. Add network to list:    description: 	00_SLC_1650507_ESXi letter: 	Y:\ user: 	d password: 	d network path: 	\\172.20.12.146\c$
+25.08.2018 14:25:14:	Methode GetXmlNetworkList. Add network to list:    description: 	01_BLM_1380208_ESXi letter: 	X:\ user: 	uhlmann password: 	winlauph network path: 	\\172.20.12.147\c$
+25.08.2018 14:25:14:	Methode GetXmlNetworkList. Add network to list:    description: 	02_HH1_1040120_ESXi letter: 	V:\ user: 	uhlmann password: 	winlauph network path: 	\\172.20.12.124\c$
+25.08.2018 14:25:14:	Methode GetXmlNetworkList. Add network to list:    description: 	03_HH2_1040138_ESXi letter: 	T:\ user: 	uhlmann password: 	winlauph network path: 	\\172.20.13.250\c$
+25.08.2018 14:25:14:	Methode GetXmlNetworkList. Add network to list:    description: 	04_CTM_0890116_ESXi letter: 	S:\ user: 	uhlmann password: 	winlauph network path: 	\\172.20.12.148\c$
+25.08.2018 14:25:14:	Methode GetXmlNetworkList. Add network to list:    description: 	05_USP_1720148_ESXi letter: 	Q:\ user: 	uhlmann password: 	winlauph network path: 	\\172.20.14.1\c$
+25.08.2018 14:25:14:	Methode GetXmlNetworkList. Add network to list:    description: 	06_USP_1040101_ESXi letter: 	P:\ user: 	uhlmann password: 	winlauph network path: 	\\172.20.11.162\c$
+25.08.2018 14:25:14:	Call -> Void AddRow(Client.Config.XML.XMLNetworkConnection)
+25.08.2018 14:25:14:	Call -> Void AddRow(Client.Config.XML.XMLNetworkConnection)
+25.08.2018 14:25:15:	Call -> Void AddRow(Client.Config.XML.XMLNetworkConnection)
+25.08.2018 14:25:15:	Call -> Void AddRow(Client.Config.XML.XMLNetworkConnection)
+25.08.2018 14:25:15:	Call -> Void AddRow(Client.Config.XML.XMLNetworkConnection)
+25.08.2018 14:25:15:	Call -> Void AddRow(Client.Config.XML.XMLNetworkConnection)
+25.08.2018 14:25:15:	Call -> Void AddRow(Client.Config.XML.XMLNetworkConnection)
+25.08.2018 14:25:15:	Test -> tblPanel.RowCount.ToString(): 0, tblPanel.ColumnCount.ToString(): 0
+25.08.2018 14:47:04:	Try to save log.txt

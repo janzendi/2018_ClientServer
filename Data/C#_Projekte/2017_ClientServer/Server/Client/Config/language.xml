@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<languages version="1.0">
+	<language id="en" text="English">
+		<text id="1000" tooltip=""></text>
+	</language>
+	<language id="de" text="Deutsch">
+		<text id="1000" tooltip=""></text>	
+	</language>
+</languages>

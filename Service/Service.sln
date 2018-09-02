@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "..\Client\Client.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_old", "_old", "{6C9F6983-39EC-4689-A152-BB611713B1DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "..\..\2017_ClientServer\Server\Client\Client.csproj", "{914B49F4-7AAC-4411-A264-89C8E707643D}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,16 +23,9 @@ Global
 		{D63262E4-28E0-4B45-AEAB-CA2DEAEA2CA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D63262E4-28E0-4B45-AEAB-CA2DEAEA2CA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D63262E4-28E0-4B45-AEAB-CA2DEAEA2CA6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{914B49F4-7AAC-4411-A264-89C8E707643D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{914B49F4-7AAC-4411-A264-89C8E707643D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{914B49F4-7AAC-4411-A264-89C8E707643D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{914B49F4-7AAC-4411-A264-89C8E707643D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{914B49F4-7AAC-4411-A264-89C8E707643D} = {6C9F6983-39EC-4689-A152-BB611713B1DC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B3A7F86B-A420-4D63-A356-95F54C43A300}

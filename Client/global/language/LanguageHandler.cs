@@ -1,21 +1,14 @@
-﻿using System.Windows.Forms;
+﻿using System.Collections.Generic;
 
 namespace Client.global.language
 {
     public static class LanguageHandler
     {
-        private static ToolStripStatusLabel obj1000 = null;
-        public static void SetLabeltest(ToolStripStatusLabel labeltest)
+        private static Dictionary<int, ObjWord> dictLanguage = new Dictionary<int, ObjWord>();
+
+        public static void ReadXml(string path)
         {
-            obj1000 = labeltest;
-        }
-        public static string LABELTEST
-        {
-            get
-            {
-                obj1000.Text = "Hello World";
-                return "";
-            }
+
         }
     }
 }

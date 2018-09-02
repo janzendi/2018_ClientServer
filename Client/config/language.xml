@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <languages version="1.0">
-	<language id="en" text="English">
-		<text id="1000" tooltip="">©Dimitri Janzen</text>
-		<text id="1001" tooltip="">©Dimitri Janzen</text>
-	</language>
 	<language id="de" text="Deutsch">
-		<text id="1000" tooltip="">©Dimitri Janzen</text>	
-		<text id="1001" tooltip="">©Dimitri Janzen</text>	
+		<text id="1000" tooltip="	das Urheberrecht liegt bei Dimitri Janzen" objecttype="tag">©Dimitri Janzen</text>	
+		<text id="" tooltip="" objecttype="tag"></text>	
+	</language>
+	<language id="en" text="English">
+		<text id="1000" tooltip="copyright by Dimitri Janzen" objecttype="tag">©Dimitri Janzen</text>
+		<text id="" tooltip="" objecttype="tag"></text>	
 	</language>
 </languages>

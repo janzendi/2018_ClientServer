@@ -1,0 +1,74 @@
+﻿A:\
+B:\
+C:\
+D:\
+E:\
+F:\
+G:\
+H:\
+I:\
+J:\
+K:\
+L:\
+M:\
+N:\
+O:\
+P:\
+Q:\
+R:\
+S:\
+T:\
+U:\
+V:\
+W:\
+X:\
+Y:\
+Z:\
+
+WIN32 Exceptions
+85 = The local device name is already in use
+
+            /*btnConnect.Enabled = false;
+            DriveInfo[] driveInfo = DriveInfo.GetDrives();
+            try
+            {
+                int i = Client.Network.InterfaceNetUse.INSTANCE.MapDrive(this.fldDrive.GetTEXT, this.fldUser.GetTEXT, this.fldPassword.GetTEXT, this.fldFolder.GetTEXT, false, false, false, false);
+                //string temp = this.fldFolder.GetTEXT.Replace("\\", "#");
+                if (i == 0 || i == 85)
+                {
+                    btnConnect.Text = "Disconnect";
+                }
+                else
+                {
+                    btnConnect.Text = "Connect";
+                }
+            }
+            catch (Exception innerE)
+            {
+                Log.LogFile.INSTANCE.DebugWriteLine("ERROR: Exception thrown in class: " + this.ToString() + ", METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + innerE.ToString());
+            }
+            btnConnect.Enabled = true;*/
+
+
+
+
+			// Setting
+                RegistryKey rk = Registry.CurrentUser;
+                string subKey = "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MountPoints2\\" + this.fldFolder.GetTEXT.Replace("\\", "#");
+                // I have to use CreateSubKey 
+                // (create or open it if already exits), 
+                // 'cause OpenSubKey open a subKey as read-only
+                RegistryKey sk1 = rk.CreateSubKey(subKey);
+                // Save the value
+                sk1.SetValue("_LabelFromDesktopINI", "TEST");
+
+				using System.Runtime.InteropServices;
+
+// it's required for reading/writing into the registry:
+using Microsoft.Win32;
+[DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Auto)] static extern bool SetVolumeLabel(string lpRootPathName, string lpVolumeName);
+
+        /// <summary>
+        /// My Computer\HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\MountPoints2
+        /// _LabelFromDesktopINI
+        /// ##192.168.1.48#c

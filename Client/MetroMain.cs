@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using MetroFramework.Forms;
 using MetroFramework.Controls;
 using MetroFramework.Fonts;
+using System.Threading;
 
 namespace Client
 {
@@ -18,9 +19,11 @@ namespace Client
         public MetroMain()
         {
             InitializeComponent();
+            global.log.MetroLog.INSTANCE.SetConsole(richTextBox_Info, statusprgtxt, statusprgbar);
         }
         
     }
+
     static class Program
     {
         /// <summary>

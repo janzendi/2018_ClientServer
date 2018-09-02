@@ -53,6 +53,8 @@
   <ItemGroup>
     <Compile Include="config\ConfigReadWriter.cs" />
     <Compile Include="global\language\LanguageHandler.cs" />
+    <Compile Include="global\language\ObjWord.cs" />
+    <Compile Include="global\log\MetroLog.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -1,0 +1,39 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Client.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="DebugModeEnabled" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ServerIPAddress" Type="System.String" Scope="User">
+      <Value Profile="(Default)">127.0.0.1</Value>
+    </Setting>
+    <Setting Name="ServerPort" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">8910</Value>
+    </Setting>
+    <Setting Name="Language" Type="System.String" Scope="User">
+      <Value Profile="(Default)">de</Value>
+    </Setting>
+    <Setting Name="ConfigFileDefault" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Config/default.xml</Value>
+    </Setting>
+    <Setting Name="DriveLetters" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">OpenFolder;A:\;B:\;C:\;D:\;E:\;F:\;G:\;H:\;I:\;J:\;K:\;L:\;M:\;N:\;O:\;P:\;Q:\;R:\;S:\;T:\;U:\;V:\;W:\;X:\;Y:\;Z:\</Value>
+    </Setting>
+    <Setting Name="LanguageFile" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Config/language.xml</Value>
+    </Setting>
+    <Setting Name="AlarmFile" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Config/alarm.xml</Value>
+    </Setting>
+    <Setting Name="DCAnalogSemantic" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">analogDataPoints;analog;Analog</Value>
+    </Setting>
+    <Setting Name="OPCVariables" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">BMT_ErrorInfo;BMT_BatchStop;BMT_BatchStart;BMT_BatchCtrlState;BMT_Connection_OK;BMT_TokenBit_UP;BMT_BatchCtrlState;EM_FirstFault;EM_FirstFaultText;EM_FirstFaultClass;EM_MachineStopError;EM_MachineStopErrorText;EM_MachineStopErrorClass;EM_OpcErrorNumberList;EM_OpcErrorClassList;EM_OpcErrorDeviceList;EM_OpcErrorTextList;EM_OpcWarningNumberList;EM_OpcWarningClassList;EM_OpcWarningDeviceList;EM_OpcWarningTextList;</Value>
+    </Setting>
+    <Setting Name="BatchVarPrefix" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">BMT_</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

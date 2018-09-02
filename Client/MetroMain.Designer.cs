@@ -88,19 +88,20 @@ namespace Client
             // 
             resources.ApplyResources(this.statuslbl_copyright, "statuslbl_copyright");
             this.statuslbl_copyright.Name = "statuslbl_copyright";
-            this.statuslbl_copyright.Tag = "1001";
+            this.statuslbl_copyright.Tag = "1000";
             this.statuslbl_copyright.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             // 
             // statusprgbar
             // 
             resources.ApplyResources(this.statusprgbar, "statusprgbar");
             this.statusprgbar.Name = "statusprgbar";
+            this.statusprgbar.Tag = "1002";
             // 
             // statusprgtxt
             // 
             resources.ApplyResources(this.statusprgtxt, "statusprgtxt");
             this.statusprgtxt.Name = "statusprgtxt";
-            this.statusprgtxt.Tag = 1000;
+            this.statusprgtxt.Tag = "1001";
             // 
             // tableLayoutPanel1
             // 
@@ -128,6 +129,7 @@ namespace Client
             // richTextBox_Info
             // 
             resources.ApplyResources(this.richTextBox_Info, "richTextBox_Info");
+            this.richTextBox_Info.BackColor = System.Drawing.SystemColors.Window;
             this.richTextBox_Info.Name = "richTextBox_Info";
             this.richTextBox_Info.ReadOnly = true;
             // 
@@ -152,6 +154,8 @@ namespace Client
         }
 
         #endregion
+
+
 
         private System.Windows.Forms.MenuStrip menuBar;
         private System.Windows.Forms.ToolStripMenuItem tODOToolStripMenuItem;

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<servicetool version="1.0">
+  <machines>
+    <machine>
+      <connection volumename="00_SLC_1650507_ESXi" letter="Y:\" user="d" password="d">\\172.20.12.146\c$</connection>
+    </machine>
+    <machine>
+      <connection volumename="01_BLM_1380208_ESXi" letter="X:\" user="uhlmann" password="winlauph">\\172.20.12.147\c$</connection>
+    </machine>
+    <machine>
+      <connection volumename="02_HH1_1040120_ESXi" letter="V:\" user="uhlmann" password="winlauph">\\172.20.12.124\c$</connection>
+    </machine>
+    <machine>
+      <connection volumename="03_HH2_1040138_ESXi" letter="T:\" user="uhlmann" password="winlauph">\\172.20.13.250\c$</connection>
+    </machine>
+    <machine>
+      <connection volumename="04_CTM_0890116_ESXi" letter="S:\" user="uhlmann" password="winlauph">\\172.20.12.148\c$</connection>
+    </machine>
+    <machine>
+      <connection volumename="05_USP_1720148_ESXi" letter="Q:\" user="uhlmann" password="winlauph">\\172.20.14.1\c$</connection>
+    </machine>
+    <machine>
+      <connection volumename="06_USP_1040101_ESXi" letter="P:\" user="uhlmann" password="winlauph">\\172.20.11.162\c$</connection>
+    </machine>
+  </machines>
+</servicetool>

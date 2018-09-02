@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{914B49F4-7AAC-4411-A264-89C8E707643D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Client</RootNamespace>
+    <AssemblyName>Client</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Client.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SimpleTCP, Version=1.0.24.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleTCP.1.0.24\lib\net45\SimpleTCP.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientForm.Designer.cs">
+      <DependentUpon>ClientForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\XML\Alarms\XMLAlarms.cs" />
+    <Compile Include="Config\XML\Language\XMLLanguage.cs" />
+    <Compile Include="Config\XML\XMLBASE.cs" />
+    <Compile Include="Config\XML\XMLNetworkConnection.cs" />
+    <Compile Include="Config\XML\SaveAndLoadConfig.cs" />
+    <Compile Include="Layout\Layout_Network\Layout_Network.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Layout\Layout_Network\Layout_Network.Designer.cs">
+      <DependentUpon>Layout_Network.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\Layout_Network\Layout_NetworkV2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Layout\Layout_Network\Layout_NetworkV2.Designer.cs">
+      <DependentUpon>Layout_NetworkV2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\Layout_TWizard\Layout_TCWizardDomain.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Layout\Layout_TWizard\Layout_TCWizardDomain.Designer.cs">
+      <DependentUpon>Layout_TCWizardDomain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\Layout_TWizard\Layout_PTCWizardStandardOPC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Layout\Layout_TWizard\Layout_PTCWizardStandardOPC.Designer.cs">
+      <DependentUpon>Layout_PTCWizardStandardOPC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Log\LogFile.cs" />
+    <Compile Include="Network\InterfaceNetUse.cs" />
+    <Compile Include="Object\GroupLblTxt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\Layout_Network\RowFlowLayouForNetworkTableLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\Layout_TWizard\TCWizardStandardOPC_FileHandler.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Config\Settings.cs" />
+    <Compile Include="TCPClient\TCPClient.cs" />
+    <EmbeddedResource Include="ClientForm.resx">
+      <DependentUpon>ClientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\Layout_Network\Layout_Network.resx">
+      <DependentUpon>Layout_Network.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\Layout_Network\Layout_NetworkV2.resx">
+      <DependentUpon>Layout_NetworkV2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\Layout_TWizard\Layout_TCWizardDomain.resx">
+      <DependentUpon>Layout_TCWizardDomain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\Layout_TWizard\Layout_PTCWizardStandardOPC.resx">
+      <DependentUpon>Layout_PTCWizardStandardOPC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\language.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\alarm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\default.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\if_safe_64608.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TEMP\tmp.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

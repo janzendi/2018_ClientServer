@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <config>
   <icon>config\icon.ico</icon>
-  <language>config\language.xml</language>
+  <languagefilepath>config\language.xml</languagefilepath>
+  <logfilepath>log</logfilepath>
+  <debugmode>true</debugmode>
 </config>

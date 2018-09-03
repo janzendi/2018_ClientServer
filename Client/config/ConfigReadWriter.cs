@@ -21,7 +21,7 @@ namespace Client.config
                 try
                 {
                     xmldocConfg.Load("config/config.xml");
-                    return xmldocConfg.SelectSingleNode("config/languagefilepath").Value.ToString();
+                    return xmldocConfg.SelectSingleNode("config/languagefilepath").InnerText.ToString();
                 }
                 catch (Exception e)
                 {

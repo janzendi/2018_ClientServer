@@ -153,8 +153,8 @@
   <data name="richTextBox_Info.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="tabControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="OptionsToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>98, 20</value>
   </data>
   <data name="&gt;&gt;tableLayoutPanel1.Parent" xml:space="preserve">
     <value>$this</value>
@@ -167,6 +167,9 @@
   </data>
   <data name="&gt;&gt;tODOToolStripMenuItem1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="statusStripbtm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>760, 22</value>
   </data>
   <data name="tabPTCWizardStandardOPC.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 38</value>
@@ -213,6 +216,9 @@
   <data name="tODOToolStripMenuItem1.Text" xml:space="preserve">
     <value>TODO</value>
   </data>
+  <data name="languageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
   <data name="&gt;&gt;statusStripbtm.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
@@ -242,6 +248,9 @@
   </data>
   <data name="&gt;&gt;tableLayoutPanel1.Type" xml:space="preserve">
     <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;languageToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;menuBar.Name" xml:space="preserve">
     <value>menuBar</value>
@@ -312,8 +321,14 @@
   <data name="&gt;&gt;tabPTCWizardStandardOPC.Name" xml:space="preserve">
     <value>tabPTCWizardStandardOPC</value>
   </data>
+  <data name="&gt;&gt;OptionsToolStripMenuItem1.Name" xml:space="preserve">
+    <value>OptionsToolStripMenuItem1</value>
+  </data>
   <data name="&gt;&gt;menuBar.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="&gt;&gt;languageToolStripMenuItem.Name" xml:space="preserve">
+    <value>languageToolStripMenuItem</value>
   </data>
   <data name="tableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="tabControl" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="richTextBox_Info" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50" /&gt;&lt;Rows Styles="Percent,73,74517,Percent,26,25483,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
@@ -345,11 +360,11 @@
   <data name="&gt;&gt;richTextBox_Info.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="tabPTCWizardStandardOPC.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+  <data name="tabControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
-  <data name="statusStripbtm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>760, 22</value>
+  <data name="&gt;&gt;richTextBox_Info.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
   </data>
   <data name="menuBar.Size" type="System.Drawing.Size, System.Drawing">
     <value>760, 24</value>
@@ -372,11 +387,14 @@
   <data name="richTextBox_Info.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="&gt;&gt;richTextBox_Info.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
+  <data name="tabPTCWizardStandardOPC.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
   <data name="tableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
+  </data>
+  <data name="&gt;&gt;OptionsToolStripMenuItem1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>de-DE</value>

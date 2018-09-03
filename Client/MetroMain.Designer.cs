@@ -34,7 +34,7 @@ namespace Client
             this.menuBar = new System.Windows.Forms.MenuStrip();
             this.tODOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tODOToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.OptionsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStripbtm = new System.Windows.Forms.StatusStrip();
             this.statuslbl_copyright = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusprgbar = new System.Windows.Forms.ToolStripProgressBar();
@@ -43,6 +43,7 @@ namespace Client
             this.tabControl = new MetroFramework.Controls.MetroTabControl();
             this.tabPTCWizardStandardOPC = new System.Windows.Forms.TabPage();
             this.richTextBox_Info = new System.Windows.Forms.RichTextBox();
+            this.languageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuBar.SuspendLayout();
             this.statusStripbtm.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -54,7 +55,7 @@ namespace Client
             resources.ApplyResources(this.menuBar, "menuBar");
             this.menuBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tODOToolStripMenuItem,
-            this.tODOToolStripMenuItem1});
+            this.OptionsToolStripMenuItem1});
             this.menuBar.Name = "menuBar";
             // 
             // tODOToolStripMenuItem
@@ -63,16 +64,21 @@ namespace Client
             this.tODOToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.saveToolStripMenuItem});
             this.tODOToolStripMenuItem.Name = "tODOToolStripMenuItem";
+            this.tODOToolStripMenuItem.Tag = "1002";
             // 
             // saveToolStripMenuItem
             // 
             resources.ApplyResources(this.saveToolStripMenuItem, "saveToolStripMenuItem");
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Tag = "1004";
             // 
-            // tODOToolStripMenuItem1
+            // OptionsToolStripMenuItem1
             // 
-            resources.ApplyResources(this.tODOToolStripMenuItem1, "tODOToolStripMenuItem1");
-            this.tODOToolStripMenuItem1.Name = "tODOToolStripMenuItem1";
+            resources.ApplyResources(this.OptionsToolStripMenuItem1, "OptionsToolStripMenuItem1");
+            this.OptionsToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.languageToolStripMenuItem});
+            this.OptionsToolStripMenuItem1.Name = "OptionsToolStripMenuItem1";
+            this.OptionsToolStripMenuItem1.Tag = "1003";
             // 
             // statusStripbtm
             // 
@@ -133,6 +139,12 @@ namespace Client
             this.richTextBox_Info.Name = "richTextBox_Info";
             this.richTextBox_Info.ReadOnly = true;
             // 
+            // languageToolStripMenuItem
+            // 
+            resources.ApplyResources(this.languageToolStripMenuItem, "languageToolStripMenuItem");
+            this.languageToolStripMenuItem.Name = "languageToolStripMenuItem";
+            this.languageToolStripMenuItem.Tag = "1004";
+            // 
             // MetroMain
             // 
             resources.ApplyResources(this, "$this");
@@ -160,7 +172,7 @@ namespace Client
         private System.Windows.Forms.MenuStrip menuBar;
         private System.Windows.Forms.ToolStripMenuItem tODOToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tODOToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem OptionsToolStripMenuItem1;
         private System.Windows.Forms.StatusStrip statusStripbtm;
         private System.Windows.Forms.ToolStripStatusLabel statuslbl_copyright;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
@@ -169,5 +181,6 @@ namespace Client
         private System.Windows.Forms.RichTextBox richTextBox_Info;
         private System.Windows.Forms.ToolStripProgressBar statusprgbar;
         private System.Windows.Forms.ToolStripStatusLabel statusprgtxt;
+        private System.Windows.Forms.ToolStripMenuItem languageToolStripMenuItem;
     }
 }

@@ -16,26 +16,62 @@ namespace Client
 
     public partial class MetroMain : MetroForm
     {
+        private static string strActualLanguage;
+
+        #region Konstruktoren
         /// <summary>
         /// Konstruktor der MetroMain Klasse.
         /// </summary>
-        /// /// <created>janzen_d,2018-09-03</created>
+        /// <created>janzen_d,2018-09-03</created>
         public MetroMain()
         {
-            // Thread start for subroutine
-            //Thread threadLanguage = new Thread(new ThreadStart(global.language.LanguageHandler.INSTANCE.ReadXml(config.ConfigReadWriter.LANGUAGEPATH)));
-            global.language.LanguageHandler languageHandler = global.language.LanguageHandler.INSTANCE;
-
-            Thread threadLanguage = new Thread(new ThreadStart(languageHandler.ReadXml));
+            
             //init
             InitializeComponent();
             global.log.MetroLog.INSTANCE.SetConsole(richTextBox_Info, statusprgtxt, statusprgbar);
+            // Thread start for subroutine
+            Thread threadLanguage = new Thread(new ThreadStart(MetroMain.ReadXml));
+            threadLanguage.Start();
+            global.log.MetroLog.INSTANCE.WriteLine("Get Language data from file.");
+
+            //TODO
+
+            // Sprachen aufbauen
+            while (global.language.LanguageHandler.XMLREADISFINISH)
+            {
+                // warten bis Lesevorgang abgeschlossen ist.
+            }
+            global.log.MetroLog.INSTANCE.WriteLine("Get Language data from file finalized.");
+            foreach (string strlanguage in global.language.LanguageHandler.INSTANCE.LISTOFLANGUAGE)
+            {
+                languageToolStripMenuItem.DropDownItems.Add(strlanguage);
+
+            }
+            for (int i = 0; i < this.Controls.Count; i++)
+            {
+                if (this.Controls[i].Tag != null)
+                {
+                    if (System.Int32.TryParse(this.Controls[i].Tag.ToString(), out int textid))
+                    {
+
+                    }
+                }
+            }
         }
 
         ~MetroMain()
         {
 
         }
+        #endregion
+
+        #region threads
+        private static void ReadXml()
+        {
+            global.language.LanguageHandler.INSTANCE.ReadXml(config.ConfigReadWriter.LANGUAGEPATH);
+        }
+        #endregion
+
     }
 
     static class Program

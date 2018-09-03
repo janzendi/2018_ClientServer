@@ -15,7 +15,9 @@ namespace Client.global.log
     {
         private static MetroLog instance;
         private RichTextBox Console_Info;
-        private XmlTextWriter logfile;
+        private static XmlDocument xmlDoc;
+        private static XmlNode rootNode;
+        private static string xmltimestamp;
 
         //Tool Strip
         private ToolStripStatusLabel lblProgessBar;
@@ -34,6 +36,10 @@ namespace Client.global.log
                 if (instance == null)
                 {
                     instance = new MetroLog();
+                    xmltimestamp = "\\log_" + DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss") + ".xml";
+                    xmlDoc = new XmlDocument();
+                    rootNode = xmlDoc.CreateElement("logifle");
+                    xmlDoc.AppendChild(rootNode);
                 }
                 return instance;
             }
@@ -59,14 +65,9 @@ namespace Client.global.log
                     instance = MetroLog.INSTANCE;
                     Console_Info.Multiline = true;
                     Console_Info.AcceptsTab = true;
+
                     if (!System.IO.Directory.Exists(config.ConfigReadWriter.LOGPATH))
                         System.IO.Directory.CreateDirectory(config.ConfigReadWriter.LOGPATH);
-                    logfile = new XmlTextWriter(config.ConfigReadWriter.LOGPATH + DateTime.Now.ToString("yyyy-MM-dd_mm:ss" + ".xml"), System.Text.Encoding.UTF8);
-                    logfile.Formatting = Formatting.Indented;
-                    logfile.WriteStartDocument();
-                    logfile.WriteComment("Log file created: " + DateTime.Now.ToString("yyyy-MM-dd"));
-                    logfile.WriteStartElement("logfile");
-
                     WriteLine("LogFile-System initialized");
 
                     this.lblProgessBar = lblProgessBar;
@@ -98,21 +99,12 @@ namespace Client.global.log
         {
             try
             {
-                //write end time
-                logfile.WriteStartElement("log", "Try to save log");
-                logfile.WriteStartAttribute(DateTime.Now.ToString("yyyy-MM-dd_mm:ss"));
-                logfile.WriteEndAttribute();
-                logfile.WriteEndElement();
-                //finish document
-                logfile.WriteEndElement();
-                logfile.WriteEndDocument();
-                logfile.Flush();
-                logfile.Close();
+                xmlDoc.Save(config.ConfigReadWriter.LOGPATH + xmltimestamp);
             }
             catch (Exception e)
             {
-                string tmp = "ERROR: Class LogFile could not create. Please contact the developer and forward file \"LOGEXCEPTION.txt\" in the main application folder." + " EXCEPTION INFORMATION: " + e.ToString();
-                MessageBox.Show(tmp);
+                string tmp = "ERROR: Class LogFile could not destruct and log file could not be saved. Please contact the developer and forward file \"LOGEXCEPTION.txt\" in the main application folder." + " EXCEPTION INFORMATION: " + e.ToString();
+                //MessageBox.Show(tmp);
                 TextWriter txtFile = new StreamWriter("LOGEXCEPTION.txt");
                 txtFile.Write(tmp);
                 txtFile.Close();
@@ -185,12 +177,17 @@ namespace Client.global.log
             {
                 if (onlyLogFile)
                     Console_Info.AppendText(Environment.NewLine);
-                tempLog += Environment.NewLine;
             }
-            string timestamp = DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToLongTimeString();
+            string timestamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            //write to xml
+            XmlNode userNode = xmlDoc.CreateElement("log");
+            XmlAttribute attribute = xmlDoc.CreateAttribute("timestamp");
+            attribute.Value = timestamp;
+            userNode.Attributes.Append(attribute);
+            userNode.InnerText = value;
+            rootNode.AppendChild(userNode);
+
             timestamp += ":\t";
-            tempLog += timestamp;
-            tempLog += value;
             if (onlyLogFile)
             {
                 Console_Info.SelectionColor = Color.Blue;
@@ -216,7 +213,7 @@ namespace Client.global.log
             }
             catch (Exception exception)
             {
-                Log.LogFile.INSTANCE.WriteLine("ERROR: Exception thrown in class: " + this.ToString() + ", METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + exception.ToString());
+                global.log.MetroLog.INSTANCE.WriteLine("ERROR: Exception thrown in class: " + this.ToString() + ", METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + exception.ToString());
             }
         }
     }

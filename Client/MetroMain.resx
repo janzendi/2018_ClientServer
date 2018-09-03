@@ -128,9 +128,6 @@
   <data name="statusprgbar.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 16</value>
   </data>
-  <data name="tabPTCWizardStandardOPC.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="tableLayoutPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -155,6 +152,9 @@
   </data>
   <data name="richTextBox_Info.Text" xml:space="preserve">
     <value />
+  </data>
+  <data name="tabControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="&gt;&gt;tableLayoutPanel1.Parent" xml:space="preserve">
     <value>$this</value>
@@ -191,6 +191,9 @@
   </data>
   <data name="richTextBox_Info.Size" type="System.Drawing.Size, System.Drawing">
     <value>754, 80</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>800, 450</value>
   </data>
   <data name="&gt;&gt;tableLayoutPanel1.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -243,9 +246,6 @@
   <data name="&gt;&gt;menuBar.Name" xml:space="preserve">
     <value>menuBar</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>MetroFramework.Forms.MetroForm, MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
-  </data>
   <data name="statuslbl_copyright.Size" type="System.Drawing.Size, System.Drawing">
     <value>92, 17</value>
   </data>
@@ -275,9 +275,6 @@
   </data>
   <data name="&gt;&gt;statusprgbar.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripProgressBar, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="statusStripbtm.Text" xml:space="preserve">
-    <value>statusStrip1</value>
   </data>
   <data name="&gt;&gt;statuslbl_copyright.Name" xml:space="preserve">
     <value>statuslbl_copyright</value>
@@ -348,8 +345,8 @@
   <data name="&gt;&gt;richTextBox_Info.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="tabControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="tabPTCWizardStandardOPC.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
   <data name="statusStripbtm.Size" type="System.Drawing.Size, System.Drawing">
     <value>760, 22</value>
@@ -357,14 +354,17 @@
   <data name="menuBar.Size" type="System.Drawing.Size, System.Drawing">
     <value>760, 24</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>800, 450</value>
+  <data name="&gt;&gt;saveToolStripMenuItem.Name" xml:space="preserve">
+    <value>saveToolStripMenuItem</value>
+  </data>
+  <data name="statusStripbtm.Text" xml:space="preserve">
+    <value>statusStrip1</value>
   </data>
   <data name="tODOToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
     <value>51, 20</value>
   </data>
-  <data name="&gt;&gt;saveToolStripMenuItem.Name" xml:space="preserve">
-    <value>saveToolStripMenuItem</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>MetroFramework.Forms.MetroForm, MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
   </data>
   <data name="tabControl.Size" type="System.Drawing.Size, System.Drawing">
     <value>754, 232</value>

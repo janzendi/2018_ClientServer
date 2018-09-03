@@ -71,9 +71,6 @@
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MetroMain.de-DE.resx">
-      <DependentUpon>MetroMain.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MetroMain.resx">
       <DependentUpon>MetroMain.cs</DependentUpon>
     </EmbeddedResource>

@@ -9,7 +9,6 @@ namespace Client.config
     static class ConfigReadWriter
     {
         private static XmlDocument xmldocConfg = new XmlDocument();
-        private static bool debugenabled;
 
         /// <summary>
         /// Return the file path for the languagefile, depending from configuration in confif file.
@@ -43,12 +42,13 @@ namespace Client.config
                 try
                 {
                     xmldocConfg.Load("config/config.xml");
-                    return xmldocConfg.SelectSingleNode("config/logfilepath").Value.ToString();
+                    return xmldocConfg.SelectSingleNode("config/logfilepath").InnerText;
                 }
                 catch (Exception e)
                 {
                     global.log.MetroLog.INSTANCE.WriteLine("ERROR: Config file could not read the log file path in class: ConfigReadWriter" + ", METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + e.ToString());
                 }
+                return null;
             }
         }
 
@@ -62,30 +62,25 @@ namespace Client.config
             {
                 try
                 {
-                    if (debugenabled == null)
+                    xmldocConfg.Load("config/config.xml");
+                    switch (xmldocConfg.SelectSingleNode("config/debugmode").InnerText)
                     {
-                        xmldocConfg.Load("config/config.xml");
-                        switch (xmldocConfg.SelectSingleNode("config/debugmode").Value.ToString())
-                        {
-                            case "1":
-                            case "true":
-                            case  "TRUE":
-                            case "True":
-                            case "yes":
-                                debugenabled = true;
-                                break;
-                            case "0":
-                            case "false":
-                            case "FALSE":
-                            case "False":
-                            case "no":
-                                debugenabled = false;
-                                break;
-                            default:
-                                break;
-                        }
+                        case "1":
+                        case "true":
+                        case "TRUE":
+                        case "True":
+                        case "yes":
+                            return true;
+                        case "0":
+                        case "false":
+                        case "FALSE":
+                        case "False":
+                        case "no":
+                            return false;
+                        default:
+                            break;
                     }
-                    return debugenabled;
+                    return false;
                 }
                 catch (Exception)
                 {
@@ -97,9 +92,8 @@ namespace Client.config
             {
                 try
                 {
-                    debugenabled = value;
                     xmldocConfg.Load("config/config.xml");
-                    xmldocConfg.SelectSingleNode("config/debugmode").Value = value.ToString();
+                    xmldocConfg.SelectSingleNode("config/debugmode").InnerText = value.ToString();
                     xmldocConfg.Save("config/config.xml");
                 }
                 catch (Exception e)

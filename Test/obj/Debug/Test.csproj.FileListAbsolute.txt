@@ -1,0 +1,6 @@
+C:\Users\win10\Desktop\2018_ClientServer\Test\obj\Debug\Test.csprojAssemblyReference.cache
+C:\Users\win10\Desktop\2018_ClientServer\Test\obj\Debug\Test.csproj.CoreCompileInputs.cache
+C:\Users\win10\Desktop\2018_ClientServer\Test\bin\Debug\Test.exe
+C:\Users\win10\Desktop\2018_ClientServer\Test\bin\Debug\Test.pdb
+C:\Users\win10\Desktop\2018_ClientServer\Test\obj\Debug\Test.exe
+C:\Users\win10\Desktop\2018_ClientServer\Test\obj\Debug\Test.pdb

@@ -16,12 +16,26 @@ namespace Client
 
     public partial class MetroMain : MetroForm
     {
+        /// <summary>
+        /// Konstruktor der MetroMain Klasse.
+        /// </summary>
+        /// /// <created>janzen_d,2018-09-03</created>
         public MetroMain()
         {
+            // Thread start for subroutine
+            //Thread threadLanguage = new Thread(new ThreadStart(global.language.LanguageHandler.INSTANCE.ReadXml(config.ConfigReadWriter.LANGUAGEPATH)));
+            global.language.LanguageHandler languageHandler = global.language.LanguageHandler.INSTANCE;
+
+            Thread threadLanguage = new Thread(new ThreadStart(languageHandler.ReadXml));
+            //init
             InitializeComponent();
             global.log.MetroLog.INSTANCE.SetConsole(richTextBox_Info, statusprgtxt, statusprgbar);
         }
-        
+
+        ~MetroMain()
+        {
+
+        }
     }
 
     static class Program
@@ -29,6 +43,7 @@ namespace Client
         /// <summary>
         /// Der Haupteinstiegspunkt für die Anwendung.
         /// </summary>
+        /// /// <created>janzen_d,2018-09-03</created>
         [STAThread]
         static void Main()
         {

@@ -37,15 +37,11 @@ namespace Client
             //TODO
 
             // Sprachen aufbauen
-            while (global.language.LanguageHandler.XMLREADISFINISH)
-            {
-                // warten bis Lesevorgang abgeschlossen ist.
-            }
+            while (global.language.LanguageHandler.XMLREADISFINISH) { } // warten bis Lesevorgang abgeschlossen ist.
             global.log.MetroLog.INSTANCE.WriteLine("Get Language data from file finalized.");
             foreach (string strlanguage in global.language.LanguageHandler.INSTANCE.LISTOFLANGUAGE)
             {
                 languageToolStripMenuItem.DropDownItems.Add(strlanguage);
-
             }
             for (int i = 0; i < this.Controls.Count; i++)
             {

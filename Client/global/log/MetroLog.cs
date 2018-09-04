@@ -150,7 +150,7 @@ namespace Client.global.log
             {
                 if (Console_Info.InvokeRequired) //Threadprogrammierung um zu verhindern, das ein anderer Prozess gleichzeitig auf das Objekt zugreift.
                 {
-                    Console_Info.BeginInvoke(new dgDebugWriteLine(WriteLine), new object[] { value });
+                    Console_Info.BeginInvoke(new dgDebugWriteLine(DebugWriteLine), new object[] { value });
                 }
                 else
                     Write(value, config.ConfigReadWriter.DEBUGENABLED);

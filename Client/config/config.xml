@@ -3,5 +3,5 @@
   <icon>config\icon.ico</icon>
   <languagefilepath>config\language.xml</languagefilepath>
   <logfilepath>log</logfilepath>
-  <debugmode>true</debugmode>
+  <debugmode>false</debugmode>
 </config>

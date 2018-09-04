@@ -16,7 +16,7 @@ namespace Client
 
     public partial class MetroMain : MetroForm
     {
-        private static string strActualLanguage;
+
 
         #region Konstruktoren
         /// <summary>
@@ -25,49 +25,49 @@ namespace Client
         /// <created>janzen_d,2018-09-03</created>
         public MetroMain()
         {
-            
-            //init
             InitializeComponent();
-            global.log.MetroLog.INSTANCE.SetConsole(richTextBox_Info, statusprgtxt, statusprgbar);
-            // Thread start for subroutine
-            Thread threadLanguage = new Thread(new ThreadStart(MetroMain.ReadXml));
-            threadLanguage.Start();
-            global.log.MetroLog.INSTANCE.WriteLine("Get Language data from file.");
+   
+        }
 
-            //TODO
+        ~MetroMain() { }
+        #endregion
 
-            // Sprachen aufbauen
-            while (global.language.LanguageHandler.XMLREADISFINISH) { } // warten bis Lesevorgang abgeschlossen ist.
-            global.log.MetroLog.INSTANCE.WriteLine("Get Language data from file finalized.");
-            foreach (string strlanguage in global.language.LanguageHandler.INSTANCE.LISTOFLANGUAGE)
+        
+
+        #region clickEvents
+        private void Click_ChangeLanguage(object sender, EventArgs e)
+        {
+            try
             {
-                languageToolStripMenuItem.DropDownItems.Add(strlanguage);
-            }
-            for (int i = 0; i < this.Controls.Count; i++)
-            {
-                if (this.Controls[i].Tag != null)
+                global.log.MetroLog.INSTANCE.DebugWriteLine(sender.ToString()); // TODO delete
+                strActualLanguage = sender.ToString();
+                for (int i = 0; i < this.Controls.Count; i++)
                 {
-                    if (System.Int32.TryParse(this.Controls[i].Tag.ToString(), out int textid))
+                    if (this.Controls[i].Tag != null)
                     {
+                        if (System.Int32.TryParse(this.Controls[i].Tag.ToString(), out int textid))
+                        {
 
+                        }
                     }
                 }
             }
+            catch (Exception)
+            {
+            }
         }
 
-        ~MetroMain()
+        private void ToolStripMenuItemSave_Click(object sender, EventArgs e)
         {
+            try
+            {
 
+            }
+            catch (Exception)
+            {
+            }
         }
         #endregion
-
-        #region threads
-        private static void ReadXml()
-        {
-            global.language.LanguageHandler.INSTANCE.ReadXml(config.ConfigReadWriter.LANGUAGEPATH);
-        }
-        #endregion
-
     }
 
     static class Program

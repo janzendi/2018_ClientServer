@@ -2,6 +2,7 @@
 <config>
   <icon>config\icon.ico</icon>
   <languagefilepath>config\language.xml</languagefilepath>
+  <language>Deutsch</language>
   <logfilepath>log</logfilepath>
-  <debugmode>false</debugmode>
+  <debugmode>true</debugmode>
 </config>

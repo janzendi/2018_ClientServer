@@ -102,5 +102,27 @@ namespace Client.config
                 }
             }
         }
+
+        /// <summary>
+        /// Eigenschaft Zugriff auf Sprache die im config file hinterlegt ist.
+        /// GGf später noch eine Abhilfe schreiben falls Sprache im file nicht hinterlegt ist.
+        /// </summary>
+        /// <created>janzen_d,2018-09-04</created>
+        public static string LANGUAGE
+        {
+            get
+            {
+                try
+                {
+                    xmldocConfg.Load("config/config.xml");
+                    return xmldocConfg.SelectSingleNode("config/language").InnerText;
+                }
+                catch (Exception e)
+                {
+                    global.log.MetroLog.INSTANCE.WriteLine("ERROR: Language tag could not be read" + ", METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + e.ToString());
+                }
+                return null;
+            }
+        }
     }
 }

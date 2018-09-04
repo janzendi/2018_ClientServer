@@ -32,9 +32,6 @@ namespace Client
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MetroMain));
             this.menuBar = new System.Windows.Forms.MenuStrip();
-            this.tODOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.OptionsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStripbtm = new System.Windows.Forms.StatusStrip();
             this.statuslbl_copyright = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusprgbar = new System.Windows.Forms.ToolStripProgressBar();
@@ -43,8 +40,6 @@ namespace Client
             this.tabControl = new MetroFramework.Controls.MetroTabControl();
             this.tabPTCWizardStandardOPC = new System.Windows.Forms.TabPage();
             this.richTextBox_Info = new System.Windows.Forms.RichTextBox();
-            this.languageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuBar.SuspendLayout();
             this.statusStripbtm.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -53,32 +48,7 @@ namespace Client
             // menuBar
             // 
             resources.ApplyResources(this.menuBar, "menuBar");
-            this.menuBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tODOToolStripMenuItem,
-            this.OptionsToolStripMenuItem1});
             this.menuBar.Name = "menuBar";
-            // 
-            // tODOToolStripMenuItem
-            // 
-            resources.ApplyResources(this.tODOToolStripMenuItem, "tODOToolStripMenuItem");
-            this.tODOToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.saveToolStripMenuItem});
-            this.tODOToolStripMenuItem.Name = "tODOToolStripMenuItem";
-            this.tODOToolStripMenuItem.Tag = "1002";
-            // 
-            // saveToolStripMenuItem
-            // 
-            resources.ApplyResources(this.saveToolStripMenuItem, "saveToolStripMenuItem");
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Tag = "1004";
-            // 
-            // OptionsToolStripMenuItem1
-            // 
-            resources.ApplyResources(this.OptionsToolStripMenuItem1, "OptionsToolStripMenuItem1");
-            this.OptionsToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.languageToolStripMenuItem});
-            this.OptionsToolStripMenuItem1.Name = "OptionsToolStripMenuItem1";
-            this.OptionsToolStripMenuItem1.Tag = "1003";
             // 
             // statusStripbtm
             // 
@@ -139,12 +109,6 @@ namespace Client
             this.richTextBox_Info.Name = "richTextBox_Info";
             this.richTextBox_Info.ReadOnly = true;
             // 
-            // languageToolStripMenuItem
-            // 
-            resources.ApplyResources(this.languageToolStripMenuItem, "languageToolStripMenuItem");
-            this.languageToolStripMenuItem.Name = "languageToolStripMenuItem";
-            this.languageToolStripMenuItem.Tag = "1004";
-            // 
             // MetroMain
             // 
             resources.ApplyResources(this, "$this");
@@ -154,8 +118,6 @@ namespace Client
             this.Controls.Add(this.statusStripbtm);
             this.Controls.Add(this.menuBar);
             this.Name = "MetroMain";
-            this.menuBar.ResumeLayout(false);
-            this.menuBar.PerformLayout();
             this.statusStripbtm.ResumeLayout(false);
             this.statusStripbtm.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -163,16 +125,93 @@ namespace Client
             this.ResumeLayout(false);
             this.PerformLayout();
 
+            //
+            //  custom init
+            //
+            this.initCustom();
         }
 
         #endregion
 
+        #region customInit
+        private void initCustom()
+        {
+            // init logger
+            global.log.MetroLog.INSTANCE.SetConsole(richTextBox_Info, statusprgtxt, statusprgbar);
+
+            // Thread start for subroutine
+            System.Threading.Thread threadLanguage = new System.Threading.Thread(new System.Threading.ThreadStart(MetroMain.ReadXml));
+            threadLanguage.Start();
+            global.log.MetroLog.INSTANCE.WriteLine("Get Language data from file.");
+            
+            // Menubar aufbauen
+            toolStripMenuItemFile = new System.Windows.Forms.ToolStripMenuItem("Datei_1002");
+            toolStripMenuItemFile.Tag = 1002;
+            toolStripMenuItemSave = new System.Windows.Forms.ToolStripMenuItem("Speichern_1004");
+            toolStripMenuItemSave.Tag = 1004;
+            toolStripMenuItemSave.Click += ToolStripMenuItemSave_Click;
+            toolStripMenuItemFile.DropDownItems.Add(toolStripMenuItemSave);
+            menuBar.Items.Add(toolStripMenuItemFile);
+            toolStripMenuItemOptions = new System.Windows.Forms.ToolStripMenuItem("Optionen_1003");
+            toolStripMenuItemOptions.Tag = 1003;
+            toolStripMenuItemLanguage = new System.Windows.Forms.ToolStripMenuItem("Sprachen_1005");
+            toolStripMenuItemLanguage.Tag = 1005;
+            toolStripMenuItemOptions.DropDownItems.Add(toolStripMenuItemLanguage);
+            menuBar.Items.Add(toolStripMenuItemOptions);
+            // Menubar Sprachen aufbauen
+            while (global.language.LanguageHandler.XMLREADISFINISH) { } // warten bis Lesevorgang abgeschlossen ist.
+            global.log.MetroLog.INSTANCE.WriteLine("Get Language data from file finalized.");
+            strActualLanguage = config.ConfigReadWriter.LANGUAGE; // Sprache aus config file lesen.
+            foreach (string strlanguage in global.language.LanguageHandler.INSTANCE.LISTOFLANGUAGE)
+            {
+                System.Windows.Forms.ToolStripMenuItem tmp_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem(strlanguage);
+                tmp_toolStripMenuItem.Click += Click_ChangeLanguage;
+                toolStripMenuItemLanguage.DropDownItems.Add(tmp_toolStripMenuItem);
+            }
+            // alle tags lesen und mit den richtigen Sprachen beschreiben.
+            for (int i = 0; i < this.Controls.Count; i++)
+            {
+                if (this.Controls[i].Tag != null)
+                {
+                    if (System.Int32.TryParse(this.Controls[i].Tag.ToString(), out int textid))
+                    {
+                        string[] tmpTextID = global.language.LanguageHandler.INSTANCE.GETOBJWORD(strActualLanguage, textid);
+                        this.Controls[i].Text = tmpTextID[2];
+                        System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip();
+                        toolTip.SetToolTip(this.Controls[i], tmpTextID[0]);
+                    }
+                }
+            }
+        }
+
+        public System.Collections.Generic.IEnumerable<System.Windows.Forms.Control> GetAll(System.Windows.Forms.Control control, System.Type type)
+        {
+            //var controls = control.Controls.Cast<System.Windows.Forms.Control>();
+
+            //return controls.SelectMany(ctrl => GetAll(ctrl, type))
+            //                        .Concat(controls)
+            //                      .Where(c => c.GetType() == type);
+            return null;
+        }
+
+        #region threads
+        private static void ReadXml()
+        {
+            global.language.LanguageHandler.INSTANCE.ReadXml(config.ConfigReadWriter.LANGUAGEPATH);
+        }
+        #endregion
+
+        private static string strActualLanguage;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemFile;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSave;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemOptions;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemLanguage;
+        private System.Type[] types = new System.Type[1] { typeof(System.Windows.Forms.TextBox) }; // TODO https://stackoverflow.com/questions/3419159/how-to-get-all-child-controls-of-a-windows-forms-form-of-a-specific-type-button
+
+        #endregion
 
 
         private System.Windows.Forms.MenuStrip menuBar;
-        private System.Windows.Forms.ToolStripMenuItem tODOToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem OptionsToolStripMenuItem1;
         private System.Windows.Forms.StatusStrip statusStripbtm;
         private System.Windows.Forms.ToolStripStatusLabel statuslbl_copyright;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
@@ -181,6 +220,6 @@ namespace Client
         private System.Windows.Forms.RichTextBox richTextBox_Info;
         private System.Windows.Forms.ToolStripProgressBar statusprgbar;
         private System.Windows.Forms.ToolStripStatusLabel statusprgtxt;
-        private System.Windows.Forms.ToolStripMenuItem languageToolStripMenuItem;
+        
     }
 }

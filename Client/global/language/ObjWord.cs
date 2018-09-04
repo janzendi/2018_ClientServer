@@ -19,5 +19,41 @@ namespace Client.global.language
             this.strToolTip = strToolTip;
             this.id = id;
         }
+
+        /// <summary>
+        /// Eigenschaft Zugriff auf Tooltip
+        /// </summary>
+        /// <created>janzen_d,2018-09-04</created>
+        public string TOOLTIP
+        {
+            get { return strToolTip; }
+        }
+
+        /// <summary>
+        /// Eigenschaft Zugriff auf object type
+        /// </summary>
+        /// <created>janzen_d,2018-09-04</created>
+        public string OBJTYPE
+        {
+            get { return strObjType; }
+        }
+
+        /// <summary>
+        /// Eigenschaft Zugriff auf Text
+        /// </summary>
+        /// <created>janzen_d,2018-09-04</created>
+        public string TEXT
+        {
+            get { return strText; }
+        }
+
+        /// <summary>
+        /// Eigenschaft Zugriff auf ID
+        /// </summary>
+        /// <created>janzen_d,2018-09-04</created>
+        public int ID
+        {
+            get { return id; }
+        }
     }
 }

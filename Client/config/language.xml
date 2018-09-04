@@ -1,19 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <languages version="0.1">
 	<language id="de" text="Deutsch">
+    <text id="0" tooltip="Text wurde nicht gefunden" objecttype="tag">Text-ID fehlt</text>
 		<text id="1000" tooltip="das Urheberrecht liegt bei Dimitri Janzen" objecttype="tag">©Dimitri Janzen</text>	
 		<text id="1001" tooltip="Status Ausgabe" objecttype="tag">Status</text>
 		<text id="1002" tooltip="Datei" objecttype="tag">Datei</text>
 		<text id="1003" tooltip="Einstellungen" objecttype="tag">Einstellungen</text>
 		<text id="1004" tooltip="Speichern" objecttype="tag">Speichern</text>
+    <text id="1005" tooltip="Spracheinstellungen" objecttype="tag">Spracheinstellungen</text>
     <text id="" tooltip="" objecttype="tag"></text>
   </language>
 	<language id="en" text="English">
+    <text id="0" tooltip="Missing text-id" objecttype="tag">Missing text-id</text>
 		<text id="1000" tooltip="copyright by Dimitri Janzen" objecttype="tag">©Dimitri Janzen</text>
     <text id="1001" tooltip="status output" objecttype="tag">status</text>
     <text id="1002" tooltip="menu file" objecttype="tag">File</text>
     <text id="1003" tooltip="Options" objecttype="tag">Options</text>
     <text id="1004" tooltip="Save" objecttype="tag">Save</text>
+    <text id="1005" tooltip="Language settings" objecttype="tag">Language</text>
     <text id="" tooltip="" objecttype="tag"></text>	
 	</language>
 </languages>

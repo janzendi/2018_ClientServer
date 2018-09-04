@@ -90,6 +90,10 @@ namespace Client.global.language
             boolXmlReadIsFinish = false;
         }
 
+        /// <summary>
+        /// Eigenschaft Zugriff auf Liste der Sprachen
+        /// </summary>
+        /// <created>janzen_d,2018-09-04</created>
         public List<string> LISTOFLANGUAGE
         {
             get
@@ -99,6 +103,26 @@ namespace Client.global.language
                     strlancount.Add(item);
                 return strlancount;
             }
+        }
+
+        public string[] GETOBJWORD(string language, int id)
+        {
+            string[] objword = new string[3] { id.ToString() + " " + dictLanguage[language][0].TOOLTIP, "", id.ToString() + " " + dictLanguage[language][0].TEXT };
+            try
+            {
+                if (dictLanguage.TryGetValue(language, out Dictionary<int,ObjWord> tmpDict))
+                {
+                    if (dictLanguage[language].TryGetValue(id, out ObjWord tmpObjWord))
+                    {
+                        return new string[3] { dictLanguage[language][id].TOOLTIP, dictLanguage[language][id].OBJTYPE, dictLanguage[language][id].TEXT };
+                    }
+                }
+            }
+            catch (System.Exception e)
+            {
+                global.log.MetroLog.INSTANCE.WriteLine("ERROR: Exception thrown in class: " + this.ToString() + ", METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + e.ToString());
+            }
+            return null;
         }
     }
 }

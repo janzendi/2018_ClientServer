@@ -4,3 +4,5 @@
 
 fritzbox zurück setzen.
 https://avm.de/service/fritzbox/fritzbox-7330-sl/wissensdatenbank/publication/show/3_Werkseinstellungen-der-FRITZ-Box-laden/
+
+((System.Windows.Forms.ToolStripMenuItem)((System.Windows.Forms.MenuStrip)control).Items[0]).DropDownItems.ToString();

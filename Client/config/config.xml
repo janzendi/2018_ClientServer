@@ -4,5 +4,5 @@
   <languagefilepath>config\language.xml</languagefilepath>
   <language>Deutsch</language>
   <logfilepath>log</logfilepath>
-  <debugmode>true</debugmode>
+  <debugmode>false</debugmode>
 </config>

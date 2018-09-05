@@ -27,12 +27,11 @@ namespace Client
         {
             InitializeComponent();
             this.CustomInitializeComponent(); // deklariert im MetroMain.Designer.cs
-
+            
         }
 
         ~MetroMain() { }
         #endregion
-
 
 
         #region clickEvents
@@ -44,9 +43,8 @@ namespace Client
         {
             try
             {
-                global.log.MetroLog.INSTANCE.DebugWriteLine(sender.ToString()); // TODO delete
-                strActualLanguage = sender.ToString();
-                //siehe Designer
+                global.log.MetroLog.INSTANCE.DebugWriteLine(sender.ToString());
+                ChangeLanguage(sender.ToString()); // Übergabe der Sprache
             }
             catch (Exception)
             {

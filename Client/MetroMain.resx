@@ -124,24 +124,31 @@
   <data name="&gt;&gt;statusStripbtm.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="dsavToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 20</value>
+  </data>
   <data name="&gt;&gt;bvcToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="tabPTCWizardStandardOPC.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="tableLayoutPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="&gt;&gt;statusStripbtm.Name" xml:space="preserve">
-    <value>statusStripbtm</value>
+  <data name="&gt;&gt;menuBar.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="statusStripbtm.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
     <value>Yes</value>
   </data>
+  <data name="&gt;&gt;dsavToolStripMenuItem.Name" xml:space="preserve">
+    <value>dsavToolStripMenuItem</value>
+  </data>
   <data name="statusprgtxt.Text" xml:space="preserve">
     <value>toolStripStatusLabel1</value>
+  </data>
+  <data name="&gt;&gt;richTextBox_Info.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
   </data>
   <data name="tODOToolStripMenuItem.Text" xml:space="preserve">
     <value>File</value>
@@ -152,18 +159,26 @@
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MetroMain</value>
   </data>
-  <data name="richTextBox_Info.Text" xml:space="preserve">
-    <value />
+  <data name="&gt;&gt;tabPage1.Name" xml:space="preserve">
+    <value>tabPage1</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="OptionsToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>98, 20</value>
+  <data name="&gt;&gt;languageToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="FileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>66, 20</value>
+  </data>
+  <data name="&gt;&gt;tabPage1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tableLayoutPanel1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tabPTCWizardStandardOPC.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPage1.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="richTextBox_Info.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -174,6 +189,9 @@
   <data name="tabPTCWizardStandardOPC.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 38</value>
   </data>
+  <data name="tableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
   <data name="tableLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
     <value>20, 84</value>
   </data>
@@ -183,17 +201,23 @@
   <data name="&gt;&gt;statuslbl_copyright.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tabControl.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
-  </data>
   <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
     <value>760, 324</value>
+  </data>
+  <data name="tabNetwork.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 38</value>
   </data>
   <data name="richTextBox_Info.Size" type="System.Drawing.Size, System.Drawing">
     <value>754, 80</value>
   </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>800, 450</value>
+  </data>
   <data name="&gt;&gt;tableLayoutPanel1.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="&gt;&gt;statusStripbtm.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="&gt;&gt;statusprgtxt.Name" xml:space="preserve">
     <value>statusprgtxt</value>
@@ -213,11 +237,14 @@
   <data name="tODOToolStripMenuItem1.Text" xml:space="preserve">
     <value>TODO</value>
   </data>
-  <data name="FileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>66, 20</value>
+  <data name="languageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
   </data>
-  <data name="&gt;&gt;statusStripbtm.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;cyxsToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabNetwork.Parent" xml:space="preserve">
+    <value>tabControl</value>
   </data>
   <data name="&gt;&gt;OptionsToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -237,6 +264,9 @@
   <data name="&gt;&gt;OptionsToolStripMenuItem.Name" xml:space="preserve">
     <value>OptionsToolStripMenuItem</value>
   </data>
+  <data name="&gt;&gt;cyxsToolStripMenuItem.Name" xml:space="preserve">
+    <value>cyxsToolStripMenuItem</value>
+  </data>
   <data name="&gt;&gt;richTextBox_Info.Name" xml:space="preserve">
     <value>richTextBox_Info</value>
   </data>
@@ -252,8 +282,8 @@
   <data name="&gt;&gt;tableLayoutPanel1.Type" xml:space="preserve">
     <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;languageToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;tabNetwork.Name" xml:space="preserve">
+    <value>tabNetwork</value>
   </data>
   <data name="&gt;&gt;bvcToolStripMenuItem.Name" xml:space="preserve">
     <value>bvcToolStripMenuItem</value>
@@ -267,17 +297,20 @@
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>MetroFramework.Forms.MetroForm, MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
   </data>
+  <data name="tabNetwork_.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 38</value>
+  </data>
   <data name="statuslbl_copyright.Size" type="System.Drawing.Size, System.Drawing">
     <value>92, 17</value>
   </data>
-  <data name="&gt;&gt;menuBar.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="cyxsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
   </data>
   <data name="&gt;&gt;saveToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="tabPTCWizardStandardOPC.Text" xml:space="preserve">
-    <value>tabPTCWizardStandardOPC</value>
+  <data name="tabNetwork_.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
   <data name="&gt;&gt;statusprgbar.Name" xml:space="preserve">
     <value>statusprgbar</value>
@@ -288,6 +321,12 @@
   <data name="saveToolStripMenuItem.Text" xml:space="preserve">
     <value>Save</value>
   </data>
+  <data name="OptionsToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>98, 20</value>
+  </data>
+  <data name="&gt;&gt;tabNetwork_.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="&gt;&gt;tabPTCWizardStandardOPC.Parent" xml:space="preserve">
     <value>tabControl</value>
   </data>
@@ -297,8 +336,8 @@
   <data name="tODOToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>37, 20</value>
   </data>
-  <data name="&gt;&gt;statusprgbar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripProgressBar, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;tabControl.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
   </data>
   <data name="statusStripbtm.Text" xml:space="preserve">
     <value>statusStrip1</value>
@@ -312,6 +351,9 @@
   <data name="richTextBox_Info.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 8.25pt</value>
   </data>
+  <data name="&gt;&gt;tabPTCWizardStandardOPC.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="&gt;&gt;tableLayoutPanel1.Name" xml:space="preserve">
     <value>tableLayoutPanel1</value>
   </data>
@@ -321,11 +363,20 @@
   <data name="&gt;&gt;tODOToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tabPTCWizardStandardOPC.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;statusprgbar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripProgressBar, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabNetwork.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="richTextBox_Info.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 241</value>
+  <data name="&gt;&gt;tabNetwork_.Name" xml:space="preserve">
+    <value>tabNetwork_</value>
+  </data>
+  <data name="&gt;&gt;dsavToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tabPage1.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
   <data name="tabPTCWizardStandardOPC.Size" type="System.Drawing.Size, System.Drawing">
     <value>746, 190</value>
@@ -341,6 +392,9 @@
   </data>
   <data name="&gt;&gt;tabPTCWizardStandardOPC.Name" xml:space="preserve">
     <value>tabPTCWizardStandardOPC</value>
+  </data>
+  <data name="tabNetwork.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
@@ -372,20 +426,26 @@
   <data name="&gt;&gt;menuBar.Type" xml:space="preserve">
     <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;richTextBox_Info.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;richTextBox_Info.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="menuBar.Location" type="System.Drawing.Point, System.Drawing">
     <value>20, 60</value>
   </data>
-  <data name="&gt;&gt;richTextBox_Info.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;tabPage1.Parent" xml:space="preserve">
+    <value>tabControl</value>
   </data>
   <data name="tabControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
   <data name="&gt;&gt;FileToolStripMenuItem.Name" xml:space="preserve">
     <value>FileToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;saveToolStripMenuItem.Name" xml:space="preserve">
+    <value>saveToolStripMenuItem</value>
+  </data>
+  <data name="richTextBox_Info.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 241</value>
   </data>
   <data name="statusStripbtm.Size" type="System.Drawing.Size, System.Drawing">
     <value>760, 22</value>
@@ -396,17 +456,20 @@
   <data name="menuBar.Size" type="System.Drawing.Size, System.Drawing">
     <value>760, 24</value>
   </data>
-  <data name="&gt;&gt;saveToolStripMenuItem.Name" xml:space="preserve">
-    <value>saveToolStripMenuItem</value>
+  <data name="&gt;&gt;tabNetwork_.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>800, 450</value>
+  <data name="tabPTCWizardStandardOPC.Text" xml:space="preserve">
+    <value>tabPTCWizardStandardOPC</value>
+  </data>
+  <data name="&gt;&gt;richTextBox_Info.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="tODOToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
     <value>51, 20</value>
   </data>
-  <data name="languageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+  <data name="&gt;&gt;statusStripbtm.Name" xml:space="preserve">
+    <value>statusStripbtm</value>
   </data>
   <data name="tabControl.Size" type="System.Drawing.Size, System.Drawing">
     <value>754, 232</value>
@@ -414,14 +477,23 @@
   <data name="richTextBox_Info.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="&gt;&gt;richTextBox_Info.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
+  <data name="tabPTCWizardStandardOPC.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
-  <data name="tableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="tabPage1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 38</value>
+  </data>
+  <data name="&gt;&gt;tabNetwork_.Parent" xml:space="preserve">
+    <value>tabControl</value>
+  </data>
+  <data name="&gt;&gt;tabNetwork.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;OptionsToolStripMenuItem1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="richTextBox_Info.Text" xml:space="preserve">
+    <value />
   </data>
   <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>de-DE</value>

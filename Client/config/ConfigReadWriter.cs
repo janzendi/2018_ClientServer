@@ -123,6 +123,19 @@ namespace Client.config
                 }
                 return null;
             }
+            set
+            {
+                try
+                {
+                    xmldocConfg.Load("config/config.xml");
+                    xmldocConfg.SelectSingleNode("config/language").InnerText = value;
+                    xmldocConfg.Save("config/config.xml");
+                }
+                catch (Exception e)
+                {
+                    global.log.MetroLog.INSTANCE.WriteLine("ERROR: Language tag could not be write" + ", METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + e.ToString());
+                }
+            }
         }
     }
 }

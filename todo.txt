@@ -1,8 +1,5 @@
-[0] = {System.Windows.Forms.TableLayoutPanel, BorderStyle: System.Windows.Forms.BorderStyle.None}
-[1] = {System.Windows.Forms.StatusStrip, Name: statusStripbtm, Items: 3}
-[2] = {System.Windows.Forms.MenuStrip, Name: menuBar, Items: 2}
+alte logfiles müssen gelöscht werden.
 
-fritzbox zurück setzen.
-https://avm.de/service/fritzbox/fritzbox-7330-sl/wissensdatenbank/publication/show/3_Werkseinstellungen-der-FRITZ-Box-laden/
 
-((System.Windows.Forms.ToolStripMenuItem)((System.Windows.Forms.MenuStrip)control).Items[0]).DropDownItems.ToString();
+http://www.suncross.nl/ndm/ 
+Network drive manager anschauen ggf daran orientieren.

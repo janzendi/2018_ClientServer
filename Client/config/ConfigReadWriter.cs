@@ -25,7 +25,7 @@ namespace Client.config
                 }
                 catch (Exception e)
                 {
-                    global.log.MetroLog.INSTANCE.WriteLine("ERROR: Config file could not read the language file path in class: ConfigReadWriter" + ", METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + e.ToString());
+                    global.log.MetroLog.INSTANCE.WriteLine("ERROR: Config file could not read the language file path in class: ConfigReadWriter" + ", METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + e.ToString(),global.log.MetroLog.LogType.ERROR);
                 }
                 return null;
             }
@@ -46,7 +46,7 @@ namespace Client.config
                 }
                 catch (Exception e)
                 {
-                    global.log.MetroLog.INSTANCE.WriteLine("ERROR: Config file could not read the log file path in class: ConfigReadWriter" + ", METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + e.ToString());
+                    global.log.MetroLog.INSTANCE.WriteLine("Config file could not read the log file path in class: ConfigReadWriter" + ", METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + e.ToString(), global.log.MetroLog.LogType.ERROR);
                 }
                 return null;
             }
@@ -98,7 +98,7 @@ namespace Client.config
                 }
                 catch (Exception e)
                 {
-                    global.log.MetroLog.INSTANCE.WriteLine("ERROR: Config file could not read the debug mode in class: ConfigReadWriter" + ", METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + e.ToString());
+                    global.log.MetroLog.INSTANCE.WriteLine("ERROR: Config file could not read the debug mode in class: ConfigReadWriter" + ", METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + e.ToString(), global.log.MetroLog.LogType.ERROR);
                 }
             }
         }
@@ -119,7 +119,7 @@ namespace Client.config
                 }
                 catch (Exception e)
                 {
-                    global.log.MetroLog.INSTANCE.WriteLine("ERROR: Language tag could not be read" + ", METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + e.ToString());
+                    global.log.MetroLog.INSTANCE.WriteLine("ERROR: Language tag could not be read" + ", METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + e.ToString(), global.log.MetroLog.LogType.ERROR);
                 }
                 return null;
             }
@@ -133,7 +133,7 @@ namespace Client.config
                 }
                 catch (Exception e)
                 {
-                    global.log.MetroLog.INSTANCE.WriteLine("ERROR: Language tag could not be write" + ", METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + e.ToString());
+                    global.log.MetroLog.INSTANCE.WriteLine("ERROR: Language tag could not be write" + ", METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + e.ToString(), global.log.MetroLog.LogType.ERROR);
                 }
             }
         }

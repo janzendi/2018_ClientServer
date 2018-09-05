@@ -13,6 +13,12 @@ namespace Client.global.log
     /// <created>janzen_d,2018-09-02</created>
     class MetroLog
     {
+        public enum LogType
+        {
+            ERROR = 0,
+            WARNING = 1,
+            INFO = 2
+        }
         private static MetroLog instance;
         private RichTextBox Console_Info;
         private static XmlDocument xmlDoc;
@@ -68,7 +74,7 @@ namespace Client.global.log
 
                     if (!System.IO.Directory.Exists(config.ConfigReadWriter.LOGPATH))
                         System.IO.Directory.CreateDirectory(config.ConfigReadWriter.LOGPATH);
-                    WriteLine("LogFile-System initialized");
+                    WriteLine("LogFile-System initialized",LogType.INFO);
 
                     this.lblProgessBar = lblProgessBar;
                     lblProgessBar.Text = "Ready";
@@ -78,7 +84,7 @@ namespace Client.global.log
             catch (Exception e)
             {
                 if (Console_Info != null)
-                    DebugWriteLine("ERROR: Exception thrown in class: " + this.ToString() + ", METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + e.ToString());
+                    DebugWriteLine("ERROR: Exception thrown in class: " + this.ToString() + ", METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + e.ToString(),LogType.ERROR);
                 else
                 {
                     string tmp = "ERROR: Class LogFile could not create. Please contact the developer and forward file \"LOGEXCEPTION.txt\" in the main application folder." + " EXCEPTION INFORMATION: " + e.ToString();
@@ -111,22 +117,24 @@ namespace Client.global.log
             }
         }
 
-        public delegate void dgWriteLine(String value);
+        public delegate void dgWriteLine(String value, LogType logType, [System.Runtime.InteropServices.Optional] int textid);
         /// <summary>
         /// Öffetliche Methode zur Textausgabe.
+        /// Eine übergabe einer textid wurde hinzugefügt um Fehlermeldungen in verschiedenen Sprachen auszugeben.
         /// </summary>
         /// <param name="value">String zur Textausgabe.</param>
         /// <created>janzen_d,2017-12-28</created>
-        public void WriteLine(String value)
+        /// <modified>janzen_d,2018-09-05</modified>
+        public void WriteLine(String value, LogType logType, [System.Runtime.InteropServices.Optional] int textid)
         {
             try
             {
                 if (Console_Info.InvokeRequired) //Threadprogrammierung um zu verhindern, das ein anderer Prozess gleichzeitig auf das Objekt zugreift.
                 {
-                    Console_Info.BeginInvoke(new dgWriteLine(WriteLine), new object[] { value });
+                    Console_Info.BeginInvoke(new dgWriteLine(WriteLine), new object[] { value , logType, textid });
                 }
                 else
-                    Write(value, true);
+                    Write(value, true, logType, textid);
             }
             catch (Exception e)
             {
@@ -138,22 +146,24 @@ namespace Client.global.log
             }
         }
 
-        public delegate void dgDebugWriteLine(String value);
+        public delegate void dgDebugWriteLine(String value, LogType logType, [System.Runtime.InteropServices.Optional] int textid);
         /// <summary>
         /// Öffetliche Methode zur zusätzlichen Textausgabe.
+        /// Eine übergabe einer textid wurde hinzugefügt um Fehlermeldungen in verschiedenen Sprachen auszugeben.
         /// </summary>
         /// <param name="value">String zur Textausgabe.</param>
         /// <created>janzen_d,2017-12-28</created>
-        public void DebugWriteLine(String value)
+        /// <modified>janzen_d,2018-09-05</modified>
+        public void DebugWriteLine(String value, LogType logType, [System.Runtime.InteropServices.Optional] int textid)
         {
             try
             {
                 if (Console_Info.InvokeRequired) //Threadprogrammierung um zu verhindern, das ein anderer Prozess gleichzeitig auf das Objekt zugreift.
                 {
-                    Console_Info.BeginInvoke(new dgDebugWriteLine(DebugWriteLine), new object[] { value });
+                    Console_Info.BeginInvoke(new dgDebugWriteLine(DebugWriteLine), new object[] { value , logType, textid });
                 }
                 else
-                    Write(value, config.ConfigReadWriter.DEBUGENABLED);
+                    Write(value, config.ConfigReadWriter.DEBUGENABLED, logType, textid);
             }
             catch (Exception e)
             {
@@ -167,15 +177,18 @@ namespace Client.global.log
 
         /// <summary>
         /// Private Methode zur einheitlichen Textausgabe.
+        /// enum type wurde hinzugefügt im Meldungen zu unterscheiden.
+        /// Eine übergabe einer textid wurde hinzugefügt um Fehlermeldungen in verschiedenen Sprachen auszugeben.
         /// </summary>
         /// <param name="value">String zur Textausgabe.</param>
         /// <created>janzen_d,2017-12-28</created>
-        private void Write(string value, bool onlyLogFile)
+        /// <modified>janzen_d,2018-09-05</modified>
+        private void Write(string value, bool onlyLogFile, LogType logType, [System.Runtime.InteropServices.Optional] int textid) // LogType hinzugefügt
         {
-
+            //endTMP
             if (Console_Info.Text[Console_Info.Text.Length - 1] != '\n')
             {
-                if (onlyLogFile)
+                if (onlyLogFile || logType == LogType.ERROR)
                     Console_Info.AppendText(Environment.NewLine);
             }
             string timestamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
@@ -183,17 +196,40 @@ namespace Client.global.log
             XmlNode userNode = xmlDoc.CreateElement("log");
             XmlAttribute attribute = xmlDoc.CreateAttribute("timestamp");
             attribute.Value = timestamp;
+            XmlAttribute attribute2 = xmlDoc.CreateAttribute("type");
+            attribute2.Value = logType.ToString();
             userNode.Attributes.Append(attribute);
-            userNode.InnerText = value;
+            userNode.Attributes.Append(attribute2);
+            if (textid != 0) userNode.InnerText = global.language.LanguageHandler.INSTANCE.GETOBJWORD(textid)[2] + value;
+            else userNode.InnerText = value;
             rootNode.AppendChild(userNode);
 
             timestamp += ":\t";
-            if (onlyLogFile)
+            if (onlyLogFile || logType == LogType.ERROR)
             {
                 Console_Info.SelectionColor = Color.Blue;
                 Console_Info.AppendText(timestamp);
+                switch (logType)
+                {
+                    case LogType.ERROR:
+                        Console_Info.SelectionColor = Color.Red;
+                        Console_Info.AppendText(logType.ToString() + "\t");
+                        break;
+                    case LogType.WARNING:
+                        Console_Info.SelectionColor = Color.OrangeRed;
+                        Console_Info.AppendText(logType.ToString() + "\t");
+                        break;
+                    case LogType.INFO:
+                        Console_Info.SelectionColor = Color.Green;
+                        Console_Info.AppendText(logType.ToString() + "\t");
+                        break;
+                    default:
+                        break;
+                }
                 Console_Info.SelectionColor = Color.Black;
-                Console_Info.AppendText(value);
+                if (textid != 0) Console_Info.AppendText(global.language.LanguageHandler.INSTANCE.GETOBJWORD(textid)[2] + value);
+                else Console_Info.AppendText(value);
+
             }
             Console_Info.ScrollToCaret();
         }
@@ -213,7 +249,7 @@ namespace Client.global.log
             }
             catch (Exception exception)
             {
-                global.log.MetroLog.INSTANCE.WriteLine("ERROR: Exception thrown in class: " + this.ToString() + ", METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + exception.ToString());
+                global.log.MetroLog.INSTANCE.WriteLine("ERROR: Exception thrown in class: " + this.ToString() + ", METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + exception.ToString(),LogType.ERROR);
             }
         }
     }

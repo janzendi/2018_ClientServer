@@ -43,8 +43,8 @@ namespace Client
         {
             try
             {
-                global.log.MetroLog.INSTANCE.DebugWriteLine(sender.ToString());
                 ChangeLanguage(sender.ToString()); // Übergabe der Sprache
+                global.log.MetroLog.INSTANCE.WriteLine(sender.ToString(), global.log.MetroLog.LogType.INFO,1008);
             }
             catch (Exception)
             {

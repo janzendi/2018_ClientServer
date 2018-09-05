@@ -150,7 +150,7 @@ namespace Client
                 // Thread start for subroutine
                 System.Threading.Thread threadLanguage = new System.Threading.Thread(new System.Threading.ThreadStart(MetroMain.ReadXml));
                 threadLanguage.Start();
-                global.log.MetroLog.INSTANCE.WriteLine("Get Language data from file.");
+                global.log.MetroLog.INSTANCE.WriteLine("Get Language data from file.", global.log.MetroLog.LogType.INFO);
 
                 // Menubar aufbauen
                 toolStripMenuItemFile = new System.Windows.Forms.ToolStripMenuItem("Datei_1002");
@@ -168,7 +168,7 @@ namespace Client
                 menuBar.Items.Add(toolStripMenuItemOptions);
                 // Menubar Sprachen aufbauen
                 while (global.language.LanguageHandler.XMLREADISFINISH) { } // warten bis Lesevorgang abgeschlossen ist.
-                global.log.MetroLog.INSTANCE.WriteLine("Get Language data from file finalized.");
+                global.log.MetroLog.INSTANCE.WriteLine("Get Language data from file finalized.", global.log.MetroLog.LogType.INFO);
                 foreach (string strlanguage in global.language.LanguageHandler.INSTANCE.LISTOFLANGUAGE)
                 {
                     System.Windows.Forms.ToolStripMenuItem tmp_toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem(strlanguage);

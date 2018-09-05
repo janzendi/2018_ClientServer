@@ -6,6 +6,7 @@ namespace Client.global.language
     public class LanguageHandler
     {
         private static LanguageHandler instance;
+        private static string strlanguage; // aktuelle Sprache
         private LanguageHandler() { }
 
         /// <summary>
@@ -63,7 +64,7 @@ namespace Client.global.language
                 // Lese alle Sprachennodes ein.
                 foreach (XmlNode nodelanguage in xmlDocumentLanguage.SelectNodes("languages/language")) // äusere Schleife die alle Sprachen einliest.
                 {
-                    global.log.MetroLog.INSTANCE.DebugWriteLine("Add new language to LanguageHandler: " + nodelanguage.Attributes["text"].Value);
+                    global.log.MetroLog.INSTANCE.DebugWriteLine("Add new language to LanguageHandler: " + nodelanguage.Attributes["text"].Value, global.log.MetroLog.LogType.INFO);
                     dictLanguage.Add(nodelanguage.Attributes["text"].Value, new Dictionary<int, ObjWord>()); // neue Sprache anlegen.
                     foreach (XmlNode nodetextid in nodelanguage.SelectNodes("text")) // innere Schleife die alle textids einliest.
                     {
@@ -71,12 +72,12 @@ namespace Client.global.language
                         {
                             if (!dictLanguage[nodelanguage.Attributes["text"].Value].ContainsKey(id))
                             {
-                                global.log.MetroLog.INSTANCE.DebugWriteLine("Info. Add to "+ nodelanguage.Attributes["text"].Value+ " new textid: " + nodetextid.OuterXml);
+                                global.log.MetroLog.INSTANCE.DebugWriteLine("Add to "+ nodelanguage.Attributes["text"].Value+ " new textid: " + nodetextid.OuterXml, global.log.MetroLog.LogType.INFO);
                                 dictLanguage[nodelanguage.Attributes["text"].Value].Add(id, new ObjWord(nodetextid.Attributes["tooltip"].Value, nodetextid.Attributes["objecttype"].Value, nodetextid.InnerText, id));
                             }
                             else
                             {
-                                global.log.MetroLog.INSTANCE.DebugWriteLine("Error. Textid [" + id + "] twice in \"config\\language.xml\"");
+                                global.log.MetroLog.INSTANCE.DebugWriteLine("Textid [" + id + "] twice in \"config\\language.xml\"", global.log.MetroLog.LogType.ERROR);
                                 System.Windows.Forms.MessageBox.Show("Error. Textid [" + id + "] twice in \"config\\language.xml\"");
                             }
                         }
@@ -85,7 +86,7 @@ namespace Client.global.language
             }
             catch (System.Exception e)
             {
-                global.log.MetroLog.INSTANCE.WriteLine("ERROR: Exception thrown in class: " + this.ToString() + ", METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + e.ToString());
+                global.log.MetroLog.INSTANCE.WriteLine("Exception thrown in class: " + this.ToString() + ", METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + e.ToString(), global.log.MetroLog.LogType.ERROR);
             }
             boolXmlReadIsFinish = false;
         }
@@ -105,9 +106,17 @@ namespace Client.global.language
             }
         }
 
+        /// <summary>
+        /// Methode um aktuelle textids zu bekommen.
+        /// </summary>
+        /// <param name="language"></param>
+        /// <param name="id"></param>
+        /// <returns>Gibt ein string array[3] zurück mit {tooltip, type, text}</returns>
+        /// <created>janzen_d,2018-09-04</created>
         public string[] GETOBJWORD(string language, int id)
         {
-            string[] objword = new string[3] { id.ToString() + " " + dictLanguage[language][0].TOOLTIP, "", id.ToString() + " " + dictLanguage[language][0].TEXT };
+            if (strlanguage != language) strlanguage = language;
+            string[] objword = new string[3] { id.ToString() + " " + dictLanguage[language][1].TOOLTIP, "", id.ToString() + " " + dictLanguage[language][1].TEXT };
             try
             {
                 if (dictLanguage.TryGetValue(language, out Dictionary<int,ObjWord> tmpDict))
@@ -120,7 +129,34 @@ namespace Client.global.language
             }
             catch (System.Exception e)
             {
-                global.log.MetroLog.INSTANCE.WriteLine("ERROR: Exception thrown in class: " + this.ToString() + ", METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + e.ToString());
+                global.log.MetroLog.INSTANCE.WriteLine("Exception thrown in class: " + this.ToString() + ", METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + e.ToString(), global.log.MetroLog.LogType.ERROR);
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Methode wurde hinzugefügt um Fehlermeldungen mit der aktuellsten Sprache auszugeben.
+        /// </summary>
+        /// <param name="language"></param>
+        /// <param name="id"></param>
+        /// <returns>Gibt ein string array[3] zurück mit {tooltip, type, text}</returns>
+        /// <created>janzen_d,2018-09-05</created>
+        public string[] GETOBJWORD(int id)
+        {
+            string[] objword = new string[3] { id.ToString() + " " + dictLanguage[strlanguage][1].TOOLTIP, "", id.ToString() + " " + dictLanguage[strlanguage][1].TEXT };
+            try
+            {
+                if (dictLanguage.TryGetValue(strlanguage, out Dictionary<int, ObjWord> tmpDict))
+                {
+                    if (dictLanguage[strlanguage].TryGetValue(id, out ObjWord tmpObjWord))
+                    {
+                        return new string[3] { dictLanguage[strlanguage][id].TOOLTIP, dictLanguage[strlanguage][id].OBJTYPE, dictLanguage[strlanguage][id].TEXT };
+                    }
+                }
+            }
+            catch (System.Exception e)
+            {
+                global.log.MetroLog.INSTANCE.WriteLine("Exception thrown in class: " + this.ToString() + ", METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + e.ToString(), global.log.MetroLog.LogType.ERROR);
             }
             return null;
         }

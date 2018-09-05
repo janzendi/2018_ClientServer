@@ -26,37 +26,37 @@ namespace Client
         public MetroMain()
         {
             InitializeComponent();
-   
+            this.CustomInitializeComponent(); // deklariert im MetroMain.Designer.cs
+
         }
 
         ~MetroMain() { }
         #endregion
 
-        
+
 
         #region clickEvents
+        /// <summary>
+        /// Klick Event um Sprache umzustellen.
+        /// </summary>
+        /// <created>janzen_d,2018-09-04</created>
         private void Click_ChangeLanguage(object sender, EventArgs e)
         {
             try
             {
                 global.log.MetroLog.INSTANCE.DebugWriteLine(sender.ToString()); // TODO delete
                 strActualLanguage = sender.ToString();
-                for (int i = 0; i < this.Controls.Count; i++)
-                {
-                    if (this.Controls[i].Tag != null)
-                    {
-                        if (System.Int32.TryParse(this.Controls[i].Tag.ToString(), out int textid))
-                        {
-
-                        }
-                    }
-                }
+                //siehe Designer
             }
             catch (Exception)
             {
             }
         }
 
+        /// <summary>
+        /// Klick Event um Status zu speichern.
+        /// </summary>
+        /// <created>janzen_d,2018-09-04</created>
         private void ToolStripMenuItemSave_Click(object sender, EventArgs e)
         {
             try

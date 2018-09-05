@@ -125,16 +125,12 @@ namespace Client
             this.ResumeLayout(false);
             this.PerformLayout();
 
-            //
-            //  custom init
-            //
-            this.initCustom();
         }
 
         #endregion
 
         #region customInit
-        private void initCustom()
+        private void CustomInitializeComponent()
         {
             // init logger
             global.log.MetroLog.INSTANCE.SetConsole(richTextBox_Info, statusprgtxt, statusprgbar);
@@ -171,6 +167,12 @@ namespace Client
             // alle tags lesen und mit den richtigen Sprachen beschreiben.
             for (int i = 0; i < this.Controls.Count; i++)
             {
+                switch (this.Controls[i].GetType())
+                {
+                    case types["TableLayoutPanel"]:
+                    default:
+                        break;
+                }
                 if (this.Controls[i].Tag != null)
                 {
                     if (System.Int32.TryParse(this.Controls[i].Tag.ToString(), out int textid))
@@ -206,7 +208,11 @@ namespace Client
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSave;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemOptions;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemLanguage;
-        private System.Type[] types = new System.Type[1] { typeof(System.Windows.Forms.TextBox) }; // TODO https://stackoverflow.com/questions/3419159/how-to-get-all-child-controls-of-a-windows-forms-form-of-a-specific-type-button
+        private System.Collections.Generic.Dictionary<string, System.Type> types = new System.Collections.Generic.Dictionary<string, System.Type>() {
+            { "TableLayoutPanel", typeof(System.Windows.Forms.TableLayoutPanel) }
+            , { "StatusStrip", typeof(System.Windows.Forms.StatusStrip) }
+            , { "MenuStrip", typeof(System.Windows.Forms.MenuStrip) }
+        };// TODO https://stackoverflow.com/questions/3419159/how-to-get-all-child-controls-of-a-windows-forms-form-of-a-specific-type-button
 
         #endregion
 

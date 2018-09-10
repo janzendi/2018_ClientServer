@@ -170,12 +170,16 @@ namespace Client
                 }
                 ChangeLanguage(config.ConfigReadWriter.LANGUAGE); // Sprache aus config file lesen.
                 // Form Größe anpassen.
-                this.Size = new System.Drawing.Size(config.ConfigReadWriter.WINDOWWIDTH, config.ConfigReadWriter.WINDOWLENGTH);
-                if (config.ConfigReadWriter.FULLSCREEN)
-                    this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-                else
-                    this.WindowState = System.Windows.Forms.FormWindowState.Normal;
-                global.log.MetroLog.INSTANCE.DebugWriteLine(this.Size.Width.ToString() + " x " + this.Size.Height.ToString() + " " + this.WindowState.ToString(), global.log.MetroLog.LogType.INFO, 1011);
+                if (this.Size.Width < System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width && this.Size.Height < System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height)
+                {
+                    this.Size = new System.Drawing.Size(config.ConfigReadWriter.WINDOWWIDTH, config.ConfigReadWriter.WINDOWLENGTH);
+                    if (config.ConfigReadWriter.FULLSCREEN)
+                        this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+                    else
+                        this.WindowState = System.Windows.Forms.FormWindowState.Normal;
+                    global.log.MetroLog.INSTANCE.DebugWriteLine(this.Size.Width.ToString() + " x " + this.Size.Height.ToString() + " " + this.WindowState.ToString(), global.log.MetroLog.LogType.INFO, 1011);
+
+                }
                 this.SizeChanged += MetroMain_SizeChanged;
             }
             catch (System.Exception)

@@ -4,5 +4,8 @@
   <languagefilepath>config\language.xml</languagefilepath>
   <language>Deutsch</language>
   <logfilepath>log</logfilepath>
-  <debugmode>false</debugmode>
+  <keeplogfileforxdays>7</keeplogfileforxdays>
+  <debugmode>true</debugmode>
+  <windowwidth>800</windowwidth>
+  <windowlength>450</windowlength>
 </config>

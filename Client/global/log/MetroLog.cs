@@ -29,7 +29,10 @@ namespace Client.global.log
         private ToolStripStatusLabel lblProgessBar;
         private ToolStripProgressBar pBarProgress;
 
-        private MetroLog() { }
+        private MetroLog()
+        {
+            DeleteFiles(config.ConfigReadWriter.LOGPATH, config.ConfigReadWriter.KEEPLOGFILESFORXDAYS);
+        }
 
         /// <summary>
         /// Sinleton-Pattern Eigenschaft
@@ -74,7 +77,7 @@ namespace Client.global.log
 
                     if (!System.IO.Directory.Exists(config.ConfigReadWriter.LOGPATH))
                         System.IO.Directory.CreateDirectory(config.ConfigReadWriter.LOGPATH);
-                    WriteLine("LogFile-System initialized",LogType.INFO);
+                    WriteLine("LogFile-System initialized", LogType.INFO);
 
                     this.lblProgessBar = lblProgessBar;
                     lblProgessBar.Text = "Ready";
@@ -84,7 +87,7 @@ namespace Client.global.log
             catch (Exception e)
             {
                 if (Console_Info != null)
-                    DebugWriteLine("ERROR: Exception thrown in class: " + this.ToString() + ", METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + e.ToString(),LogType.ERROR);
+                    DebugWriteLine("ERROR: Exception thrown in class: " + this.ToString() + ", METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + e.ToString(), LogType.ERROR);
                 else
                 {
                     string tmp = "ERROR: Class LogFile could not create. Please contact the developer and forward file \"LOGEXCEPTION.txt\" in the main application folder." + " EXCEPTION INFORMATION: " + e.ToString();
@@ -131,7 +134,7 @@ namespace Client.global.log
             {
                 if (Console_Info.InvokeRequired) //Threadprogrammierung um zu verhindern, das ein anderer Prozess gleichzeitig auf das Objekt zugreift.
                 {
-                    Console_Info.BeginInvoke(new dgWriteLine(WriteLine), new object[] { value , logType, textid });
+                    Console_Info.BeginInvoke(new dgWriteLine(WriteLine), new object[] { value, logType, textid });
                 }
                 else
                     Write(value, true, logType, textid);
@@ -160,7 +163,7 @@ namespace Client.global.log
             {
                 if (Console_Info.InvokeRequired) //Threadprogrammierung um zu verhindern, das ein anderer Prozess gleichzeitig auf das Objekt zugreift.
                 {
-                    Console_Info.BeginInvoke(new dgDebugWriteLine(DebugWriteLine), new object[] { value , logType, textid });
+                    Console_Info.BeginInvoke(new dgDebugWriteLine(DebugWriteLine), new object[] { value, logType, textid });
                 }
                 else
                     Write(value, config.ConfigReadWriter.DEBUGENABLED, logType, textid);
@@ -249,7 +252,52 @@ namespace Client.global.log
             }
             catch (Exception exception)
             {
-                global.log.MetroLog.INSTANCE.WriteLine("ERROR: Exception thrown in class: " + this.ToString() + ", METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + exception.ToString(),LogType.ERROR);
+                global.log.MetroLog.INSTANCE.WriteLine("ERROR: Exception thrown in class: " + this.ToString() + ", METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + exception.ToString(), LogType.ERROR);
+            }
+        }
+
+        /// <summary>
+        /// Methode um Dateien zu löschen
+        /// </summary>
+        /// <param name="sDirectory">Pfad vom Ordner</param>
+        /// <param name="iTage">Wenn Dateien älter iTage alt sind, werden diese gelöscht.</param>
+        /// <created>janzen_d,2018-09-06</created>
+        private void DeleteFiles(string sDirectory, int iTage)
+        {
+            if (iTage > 0)
+            {
+                DirectoryInfo di;
+                FileInfo[] files;
+                try
+                {
+                    //ermittel das Verzeichnis
+                    di = new DirectoryInfo(sDirectory);
+
+                    //existiert das Verzeichnis?
+                    if (Directory.Exists(sDirectory))
+                    {
+                        //files = di.GetFiles("*txt");
+                        files = di.GetFiles("*");
+
+                        foreach (FileInfo fi in files)
+                        {
+                            //fi.CreationTime; CreationTime klappt nicht bei kopierten Dateien!
+                            DateTime dtFile = fi.LastWriteTime;
+                            TimeSpan t = DateTime.Now - dtFile;
+                            double NrOfDays = t.TotalDays;
+                            int iAlter = Convert.ToInt32(NrOfDays);
+
+                            // Lösche die Dateien
+                            if (iAlter >= iTage)
+                                fi.Delete();
+                        }
+                    }
+                    else WriteLine("(" + sDirectory + ")", LogType.ERROR, 1009);
+                }
+                catch (Exception e)
+                {
+                    global.log.MetroLog.INSTANCE.WriteLine("Exception thrown in class: " + this.ToString() + ", METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + e.ToString(), global.log.MetroLog.LogType.ERROR);
+                }
             }
         }
     }

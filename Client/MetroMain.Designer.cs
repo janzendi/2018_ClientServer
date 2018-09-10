@@ -165,6 +165,7 @@ namespace Client
                 toolStripMenuItemLanguage = new System.Windows.Forms.ToolStripMenuItem("Sprachen_1005");
                 toolStripMenuItemLanguage.Tag = 1005;
                 toolStripMenuItemOptions.DropDownItems.Add(toolStripMenuItemLanguage);
+
                 menuBar.Items.Add(toolStripMenuItemOptions);
                 // Menubar Sprachen aufbauen
                 while (global.language.LanguageHandler.XMLREADISFINISH) { } // warten bis Lesevorgang abgeschlossen ist.
@@ -304,10 +305,15 @@ namespace Client
         #endregion
 
         private static string strActualLanguage;
+        //Menu1
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemFile;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSave;
+        //Menu2
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemOptions;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemLanguage;
+        //Menu3
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemInfo;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemLicenseMetroDesignS;
         #endregion
 
 

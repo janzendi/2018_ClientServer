@@ -137,5 +137,49 @@ namespace Client.config
                 }
             }
         }
+
+        /// <summary>
+        /// Eigenschaft Zugriff auf Einstellung wie viele Tage die logfiles gültig sind. 0 = unendlich
+        /// </summary>
+        /// <created>janzen_d,2018-09-06</created>
+        public static int KEEPLOGFILESFORXDAYS
+        {
+            get
+            {
+                try
+                {
+                    xmldocConfg.Load("config/config.xml");
+                    System.Int32.TryParse(xmldocConfg.SelectSingleNode("config/keeplogfileforxdays").InnerText, out int result);
+                    return result;
+                }
+                catch (Exception e)
+                {
+                    global.log.MetroLog.INSTANCE.WriteLine("ERROR: Language tag could not be read" + ", METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + e.ToString(), global.log.MetroLog.LogType.ERROR);
+                }
+                return 0;
+            }
+        }
+
+        /// <summary>
+        /// Eigenschaft Zugriff auf Einstellung wie viele Tage die logfiles gültig sind. 0 = unendlich
+        /// </summary>
+        /// <created>janzen_d,2018-09-06</created>
+        public static int WINDOWWIDTH
+        {
+            get
+            {
+                try
+                {
+                    xmldocConfg.Load("config/config.xml");
+                    System.Int32.TryParse(xmldocConfg.SelectSingleNode("config/windowwidth").InnerText, out int result);
+                    return result;
+                }
+                catch (Exception e)
+                {
+                    global.log.MetroLog.INSTANCE.WriteLine("ERROR: Window width tag could not be read" + ", METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + e.ToString(), global.log.MetroLog.LogType.ERROR);
+                }
+                return 0;
+            }
+        }
     }
 }

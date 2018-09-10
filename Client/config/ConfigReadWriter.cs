@@ -161,9 +161,9 @@ namespace Client.config
         }
 
         /// <summary>
-        /// Eigenschaft Zugriff auf Einstellung wie viele Tage die logfiles gültig sind. 0 = unendlich
+        /// Eigenschaft Zugriff auf Einstellung Fenstergröße
         /// </summary>
-        /// <created>janzen_d,2018-09-06</created>
+        /// <created>janzen_d,2018-09-10</created>
         public static int WINDOWWIDTH
         {
             get
@@ -172,6 +172,8 @@ namespace Client.config
                 {
                     xmldocConfg.Load("config/config.xml");
                     System.Int32.TryParse(xmldocConfg.SelectSingleNode("config/windowwidth").InnerText, out int result);
+                    if (result == 0)
+                        return 500;
                     return result;
                 }
                 catch (Exception e)
@@ -179,6 +181,107 @@ namespace Client.config
                     global.log.MetroLog.INSTANCE.WriteLine("ERROR: Window width tag could not be read" + ", METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + e.ToString(), global.log.MetroLog.LogType.ERROR);
                 }
                 return 0;
+            }
+            set
+            {
+                try
+                {
+                    xmldocConfg.Load("config/config.xml");
+                    xmldocConfg.SelectSingleNode("config/windowwidth").InnerText = value.ToString();
+                    xmldocConfg.Save("config/config.xml");
+                }
+                catch (Exception e)
+                {
+                    global.log.MetroLog.INSTANCE.WriteLine("ERROR: Config file could not write the windowslength in class: ConfigReadWriter" + ", METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + e.ToString(), global.log.MetroLog.LogType.ERROR);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Eigenschaft Zugriff auf Einstellung Fenstergröße
+        /// </summary>
+        /// <created>janzen_d,2018-09-10</created>
+        public static int WINDOWLENGTH
+        {
+            get
+            {
+                try
+                {
+                    xmldocConfg.Load("config/config.xml");
+                    System.Int32.TryParse(xmldocConfg.SelectSingleNode("config/windowlength").InnerText, out int result);
+                    if (result == 0)
+                        return 500;
+                    return result;
+                }
+                catch (Exception e)
+                {
+                    global.log.MetroLog.INSTANCE.WriteLine("ERROR: Window width tag could not be read" + ", METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + e.ToString(), global.log.MetroLog.LogType.ERROR);
+                }
+                return 0;
+            }
+            set
+            {
+                try
+                {
+                    xmldocConfg.Load("config/config.xml");
+                    xmldocConfg.SelectSingleNode("config/windowlength").InnerText = value.ToString();
+                    xmldocConfg.Save("config/config.xml");
+                }
+                catch (Exception e)
+                {
+                    global.log.MetroLog.INSTANCE.WriteLine("ERROR: Config file could not write the windowslength in class: ConfigReadWriter" + ", METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + e.ToString(), global.log.MetroLog.LogType.ERROR);
+                }
+            }
+        }
+
+
+        /// <summary>
+        /// Get and set the Fullscreen, depending on configuration in config file.
+        /// </summary>
+        /// /// <created>janzen_d,2018-09-10</created>
+        public static bool FULLSCREEN
+        { 
+            get
+            {
+                try
+                {
+                    xmldocConfg.Load("config/config.xml");
+                    switch (xmldocConfg.SelectSingleNode("config/fullscreen").InnerText)
+                    {
+                        case "1":
+                        case "true":
+                        case "TRUE":
+                        case "True":
+                        case "yes":
+                            return true;
+                        case "0":
+                        case "false":
+                        case "FALSE":
+                        case "False":
+                        case "no":
+                            return false;
+                        default:
+                            break;
+                    }
+                    return false;
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+            set
+            {
+                try
+                {
+                    xmldocConfg.Load("config/config.xml");
+                    xmldocConfg.SelectSingleNode("config/fullscreen").InnerText = value.ToString();
+                    xmldocConfg.Save("config/config.xml");
+                }
+                catch (Exception e)
+                {
+                    global.log.MetroLog.INSTANCE.WriteLine("ERROR: Config file could not write the full screen tag in class: ConfigReadWriter" + ", METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + e.ToString(), global.log.MetroLog.LogType.ERROR);
+                }
             }
         }
     }

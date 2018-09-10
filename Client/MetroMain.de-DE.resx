@@ -142,12 +142,6 @@
   <data name="tabNetwork.ToolTipText" xml:space="preserve">
     <value>TEST</value>
   </data>
-  <data name="tabPage1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>746, 190</value>
-  </data>
-  <data name="tabPage1.Text" xml:space="preserve">
-    <value>tabPage1tedsa</value>
-  </data>
   <data name="$this.BackImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO

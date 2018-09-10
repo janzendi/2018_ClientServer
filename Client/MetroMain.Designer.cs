@@ -39,7 +39,6 @@ namespace Client
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tabControl = new MetroFramework.Controls.MetroTabControl();
             this.tabNetwork = new System.Windows.Forms.TabPage();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.richTextBox_Info = new System.Windows.Forms.RichTextBox();
             this.statusStripbtm.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -92,10 +91,9 @@ namespace Client
             // 
             resources.ApplyResources(this.tabControl, "tabControl");
             this.tabControl.Controls.Add(this.tabNetwork);
-            this.tabControl.Controls.Add(this.tabPage1);
             this.tabControl.Multiline = true;
             this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 1;
+            this.tabControl.SelectedIndex = 0;
             this.tabControl.UseSelectable = true;
             // 
             // tabNetwork
@@ -104,12 +102,6 @@ namespace Client
             this.tabNetwork.Name = "tabNetwork";
             this.tabNetwork.Tag = "1006";
             this.tabNetwork.UseVisualStyleBackColor = true;
-            // 
-            // tabPage1
-            // 
-            resources.ApplyResources(this.tabPage1, "tabPage1");
-            this.tabPage1.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage1.Name = "tabPage1";
             // 
             // richTextBox_Info
             // 
@@ -177,12 +169,43 @@ namespace Client
                     toolStripMenuItemLanguage.DropDownItems.Add(tmp_toolStripMenuItem);
                 }
                 ChangeLanguage(config.ConfigReadWriter.LANGUAGE); // Sprache aus config file lesen.
+                // Form Größe anpassen.
+                this.Size = new System.Drawing.Size(config.ConfigReadWriter.WINDOWWIDTH, config.ConfigReadWriter.WINDOWLENGTH);
+                if (config.ConfigReadWriter.FULLSCREEN)
+                    this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+                else
+                    this.WindowState = System.Windows.Forms.FormWindowState.Normal;
+                global.log.MetroLog.INSTANCE.DebugWriteLine(this.Size.Width.ToString() + " x " + this.Size.Height.ToString() + " " + this.WindowState.ToString(), global.log.MetroLog.LogType.INFO, 1011);
+                this.SizeChanged += MetroMain_SizeChanged;
             }
             catch (System.Exception)
             {
                 throw; //TODO
             }
         }
+
+
+        /// <summary>
+        /// Event tritt ein sobald Fenstergroeße angepasst wird. 
+        /// Leider kann ResizeEnd nicht verwendet werden, da es bei Fullscreen nicht angepasst wird.
+        /// </summary>
+        /// <created>janzen_d,2018-09-10</created>
+        private void MetroMain_SizeChanged(object sender, System.EventArgs e)
+        {
+            try
+            {
+                config.ConfigReadWriter.WINDOWWIDTH = this.Size.Width;
+                config.ConfigReadWriter.WINDOWLENGTH = this.Size.Height;
+                config.ConfigReadWriter.FULLSCREEN = (this.WindowState == System.Windows.Forms.FormWindowState.Maximized);
+                global.log.MetroLog.INSTANCE.DebugWriteLine(this.Size.Width.ToString() + " x " + this.Size.Height.ToString() + " " + this.WindowState.ToString(), global.log.MetroLog.LogType.INFO, 1011);
+
+            }
+            catch (System.Exception)
+            {
+                throw; //TODO    
+            }
+        }
+        
 
         /// <summary>
         /// Methode um Sprache umzustellen.
@@ -326,6 +349,5 @@ namespace Client
         private System.Windows.Forms.RichTextBox richTextBox_Info;
         private System.Windows.Forms.ToolStripProgressBar statusprgbar;
         private System.Windows.Forms.ToolStripStatusLabel statusprgtxt;
-        private System.Windows.Forms.TabPage tabPage1;
     }
 }

@@ -13,6 +13,7 @@
     <text id="1008" tooltip="" objecttype="info">Sprache wurde umgestellt auf: </text>
     <text id="1009" tooltip="" objecttype="alarm">Fehler in DeleteFiles: Der übergebene Ordner existiert nicht! </text>
     <text id="1010" tooltip="" objecttype="alarm">Eine Datei wurde gelöscht: </text>
+    <text id="1011" tooltip="" objecttype="alarm">Fenstergröße wurde geändert auf: </text>
     <text id="" tooltip="" objecttype="tag"></text>
   </language>
 	<language id="en" text="English">
@@ -28,6 +29,7 @@
     <text id="1008" tooltip="" objecttype="info">Language was changed to: </text>
     <text id="1009" tooltip="" objecttype="alarm">Error in DeleteFiles: The given folder does not exist! </text>	
     <text id="1010" tooltip="" objecttype="alarm">Delete a file: </text>
+    <text id="1011" tooltip="" objecttype="alarm">Windows size was changed to: </text>
     <text id="" tooltip="" objecttype="tag"></text>	
 	</language>
 </languages>

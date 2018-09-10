@@ -8,4 +8,5 @@
   <debugmode>true</debugmode>
   <windowwidth>800</windowwidth>
   <windowlength>450</windowlength>
+  <fullscreen>true</fullscreen>
 </config>

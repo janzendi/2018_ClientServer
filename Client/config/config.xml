@@ -2,6 +2,7 @@
 <config>
   <icon>config\icon.ico</icon>
   <languagefilepath>config\language.xml</languagefilepath>
+  <metrouilicensereadme>global\readme\metroui\readme.rtf</metrouilicensereadme>
   <language>Deutsch</language>
   <logfilepath>log</logfilepath>
   <keeplogfileforxdays>7</keeplogfileforxdays>

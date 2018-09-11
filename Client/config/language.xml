@@ -14,6 +14,10 @@
     <text id="1009" tooltip="" objecttype="alarm">Fehler in DeleteFiles: Der übergebene Ordner existiert nicht! </text>
     <text id="1010" tooltip="" objecttype="alarm">Eine Datei wurde gelöscht: </text>
     <text id="1011" tooltip="" objecttype="alarm">Fenstergröße wurde geändert auf: </text>
+    <text id="1012" tooltip="Alle benötigten Informationen werden hier angezeigt" objecttype="tag">Info</text>
+    <text id="1013" tooltip="missing" objecttype="tag">Lizenzen</text>
+    <text id="1014" tooltip="missing" objecttype="tag">MetroUI</text>
+    <text id="1015" tooltip="missing" objecttype="tag">MetroFramework Lizenz Informationen</text>
     <text id="" tooltip="" objecttype="tag"></text>
   </language>
 	<language id="en" text="English">
@@ -30,6 +34,10 @@
     <text id="1009" tooltip="" objecttype="alarm">Error in DeleteFiles: The given folder does not exist! </text>	
     <text id="1010" tooltip="" objecttype="alarm">Delete a file: </text>
     <text id="1011" tooltip="" objecttype="alarm">Windows size was changed to: </text>
+    <text id="1012" tooltip="missing" objecttype="tag">Info</text>
+    <text id="1013" tooltip="missing" objecttype="tag">Licenses</text>
+    <text id="1014" tooltip="missing" objecttype="tag">MetroUI</text>
+    <text id="1015" tooltip="missing" objecttype="tag">MetroFramework licenses information</text>
     <text id="" tooltip="" objecttype="tag"></text>	
 	</language>
 </languages>

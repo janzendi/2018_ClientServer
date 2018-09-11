@@ -145,20 +145,33 @@ namespace Client
                 global.log.MetroLog.INSTANCE.WriteLine("Get Language data from file.", global.log.MetroLog.LogType.INFO);
 
                 // Menubar aufbauen
+                //Menu1
                 toolStripMenuItemFile = new System.Windows.Forms.ToolStripMenuItem("Datei_1002");
                 toolStripMenuItemFile.Tag = 1002;
+                menuBar.Items.Add(toolStripMenuItemFile);
                 toolStripMenuItemSave = new System.Windows.Forms.ToolStripMenuItem("Speichern_1004");
                 toolStripMenuItemSave.Tag = 1004;
-                toolStripMenuItemSave.Click += ToolStripMenuItemSave_Click;
                 toolStripMenuItemFile.DropDownItems.Add(toolStripMenuItemSave);
-                menuBar.Items.Add(toolStripMenuItemFile);
+                toolStripMenuItemSave.Click += ToolStripMenuItemSave_Click;
+                //Menu2
                 toolStripMenuItemOptions = new System.Windows.Forms.ToolStripMenuItem("Optionen_1003");
                 toolStripMenuItemOptions.Tag = 1003;
+                menuBar.Items.Add(toolStripMenuItemOptions);
                 toolStripMenuItemLanguage = new System.Windows.Forms.ToolStripMenuItem("Sprachen_1005");
                 toolStripMenuItemLanguage.Tag = 1005;
                 toolStripMenuItemOptions.DropDownItems.Add(toolStripMenuItemLanguage);
-
-                menuBar.Items.Add(toolStripMenuItemOptions);
+                //Menu3
+                toolStripMenuItemInfo = new System.Windows.Forms.ToolStripMenuItem("Info_1012");
+                toolStripMenuItemInfo.Tag = 1012;
+                menuBar.Items.Add(toolStripMenuItemInfo);
+                toolStripMenuItemLicense = new System.Windows.Forms.ToolStripMenuItem("Lizenzen_1013");
+                toolStripMenuItemLicense.Tag = 1013;
+                toolStripMenuItemInfo.DropDownItems.Add(toolStripMenuItemLicense);
+                toolStripMenuItemLicenseMetroDesignS = new System.Windows.Forms.ToolStripMenuItem("MetroUI_1014");
+                toolStripMenuItemLicenseMetroDesignS.Tag = 1014;
+                toolStripMenuItemLicense.DropDownItems.Add(toolStripMenuItemLicenseMetroDesignS);
+                toolStripMenuItemLicenseMetroDesignS.Click += ToolStripMenuItemLicenseMetroDesignS_Click;
+                
                 // Menubar Sprachen aufbauen
                 while (global.language.LanguageHandler.XMLREADISFINISH) { } // warten bis Lesevorgang abgeschlossen ist.
                 global.log.MetroLog.INSTANCE.WriteLine("Get Language data from file finalized.", global.log.MetroLog.LogType.INFO);
@@ -169,6 +182,7 @@ namespace Client
                     toolStripMenuItemLanguage.DropDownItems.Add(tmp_toolStripMenuItem);
                 }
                 ChangeLanguage(config.ConfigReadWriter.LANGUAGE); // Sprache aus config file lesen.
+
                 // Form Größe anpassen.
                 if (this.Size.Width < System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width && this.Size.Height < System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height)
                 {
@@ -180,7 +194,7 @@ namespace Client
                     global.log.MetroLog.INSTANCE.DebugWriteLine(this.Size.Width.ToString() + " x " + this.Size.Height.ToString() + " " + this.WindowState.ToString(), global.log.MetroLog.LogType.INFO, 1011);
 
                 }
-                this.SizeChanged += MetroMain_SizeChanged;
+                this.FormClosing += MetroMain_FormClosing;
             }
             catch (System.Exception)
             {
@@ -188,13 +202,28 @@ namespace Client
             }
         }
 
+        /// <summary>
+        /// Lizenz Info                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+        /// </summary>
+        /// <created>janzen_d,2018-09-11</created>
+        private void ToolStripMenuItemLicenseMetroDesignS_Click(object sender, System.EventArgs e)
+        {
+            try
+            {
+                global.readme.metroui.LicenseMetroUI licenseMetroUI = new global.readme.metroui.LicenseMetroUI();
+                licenseMetroUI.ShowDialog();
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
+        }
 
         /// <summary>
-        /// Event tritt ein sobald Fenstergroeße angepasst wird. 
-        /// Leider kann ResizeEnd nicht verwendet werden, da es bei Fullscreen nicht angepasst wird.
+        /// Doing beim schließen.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
         /// </summary>
         /// <created>janzen_d,2018-09-10</created>
-        private void MetroMain_SizeChanged(object sender, System.EventArgs e)
+        private void MetroMain_FormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
         {
             try
             {
@@ -210,7 +239,6 @@ namespace Client
             }
         }
         
-
         /// <summary>
         /// Methode um Sprache umzustellen.
         /// </summary>
@@ -340,6 +368,7 @@ namespace Client
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemLanguage;
         //Menu3
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemInfo;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemLicense;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemLicenseMetroDesignS;
         #endregion
 

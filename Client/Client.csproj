@@ -55,6 +55,12 @@
     <Compile Include="global\language\LanguageHandler.cs" />
     <Compile Include="global\language\ObjWord.cs" />
     <Compile Include="global\log\MetroLog.cs" />
+    <Compile Include="global\readme\metroui\LicenseMetroUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="global\readme\metroui\LicenseMetroUI.Designer.cs">
+      <DependentUpon>LicenseMetroUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="MetroMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +68,9 @@
       <DependentUpon>MetroMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="global\readme\metroui\LicenseMetroUI.resx">
+      <DependentUpon>LicenseMetroUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MetroMain.de-DE.resx">
       <DependentUpon>MetroMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -77,6 +86,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="global\readme\metroui\readme.rtf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -100,7 +112,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="readme\MetroUI.txt" />
+    <Content Include="global\readme\metroui\MetroUI.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

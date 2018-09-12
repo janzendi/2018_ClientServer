@@ -229,7 +229,8 @@ namespace Client.global.log
                     default:
                         break;
                 }
-                Console_Info.SelectionColor = Color.Black;
+                //Console_Info.SelectionColor = Color.Black;
+                Console_Info.SelectionColor = MetroFramework.MetroColors.Black;
                 if (textid != 0) Console_Info.AppendText(global.language.LanguageHandler.INSTANCE.GETOBJWORD(textid)[2] + value);
                 else Console_Info.AppendText(value);
 

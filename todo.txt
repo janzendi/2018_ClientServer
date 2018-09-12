@@ -1,5 +1,3 @@
-alte logfiles müssen gelöscht werden.
-
 
 http://www.suncross.nl/ndm/ 
 Network drive manager anschauen ggf daran orientieren.

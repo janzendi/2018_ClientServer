@@ -30,6 +30,7 @@ namespace Client
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MetroMain));
             this.menuBar = new System.Windows.Forms.MenuStrip();
             this.statusStripbtm = new System.Windows.Forms.StatusStrip();
@@ -39,10 +40,12 @@ namespace Client
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tabControl = new MetroFramework.Controls.MetroTabControl();
             this.tabNetwork = new System.Windows.Forms.TabPage();
+            this.metroStyleManager = new MetroFramework.Components.MetroStyleManager(this.components);
             this.richTextBox_Info = new System.Windows.Forms.RichTextBox();
             this.statusStripbtm.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager)).BeginInit();
             this.SuspendLayout();
             // 
             // menuBar
@@ -52,45 +55,48 @@ namespace Client
             // 
             // statusStripbtm
             // 
-            resources.ApplyResources(this.statusStripbtm, "statusStripbtm");
             this.statusStripbtm.BackColor = System.Drawing.Color.Transparent;
             this.statusStripbtm.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statuslbl_copyright,
             this.statusprgbar,
             this.statusprgtxt});
+            resources.ApplyResources(this.statusStripbtm, "statusStripbtm");
             this.statusStripbtm.Name = "statusStripbtm";
             // 
             // statuslbl_copyright
             // 
-            resources.ApplyResources(this.statuslbl_copyright, "statuslbl_copyright");
             this.statuslbl_copyright.Name = "statuslbl_copyright";
+            resources.ApplyResources(this.statuslbl_copyright, "statuslbl_copyright");
             this.statuslbl_copyright.Tag = "1000";
             this.statuslbl_copyright.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             // 
             // statusprgbar
             // 
-            resources.ApplyResources(this.statusprgbar, "statusprgbar");
+            this.statusprgbar.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.statusprgbar.Name = "statusprgbar";
+            resources.ApplyResources(this.statusprgbar, "statusprgbar");
+            this.statusprgbar.Step = 1;
+            this.statusprgbar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.statusprgbar.Tag = "1002";
             // 
             // statusprgtxt
             // 
-            resources.ApplyResources(this.statusprgtxt, "statusprgtxt");
             this.statusprgtxt.Name = "statusprgtxt";
+            resources.ApplyResources(this.statusprgtxt, "statusprgtxt");
             this.statusprgtxt.Tag = "1001";
             // 
             // tableLayoutPanel1
             // 
-            resources.ApplyResources(this.tableLayoutPanel1, "tableLayoutPanel1");
             this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.tableLayoutPanel1, "tableLayoutPanel1");
             this.tableLayoutPanel1.Controls.Add(this.tabControl, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.richTextBox_Info, 0, 1);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             // 
             // tabControl
             // 
-            resources.ApplyResources(this.tabControl, "tabControl");
             this.tabControl.Controls.Add(this.tabNetwork);
+            resources.ApplyResources(this.tabControl, "tabControl");
             this.tabControl.Multiline = true;
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
@@ -103,10 +109,14 @@ namespace Client
             this.tabNetwork.Tag = "1006";
             this.tabNetwork.UseVisualStyleBackColor = true;
             // 
+            // metroStyleManager
+            // 
+            this.metroStyleManager.Owner = this;
+            // 
             // richTextBox_Info
             // 
-            resources.ApplyResources(this.richTextBox_Info, "richTextBox_Info");
             this.richTextBox_Info.BackColor = System.Drawing.SystemColors.Window;
+            resources.ApplyResources(this.richTextBox_Info, "richTextBox_Info");
             this.richTextBox_Info.Name = "richTextBox_Info";
             this.richTextBox_Info.ReadOnly = true;
             // 
@@ -119,11 +129,13 @@ namespace Client
             this.Controls.Add(this.statusStripbtm);
             this.Controls.Add(this.menuBar);
             this.Name = "MetroMain";
+            this.StyleManager = this.metroStyleManager;
             this.Tag = "1007";
             this.statusStripbtm.ResumeLayout(false);
             this.statusStripbtm.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -160,6 +172,18 @@ namespace Client
                 toolStripMenuItemLanguage = new System.Windows.Forms.ToolStripMenuItem("Sprachen_1005");
                 toolStripMenuItemLanguage.Tag = 1005;
                 toolStripMenuItemOptions.DropDownItems.Add(toolStripMenuItemLanguage);
+                toolStripMenuItemDesign = new System.Windows.Forms.ToolStripMenuItem("Design_1016");
+                toolStripMenuItemDesign.Tag = 1016;
+                toolStripMenuItemOptions.DropDownItems.Add(toolStripMenuItemDesign);
+                toolStripMenuItemStyle = new System.Windows.Forms.ToolStripMenuItem("Style_1017");
+                toolStripMenuItemStyle.Tag = 1017;
+                toolStripMenuItemDesign.DropDownItems.Add(toolStripMenuItemStyle);
+                toolStripMenuItemStyle.Click += ToolStripMenuItemStyle_Click;
+                toolStripMenuItemTheme = new System.Windows.Forms.ToolStripMenuItem("Theme_1018");
+                toolStripMenuItemTheme.Tag = 1018;
+                toolStripMenuItemDesign.DropDownItems.Add(toolStripMenuItemTheme);
+                toolStripMenuItemTheme.Click += ToolStripMenuItemTheme_Click;
+
                 //Menu3
                 toolStripMenuItemInfo = new System.Windows.Forms.ToolStripMenuItem("Info_1012");
                 toolStripMenuItemInfo.Tag = 1012;
@@ -195,10 +219,66 @@ namespace Client
 
                 }
                 this.FormClosing += MetroMain_FormClosing;
+
+                //Icon definieren
+                this.Icon = new System.Drawing.Icon(config.ConfigReadWriter.PATHICON);
+                
+                //Panel Transparent gestalten damit Metro design angezeigt wird.
+                tabNetwork.BackColor = System.Drawing.Color.Transparent;
+                tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
+                this.statuslbl_copyright.Font = this.tabNetwork.Font;
+                this.statuslbl_copyright.ForeColor = MetroFramework.MetroColors.Black;
+                this.statusprgtxt.Font = this.tabNetwork.Font;
+                this.statusprgtxt.ForeColor = MetroFramework.MetroColors.Black;
+                this.statusprgbar.BackColor = MetroFramework.MetroColors.Silver;
+                this.richTextBox_Info.Font = MetroLabel.DefaultFont;
+                this.richTextBox_Info.ForeColor = MetroLabel.DefaultForeColor;
+                this.richTextBox_Info.BackColor = MetroFramework.MetroColors.White;
+                this.richTextBox_Info.BorderStyle = System.Windows.Forms.BorderStyle.None;
+                metroStyleManager.Theme = config.ConfigReadWriter.METROTHEME;
+                metroStyleManager.Style = config.ConfigReadWriter.METROSTYLE;
             }
             catch (System.Exception)
             {
                 throw; //TODO
+            }
+        }
+
+        /// <summary>
+        /// Metro Theme ändern                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+        /// </summary>
+        /// <created>janzen_d,2018-09-12</created>
+        private void ToolStripMenuItemTheme_Click(object sender, System.EventArgs e)
+        {
+            try
+            {
+                metroStyleManager.Theme = metroStyleManager.Theme == MetroFramework.MetroThemeStyle.Light ? MetroFramework.MetroThemeStyle.Dark : MetroFramework.MetroThemeStyle.Light;
+                this.richTextBox_Info.BackColor = this.richTextBox_Info.BackColor == MetroFramework.MetroColors.White ? MetroFramework.MetroColors.Silver : MetroFramework.MetroColors.White;
+                this.statuslbl_copyright.ForeColor = this.statuslbl_copyright.ForeColor == MetroFramework.MetroColors.Black ? MetroFramework.MetroColors.Silver : MetroFramework.MetroColors.Black;
+                this.statusprgtxt.ForeColor = this.statusprgtxt.ForeColor == MetroFramework.MetroColors.Black ? MetroFramework.MetroColors.Silver : MetroFramework.MetroColors.Black;
+            }
+            catch (System.Exception)
+            {
+
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Metro stil ändern                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+        /// </summary>
+        /// <created>janzen_d,2018-09-12</created>
+        private void ToolStripMenuItemStyle_Click(object sender, System.EventArgs e)
+        {
+            try
+            {
+                if (metroStyleManager.Style == MetroFramework.MetroColorStyle.Yellow) metroStyleManager.Style = MetroFramework.MetroColorStyle.Black;
+                else metroStyleManager.Style = metroStyleManager.Style + 1;
+            }
+            catch (System.Exception)
+            {
+
+                throw;
             }
         }
 
@@ -223,6 +303,7 @@ namespace Client
         /// Doing beim schließen.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
         /// </summary>
         /// <created>janzen_d,2018-09-10</created>
+        /// <modified>janzen_d,2018-09-12: Metro Stil und Theme hinzugefügt</modified>
         private void MetroMain_FormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
         {
             try
@@ -231,7 +312,8 @@ namespace Client
                 config.ConfigReadWriter.WINDOWLENGTH = this.Size.Height;
                 config.ConfigReadWriter.FULLSCREEN = (this.WindowState == System.Windows.Forms.FormWindowState.Maximized);
                 global.log.MetroLog.INSTANCE.DebugWriteLine(this.Size.Width.ToString() + " x " + this.Size.Height.ToString() + " " + this.WindowState.ToString(), global.log.MetroLog.LogType.INFO, 1011);
-
+                config.ConfigReadWriter.METROTHEME = metroStyleManager.Theme;
+                config.ConfigReadWriter.METROSTYLE = metroStyleManager.Style;
             }
             catch (System.Exception)
             {
@@ -300,7 +382,7 @@ namespace Client
                             {
                                 string[] arytmp = global.language.LanguageHandler.INSTANCE.GETOBJWORD(strActualLanguage, resulttextid);
                                 itemcontrol.Text = arytmp[2];
-                                (new System.Windows.Forms.ToolTip()).SetToolTip(itemcontrol, arytmp[0]);
+                                (new MetroFramework.Components.MetroToolTip()).SetToolTip(itemcontrol, arytmp[0]);
                             }
                         }
                     }
@@ -312,7 +394,7 @@ namespace Client
                 throw;
             }
         }
-        
+
         /// <summary>
         /// To get ALL child controls of a Windows Forms form of a specific type (Button/Textbox)
         /// </summary>
@@ -325,7 +407,7 @@ namespace Client
         {
             foreach (System.Windows.Forms.Control c in container.Controls)
             {
-                if (c is System.Windows.Forms.TabPage 
+                if (c is System.Windows.Forms.TabPage
                     || c is MetroLabel) list.Add(c); // TODO or all controls.
                 if (c.Controls.Count > 0)
                     list = GetAllControls(c, list);
@@ -366,6 +448,9 @@ namespace Client
         //Menu2
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemOptions;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemLanguage;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemDesign;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemStyle;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemTheme;
         //Menu3
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemInfo;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemLicense;
@@ -382,5 +467,6 @@ namespace Client
         private System.Windows.Forms.RichTextBox richTextBox_Info;
         private System.Windows.Forms.ToolStripProgressBar statusprgbar;
         private System.Windows.Forms.ToolStripStatusLabel statusprgtxt;
+        private MetroFramework.Components.MetroStyleManager metroStyleManager;
     }
 }

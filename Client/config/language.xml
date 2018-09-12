@@ -18,6 +18,9 @@
     <text id="1013" tooltip="missing" objecttype="tag">Lizenzen</text>
     <text id="1014" tooltip="missing" objecttype="tag">MetroUI</text>
     <text id="1015" tooltip="missing" objecttype="tag">MetroFramework Lizenz Informationen</text>
+    <text id="1016" tooltip="missing" objecttype="tag">Design</text>
+    <text id="1017" tooltip="missing" objecttype="tag">Stil</text>
+    <text id="1018" tooltip="missing" objecttype="tag">Motiv</text>
     <text id="" tooltip="" objecttype="tag"></text>
   </language>
 	<language id="en" text="English">
@@ -38,6 +41,9 @@
     <text id="1013" tooltip="missing" objecttype="tag">Licenses</text>
     <text id="1014" tooltip="missing" objecttype="tag">MetroUI</text>
     <text id="1015" tooltip="missing" objecttype="tag">MetroFramework licenses information</text>
+    <text id="1016" tooltip="missing" objecttype="tag">Design</text>
+    <text id="1017" tooltip="missing" objecttype="tag">Style</text>
+    <text id="1018" tooltip="missing" objecttype="tag">Theme</text>
     <text id="" tooltip="" objecttype="tag"></text>	
 	</language>
 </languages>

@@ -37,7 +37,7 @@
             this.richTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richTextBox.Location = new System.Drawing.Point(20, 60);
             this.richTextBox.Name = "richTextBox";
-            this.richTextBox.Size = new System.Drawing.Size(760, 370);
+            this.richTextBox.Size = new System.Drawing.Size(972, 370);
             this.richTextBox.TabIndex = 1;
             this.richTextBox.Text = "";
             this.richTextBox.WordWrap = false;
@@ -46,7 +46,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1012, 450);
             this.Controls.Add(this.richTextBox);
             this.Name = "LicenseMetroUI";
             this.Tag = "1015";
@@ -62,7 +62,11 @@
         private void CustomInitializeComponent()
         {
             richTextBox.ReadOnly = true;
+            richTextBox.LoadFile(config.ConfigReadWriter.PATHMETROUILICENSEREADME);
             ChangeLanguage(config.ConfigReadWriter.LANGUAGE); // Sprache aus config file lesen.
+            
+            //Icon definieren
+            this.Icon = new System.Drawing.Icon(config.ConfigReadWriter.PATHICON);
         }
 
 

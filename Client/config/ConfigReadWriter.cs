@@ -284,5 +284,216 @@ namespace Client.config
                 }
             }
         }
+
+        /// <summary>
+        /// Filepath of license information
+        /// </summary>
+        /// /// <created>janzen_d,2018-09-12</created>
+        public static string PATHMETROUILICENSEREADME
+        {
+            get
+            {
+                try
+                {
+                    xmldocConfg.Load("config/config.xml");
+                    return xmldocConfg.SelectSingleNode("config/metrouilicensereadme").InnerText;
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Filepath of icon picture
+        /// </summary>
+        /// /// <created>janzen_d,2018-09-12</created>
+        public static string PATHICON
+        {
+            get
+            {
+                try
+                {
+                    xmldocConfg.Load("config/config.xml");
+                    return xmldocConfg.SelectSingleNode("config/icon").InnerText;
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Metro theme
+        /// </summary>
+        /// /// <created>janzen_d,2018-09-12</created>
+        public static MetroFramework.MetroThemeStyle METROTHEME
+        {
+            get
+            {
+                try
+                {
+                    xmldocConfg.Load("config/config.xml");
+                    switch (xmldocConfg.SelectSingleNode("config/metrotheme").InnerText)
+                    {
+                        case "dark":
+                            return MetroFramework.MetroThemeStyle.Dark;
+                        case "light":
+                            return MetroFramework.MetroThemeStyle.Light;
+                        default:
+                            return MetroFramework.MetroThemeStyle.Light;
+                    }
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+            set
+            {
+                try
+                {
+                    xmldocConfg.Load("config/config.xml");
+                    switch (value)
+                    {
+                        case MetroFramework.MetroThemeStyle.Default | MetroFramework.MetroThemeStyle.Light:
+                            xmldocConfg.SelectSingleNode("config/metrotheme").InnerText = "light";
+                            break;
+                        case MetroFramework.MetroThemeStyle.Dark:
+                            xmldocConfg.SelectSingleNode("config/metrotheme").InnerText = "dark";
+                            break;
+                        default:
+                            xmldocConfg.SelectSingleNode("config/metrotheme").InnerText = "light";
+                            break;
+                    }
+                    xmldocConfg.Save("config/config.xml");
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Metro Style
+        /// </summary>
+        /// /// <created>janzen_d,2018-09-12</created>
+        public static MetroFramework.MetroColorStyle METROSTYLE
+        {
+            get
+            {
+                try
+                {
+                    xmldocConfg.Load("config/config.xml");
+                    switch (xmldocConfg.SelectSingleNode("config/metrostyle").InnerText)
+                    {
+                        case "0":
+                            return MetroFramework.MetroColorStyle.Default;
+                        case "1":
+                            return MetroFramework.MetroColorStyle.Black;
+                        case "2":
+                            return MetroFramework.MetroColorStyle.White;
+                        case "3":
+                            return MetroFramework.MetroColorStyle.Silver;
+                        case "4":
+                            return MetroFramework.MetroColorStyle.Blue;
+                        case "5":
+                            return MetroFramework.MetroColorStyle.Green;
+                        case "6":
+                            return MetroFramework.MetroColorStyle.Lime;
+                        case "7":
+                            return MetroFramework.MetroColorStyle.Teal;
+                        case "8":
+                            return MetroFramework.MetroColorStyle.Orange;
+                        case "9":
+                            return MetroFramework.MetroColorStyle.Brown;
+                        case "10":
+                            return MetroFramework.MetroColorStyle.Pink;
+                        case "11":
+                            return MetroFramework.MetroColorStyle.Magenta;
+                        case "12":
+                            return MetroFramework.MetroColorStyle.Purple;
+                        case "13":
+                            return MetroFramework.MetroColorStyle.Red;
+                        case "14":
+                            return MetroFramework.MetroColorStyle.Yellow;
+                        default:
+                            break;
+                    }
+                    return MetroFramework.MetroColorStyle.Default;
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+            set
+            {
+                try
+                {
+                    xmldocConfg.Load("config/config.xml");
+                    switch (value)
+                    {
+                        case MetroFramework.MetroColorStyle.Default:
+                            xmldocConfg.SelectSingleNode("config/metrostyle").InnerText = "0";
+                            break;
+                        case MetroFramework.MetroColorStyle.Black:
+                            xmldocConfg.SelectSingleNode("config/metrostyle").InnerText = "1";
+                            break;
+                        case MetroFramework.MetroColorStyle.White:
+                            xmldocConfg.SelectSingleNode("config/metrostyle").InnerText = "2";
+                            break;
+                        case MetroFramework.MetroColorStyle.Silver:
+                            xmldocConfg.SelectSingleNode("config/metrostyle").InnerText = "3";
+                            break;
+                        case MetroFramework.MetroColorStyle.Blue:
+                            xmldocConfg.SelectSingleNode("config/metrostyle").InnerText = "4";
+                            break;
+                        case MetroFramework.MetroColorStyle.Green:
+                            xmldocConfg.SelectSingleNode("config/metrostyle").InnerText = "5";
+                            break;
+                        case MetroFramework.MetroColorStyle.Lime:
+                            xmldocConfg.SelectSingleNode("config/metrostyle").InnerText = "6";
+                            break;
+                        case MetroFramework.MetroColorStyle.Teal:
+                            xmldocConfg.SelectSingleNode("config/metrostyle").InnerText = "7";
+                            break;
+                        case MetroFramework.MetroColorStyle.Orange:
+                            xmldocConfg.SelectSingleNode("config/metrostyle").InnerText = "8";
+                            break;
+                        case MetroFramework.MetroColorStyle.Brown:
+                            xmldocConfg.SelectSingleNode("config/metrostyle").InnerText = "9";
+                            break;
+                        case MetroFramework.MetroColorStyle.Pink:
+                            xmldocConfg.SelectSingleNode("config/metrostyle").InnerText = "10";
+                            break;
+                        case MetroFramework.MetroColorStyle.Magenta:
+                            xmldocConfg.SelectSingleNode("config/metrostyle").InnerText = "11";
+                            break;
+                        case MetroFramework.MetroColorStyle.Purple:
+                            xmldocConfg.SelectSingleNode("config/metrostyle").InnerText = "12";
+                            break;
+                        case MetroFramework.MetroColorStyle.Red:
+                            xmldocConfg.SelectSingleNode("config/metrostyle").InnerText = "13";
+                            break;
+                        case MetroFramework.MetroColorStyle.Yellow:
+                            xmldocConfg.SelectSingleNode("config/metrostyle").InnerText = "14";
+                            break;
+                        default:
+                            break;
+                    }
+                    xmldocConfg.Save("config/config.xml");
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+        }
     }
 }

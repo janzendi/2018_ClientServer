@@ -291,6 +291,7 @@ namespace Client
             try
             {
                 global.readme.metroui.LicenseMetroUI licenseMetroUI = new global.readme.metroui.LicenseMetroUI();
+                licenseMetroUI.StyleManager = this.StyleManager;
                 licenseMetroUI.ShowDialog();
             }
             catch (System.Exception)

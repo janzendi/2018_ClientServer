@@ -40,8 +40,8 @@ namespace Client
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tabControl = new MetroFramework.Controls.MetroTabControl();
             this.tabNetwork = new System.Windows.Forms.TabPage();
-            this.metroStyleManager = new MetroFramework.Components.MetroStyleManager(this.components);
             this.richTextBox_Info = new System.Windows.Forms.RichTextBox();
+            this.metroStyleManager = new MetroFramework.Components.MetroStyleManager(this.components);
             this.statusStripbtm.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -109,16 +109,16 @@ namespace Client
             this.tabNetwork.Tag = "1006";
             this.tabNetwork.UseVisualStyleBackColor = true;
             // 
-            // metroStyleManager
-            // 
-            this.metroStyleManager.Owner = this;
-            // 
             // richTextBox_Info
             // 
             this.richTextBox_Info.BackColor = System.Drawing.SystemColors.Window;
             resources.ApplyResources(this.richTextBox_Info, "richTextBox_Info");
             this.richTextBox_Info.Name = "richTextBox_Info";
             this.richTextBox_Info.ReadOnly = true;
+            // 
+            // metroStyleManager
+            // 
+            this.metroStyleManager.Owner = this;
             // 
             // MetroMain
             // 
@@ -157,6 +157,7 @@ namespace Client
                 global.log.MetroLog.INSTANCE.WriteLine("Get Language data from file.", global.log.MetroLog.LogType.INFO);
 
                 // Menubar aufbauen
+                toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
                 //Menu1
                 toolStripMenuItemFile = new System.Windows.Forms.ToolStripMenuItem("Datei_1002");
                 toolStripMenuItemFile.Tag = 1002;
@@ -191,11 +192,16 @@ namespace Client
                 toolStripMenuItemLicense = new System.Windows.Forms.ToolStripMenuItem("Lizenzen_1013");
                 toolStripMenuItemLicense.Tag = 1013;
                 toolStripMenuItemInfo.DropDownItems.Add(toolStripMenuItemLicense);
+               //TODO toolStripMenuItemInfo.DropDownItems.Add(toolStripSeparator);
                 toolStripMenuItemLicenseMetroDesignS = new System.Windows.Forms.ToolStripMenuItem("MetroUI_1014");
                 toolStripMenuItemLicenseMetroDesignS.Tag = 1014;
                 toolStripMenuItemLicense.DropDownItems.Add(toolStripMenuItemLicenseMetroDesignS);
                 toolStripMenuItemLicenseMetroDesignS.Click += ToolStripMenuItemLicenseMetroDesignS_Click;
-                
+                toolStripMenuItemRegisterierung = new System.Windows.Forms.ToolStripMenuItem("Register_1019");
+                toolStripMenuItemRegisterierung.Tag = 1019;
+                toolStripMenuItemRegisterierung.Click += ToolStripMenuItemRegisterierung_Click;
+                toolStripMenuItemInfo.DropDownItems.Add(toolStripMenuItemRegisterierung);
+
                 // Menubar Sprachen aufbauen
                 while (global.language.LanguageHandler.XMLREADISFINISH) { } // warten bis Lesevorgang abgeschlossen ist.
                 global.log.MetroLog.INSTANCE.WriteLine("Get Language data from file finalized.", global.log.MetroLog.LogType.INFO);
@@ -241,6 +247,24 @@ namespace Client
             catch (System.Exception)
             {
                 throw; //TODO
+            }
+        }
+
+        /// <summary>
+        /// Lizenzschlüssel eintragen und die jeweilige Form aufrufen.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+        /// </summary>
+        /// <created>janzen_d,2018-09-13</created>
+        private void ToolStripMenuItemRegisterierung_Click(object sender, System.EventArgs e)
+        {
+            try
+            {
+                global.readme.license.Register register = new global.readme.license.Register();
+                register.StyleManager = this.StyleManager;
+                register.ShowDialog();
+            }
+            catch (System.Exception)
+            {
+                throw;
             }
         }
 
@@ -443,6 +467,8 @@ namespace Client
         #endregion
 
         private static string strActualLanguage;
+        //MenuSeperator
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
         //Menu1
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemFile;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSave;
@@ -456,6 +482,7 @@ namespace Client
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemInfo;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemLicense;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemLicenseMetroDesignS;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemRegisterierung;
         #endregion
 
 

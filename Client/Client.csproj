@@ -55,6 +55,12 @@
     <Compile Include="global\language\LanguageHandler.cs" />
     <Compile Include="global\language\ObjWord.cs" />
     <Compile Include="global\log\MetroLog.cs" />
+    <Compile Include="global\readme\license\Register.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="global\readme\license\Register.Designer.cs">
+      <DependentUpon>Register.cs</DependentUpon>
+    </Compile>
     <Compile Include="global\readme\metroui\LicenseMetroUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +74,9 @@
       <DependentUpon>MetroMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="global\readme\license\Register.resx">
+      <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="global\readme\metroui\LicenseMetroUI.resx">
       <DependentUpon>LicenseMetroUI.cs</DependentUpon>
     </EmbeddedResource>

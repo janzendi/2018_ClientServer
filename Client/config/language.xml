@@ -10,10 +10,10 @@
     <text id="1005" tooltip="Hier kann die Sprache eingestellt werden." objecttype="tag">Spracheinstellungen</text>
     <text id="1006" tooltip="Auf dieser Seite können Sie Netzlaufwerke verbinden" objecttype="tag">Netzlaufwerk verbinden</text>
     <text id="1007" tooltip="Service Tool" objecttype="tag">Service Tool</text>
-    <text id="1008" tooltip="" objecttype="info">Sprache wurde umgestellt auf: </text>
-    <text id="1009" tooltip="" objecttype="alarm">Fehler in DeleteFiles: Der übergebene Ordner existiert nicht! </text>
-    <text id="1010" tooltip="" objecttype="alarm">Eine Datei wurde gelöscht: </text>
-    <text id="1011" tooltip="" objecttype="alarm">Fenstergröße wurde geändert auf: </text>
+    <text id="1008" tooltip="missing" objecttype="info">Sprache wurde umgestellt auf: </text>
+    <text id="1009" tooltip="missing" objecttype="alarm">Fehler in DeleteFiles: Der übergebene Ordner existiert nicht! </text>
+    <text id="1010" tooltip="missing" objecttype="alarm">Eine Datei wurde gelöscht: </text>
+    <text id="1011" tooltip="missing" objecttype="alarm">Fenstergröße wurde geändert auf: </text>
     <text id="1012" tooltip="Alle benötigten Informationen werden hier angezeigt" objecttype="tag">Info</text>
     <text id="1013" tooltip="missing" objecttype="tag">Lizenzen</text>
     <text id="1014" tooltip="missing" objecttype="tag">MetroUI</text>
@@ -21,6 +21,8 @@
     <text id="1016" tooltip="missing" objecttype="tag">Design</text>
     <text id="1017" tooltip="missing" objecttype="tag">Stil</text>
     <text id="1018" tooltip="missing" objecttype="tag">Motiv</text>
+    <text id="1019" tooltip="Bitte hier Lizenzschlüssel eintragen" objecttype="tag">Registrierung</text>
+    <text id="1020" tooltip="missing" objecttype="tag">Registrierung</text>
     <text id="" tooltip="" objecttype="tag"></text>
   </language>
 	<language id="en" text="English">
@@ -44,6 +46,8 @@
     <text id="1016" tooltip="missing" objecttype="tag">Design</text>
     <text id="1017" tooltip="missing" objecttype="tag">Style</text>
     <text id="1018" tooltip="missing" objecttype="tag">Theme</text>
+    <text id="1019" tooltip="Type in your license key please." objecttype="tag">Register</text>
+    <text id="1020" tooltip="missing" objecttype="tag">Register</text>
     <text id="" tooltip="" objecttype="tag"></text>	
 	</language>
 </languages>

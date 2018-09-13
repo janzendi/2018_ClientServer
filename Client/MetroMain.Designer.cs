@@ -151,6 +151,12 @@ namespace Client
                 // init logger
                 global.log.MetroLog.INSTANCE.SetConsole(richTextBox_Info, statusprgtxt, statusprgbar);
 
+                //
+                // Tooltip
+                //
+                metroToolTip = new MetroFramework.Components.MetroToolTip();
+                metroToolTip.StyleManager = this.StyleManager;
+
                 // Thread start for subroutine
                 System.Threading.Thread threadLanguage = new System.Threading.Thread(new System.Threading.ThreadStart(MetroMain.ReadXml));
                 threadLanguage.Start();
@@ -243,6 +249,7 @@ namespace Client
                 this.richTextBox_Info.BorderStyle = System.Windows.Forms.BorderStyle.None;
                 metroStyleManager.Theme = config.ConfigReadWriter.METROTHEME;
                 metroStyleManager.Style = config.ConfigReadWriter.METROSTYLE;
+                
             }
             catch (System.Exception)
             {
@@ -258,8 +265,7 @@ namespace Client
         {
             try
             {
-                global.readme.license.Register register = new global.readme.license.Register();
-                register.StyleManager = this.StyleManager;
+                global.readme.license.Register register = new global.readme.license.Register(this.StyleManager);
                 register.ShowDialog();
             }
             catch (System.Exception)
@@ -407,7 +413,7 @@ namespace Client
                             {
                                 string[] arytmp = global.language.LanguageHandler.INSTANCE.GETOBJWORD(strActualLanguage, resulttextid);
                                 itemcontrol.Text = arytmp[2];
-                                (new MetroFramework.Components.MetroToolTip()).SetToolTip(itemcontrol, arytmp[0]);
+                                metroToolTip.SetToolTip(itemcontrol, arytmp[0]);
                             }
                         }
                     }
@@ -483,6 +489,8 @@ namespace Client
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemLicense;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemLicenseMetroDesignS;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemRegisterierung;
+        //Tooltip
+        private MetroFramework.Components.MetroToolTip metroToolTip;
         #endregion
 
 

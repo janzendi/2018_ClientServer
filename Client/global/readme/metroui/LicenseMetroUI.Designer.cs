@@ -61,8 +61,15 @@
 
         private void CustomInitializeComponent()
         {
+            //
+            // Tooltip
+            //
+            metroToolTip = new MetroFramework.Components.MetroToolTip();
+            metroToolTip.StyleManager = this.StyleManager;
+
             richTextBox.ReadOnly = true;
             richTextBox.LoadFile(config.ConfigReadWriter.PATHMETROUILICENSEREADME);
+
             ChangeLanguage(config.ConfigReadWriter.LANGUAGE); // Sprache aus config file lesen.
             
             //Icon definieren
@@ -127,6 +134,10 @@
             }
             return list;
         }
+
+        //Tooltip
+        private MetroFramework.Components.MetroToolTip metroToolTip;
+
         #endregion
 
         private System.Windows.Forms.RichTextBox richTextBox;

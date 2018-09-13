@@ -3,6 +3,7 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using System.Xml;
+using System.Collections.Generic;
 
 namespace Client.config
 {
@@ -10,6 +11,7 @@ namespace Client.config
     {
         private static XmlDocument xmldocConfg = new XmlDocument();
 
+        
         /// <summary>
         /// Return the file path for the languagefile, depending from configuration in confif file.
         /// </summary>

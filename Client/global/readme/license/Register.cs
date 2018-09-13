@@ -11,10 +11,11 @@ namespace Client.global.readme.license
 {
     public partial class Register : MetroFramework.Forms.MetroForm
     {
-        public Register()
+        public Register(MetroFramework.Components.MetroStyleManager metroStyleManager)
         {
             InitializeComponent();
-            this.CustomInitializeComponent(); // deklariert im *.Designer.cs
+            this.CustomInitializeComponent(metroStyleManager); // deklariert im *.Designer.cs
         }
+
     }
 }

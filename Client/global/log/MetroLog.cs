@@ -113,7 +113,7 @@ namespace Client.global.log
             catch (Exception e)
             {
                 string tmp = "ERROR: Class LogFile could not destruct and log file could not be saved. Please contact the developer and forward file \"LOGEXCEPTION.txt\" in the main application folder." + " EXCEPTION INFORMATION: " + e.ToString();
-                //MessageBox.Show(tmp);
+                //MetroFramework.MetroMessageBox.Show(this, tmp);
                 TextWriter txtFile = new StreamWriter("LOGEXCEPTION.txt");
                 txtFile.Write(tmp);
                 txtFile.Close();

@@ -13,6 +13,12 @@ namespace Test
         [STAThread]
         static void Main()
         {
+            serialnumbertest();
+        }
+
+        public void xmltest()
+        {
+
             XmlDocument xmlDoc = new XmlDocument();
             XmlNode rootNode = xmlDoc.CreateElement("users");
             xmlDoc.AppendChild(rootNode);
@@ -32,6 +38,19 @@ namespace Test
             rootNode.AppendChild(userNode);
 
             xmlDoc.Save("test-doc.xml");
+        }
+
+        public static void serialnumbertest()
+        {
+            System.IO.TextWriter txtFile = new System.IO.StreamWriter("SERIALNUMBERS.txt");
+            Random random = new Random();
+            string tmp = "";
+            for (int i = 0; i < 20000; i++)
+            {
+                tmp += random.Next(1000000, 2147483647).ToString() + ", ";
+            }
+            txtFile.Write(tmp);
+            txtFile.Close();
         }
     }
 }

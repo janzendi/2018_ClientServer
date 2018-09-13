@@ -23,7 +23,12 @@
     <text id="1018" tooltip="missing" objecttype="tag">Motiv</text>
     <text id="1019" tooltip="Bitte hier Lizenzschlüssel eintragen" objecttype="tag">Registrierung</text>
     <text id="1020" tooltip="missing" objecttype="tag">Registrierung</text>
-    <text id="" tooltip="" objecttype="tag"></text>
+    <text id="1021" tooltip="Hier wird die eindeutige PC Seriennummer angezeigt" objecttype="tag">Computer Seriennumer</text>
+    <text id="1022" tooltip="Hier wird der Schlüssel eingegeben zur Freischaltung" objecttype="tag">Seriennummer Schlüssel</text>
+    <text id="1023" tooltip="Admin Textbox zur Seriennummer Schlüssel Generierung" objecttype="tag">Schlüssel Generierung</text>
+    <text id="1024" tooltip="Schlüssel an Softwarelieferant schicken" objecttype="tag">Schlüssel senden</text>
+    <text id="1025" tooltip="Software Registrieren" objecttype="tag">Software Registrieren</text>
+    <text id="1026" tooltip="Schlüssel generieren" objecttype="tag">Schlüssel generieren</text>
   </language>
 	<language id="en" text="English">
     <text id="1" tooltip="Missing text-id" objecttype="tag">Missing text-id</text>
@@ -48,6 +53,12 @@
     <text id="1018" tooltip="missing" objecttype="tag">Theme</text>
     <text id="1019" tooltip="Type in your license key please." objecttype="tag">Register</text>
     <text id="1020" tooltip="missing" objecttype="tag">Register</text>
+    <text id="1021" tooltip="Unique computer id" objecttype="tag">computer id</text>
+    <text id="1022" tooltip="Type in your key you get from the software supplier" objecttype="tag">key</text>
+    <text id="1023" tooltip="Admin Textbox for Serialnumber generator" objecttype="tag">type in the given key</text>
+    <text id="1024" tooltip="Send serial number to software supplier" objecttype="tag">Mail key</text>
+    <text id="1025" tooltip="Register the software" objecttype="tag">Register software</text>
+    <text id="1026" tooltip="Generate key" objecttype="tag">Key-Generator</text>
     <text id="" tooltip="" objecttype="tag"></text>	
 	</language>
 </languages>

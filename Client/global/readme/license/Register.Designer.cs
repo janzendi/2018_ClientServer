@@ -174,7 +174,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(504, 284);
             this.Controls.Add(this.mTxtBoxPCSerialNumber_1021);
             this.Controls.Add(this.mTileMail_1024);
             this.Controls.Add(this.mTileRegister_1025);
@@ -196,6 +196,16 @@
         private void CustomInitializeComponent(MetroFramework.Components.MetroStyleManager metroStyleManager)
         {
             //
+            // form
+            //
+            this.Resizable = false;
+
+            //
+            // TxtBox
+            //
+            this.mTxtBoxPCSerialNumber_1021.Enabled = false;
+
+            //
             // Tooltip
             //
             metroToolTip = new MetroFramework.Components.MetroToolTip();
@@ -203,19 +213,24 @@
 
             ChangeLanguage(config.ConfigReadWriter.LANGUAGE); // Sprache aus config file lesen.
 
+            //
             //Icon definieren
+            //
             this.Icon = new System.Drawing.Icon(config.ConfigReadWriter.PATHICON);
 
             //
             // StyleManager setzen
             //
             this.StyleManager = metroStyleManager;
+            //tile
+            this.mTileMail_1024.StyleManager = metroStyleManager;
+            this.mTileRegister_1025.StyleManager = metroStyleManager;
             this.mTileGenerator_1026.StyleManager = metroStyleManager;
+            //txtbox
             this.mTxtBoxPCGenerateKey_1023.StyleManager = metroStyleManager;
             this.mTxtBoxPCKey_1022.StyleManager = metroStyleManager;
-            this.metroLabel1.StyleManager = metroStyleManager;
-            this.metroButton1.StyleManager = metroStyleManager;
-            this.metroButton2.StyleManager = metroStyleManager;
+            this.mTxtBoxPCSerialNumber_1021.StyleManager = metroStyleManager;
+                        
         }
 
 
@@ -233,22 +248,7 @@
                     string[] arytmp2 = global.language.LanguageHandler.INSTANCE.GETOBJWORD(language, resulttextid2);
                     this.Text = arytmp2[2];
                 }
-                // alle tags lesen und mit den richtigen Sprachen beschreiben.
-                foreach (System.Windows.Forms.Control control in this.Controls)
-                {
-                    System.Collections.Generic.List<System.Windows.Forms.Control> list = new System.Collections.Generic.List<System.Windows.Forms.Control>();
-                    GetAllControls(this, list);
-                    foreach (System.Windows.Forms.Control itemcontrol in list)
-                    {
-                        if (itemcontrol.Tag != null && System.Int32.TryParse(itemcontrol.Tag.ToString(), out int resulttextid))
-                        {
-                            string[] arytmp = global.language.LanguageHandler.INSTANCE.GETOBJWORD(language, resulttextid);
-                            itemcontrol.Text = arytmp[2];
-                            metroToolTip.SetToolTip(itemcontrol, arytmp[0]);
-                        }
-                    }
-
-                }
+                global.windows.forms.FormMethods.ChangeLanguage(this.Controls, metroToolTip, language);
             }
             catch (System.Exception)
             {
@@ -256,26 +256,6 @@
             }
         }
 
-
-        /// <summary>
-        /// To get ALL child controls of a Windows Forms form of a specific type (Button/Textbox)
-        /// </summary>
-        /// <param name="container">grundellement</param>
-        /// <param name="list">Rückgabeliste zur iteration</param>
-        /// <source>https://stackoverflow.com/questions/3419159/how-to-get-all-child-controls-of-a-windows-forms-form-of-a-specific-type-button</source>
-        /// <returns>List<System.Windows.Forms.Control> of all controls</returns>
-        /// /// <created>janzen_d,2018-09-11</created>
-        private System.Collections.Generic.List<System.Windows.Forms.Control> GetAllControls(System.Windows.Forms.Control container, System.Collections.Generic.List<System.Windows.Forms.Control> list)
-        {
-            foreach (System.Windows.Forms.Control c in container.Controls)
-            {
-                if (c is System.Windows.Forms.TabPage
-                    || c is MetroFramework.Controls.MetroLabel) list.Add(c); // TODO or all controls.
-                if (c.Controls.Count > 0)
-                    list = GetAllControls(c, list);
-            }
-            return list;
-        }
         //Tooltip
         private MetroFramework.Components.MetroToolTip metroToolTip;
         #endregion

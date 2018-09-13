@@ -405,17 +405,7 @@ namespace Client
                     }
                     else
                     {
-                        System.Collections.Generic.List<System.Windows.Forms.Control> list = new System.Collections.Generic.List<System.Windows.Forms.Control>();
-                        GetAllControls(this, list);
-                        foreach (System.Windows.Forms.Control itemcontrol in list)
-                        {
-                            if (itemcontrol.Tag != null && System.Int32.TryParse(itemcontrol.Tag.ToString(), out int resulttextid))
-                            {
-                                string[] arytmp = global.language.LanguageHandler.INSTANCE.GETOBJWORD(strActualLanguage, resulttextid);
-                                itemcontrol.Text = arytmp[2];
-                                metroToolTip.SetToolTip(itemcontrol, arytmp[0]);
-                            }
-                        }
+                        global.windows.forms.FormMethods.ChangeLanguage(control.Controls, metroToolTip, language);
                     }
                 }
             }
@@ -424,26 +414,6 @@ namespace Client
 
                 throw;
             }
-        }
-
-        /// <summary>
-        /// To get ALL child controls of a Windows Forms form of a specific type (Button/Textbox)
-        /// </summary>
-        /// <param name="container">grundellement</param>
-        /// <param name="list">Rückgabeliste zur iteration</param>
-        /// <source>https://stackoverflow.com/questions/3419159/how-to-get-all-child-controls-of-a-windows-forms-form-of-a-specific-type-button</source>
-        /// <returns>List<System.Windows.Forms.Control> of all controls</returns>
-        /// /// <created>janzen_d,2018-09-03</created>
-        private System.Collections.Generic.List<System.Windows.Forms.Control> GetAllControls(System.Windows.Forms.Control container, System.Collections.Generic.List<System.Windows.Forms.Control> list)
-        {
-            foreach (System.Windows.Forms.Control c in container.Controls)
-            {
-                if (c is System.Windows.Forms.TabPage
-                    || c is MetroLabel) list.Add(c); // TODO or all controls.
-                if (c.Controls.Count > 0)
-                    list = GetAllControls(c, list);
-            }
-            return list;
         }
 
         /// <summary>

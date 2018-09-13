@@ -10,8 +10,7 @@ namespace Client.config
     static class ConfigReadWriter
     {
         private static XmlDocument xmldocConfg = new XmlDocument();
-
-        
+                
         /// <summary>
         /// Return the file path for the languagefile, depending from configuration in confif file.
         /// </summary>
@@ -375,7 +374,7 @@ namespace Client.config
                 catch (Exception)
                 {
 
-                    throw;
+                    throw; //TODO
                 }
             }
         }
@@ -494,6 +493,29 @@ namespace Client.config
                 {
 
                     throw;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Überprüft die Lizenz
+        /// </summary>
+        /// /// <created>janzen_d,2018-09-13</created>
+        public static bool VALIDLICENSE
+        {
+            get
+            {
+                try
+                {
+                    xmldocConfg.Load("config/config.xml");
+                    string serialnumber = xmldocConfg.SelectSingleNode("config/license/sn").InnerText;
+                    string computerid = xmldocConfg.SelectSingleNode("config/license/id").InnerText;
+                    string activationkey = xmldocConfg.SelectSingleNode("config/license/activation").InnerText;
+                    return global.readme.license.LicenseHandler.ActivationKeyIsValid(serialnumber, computerid, activationkey);
+                }
+                catch (Exception)
+                {
+                    throw; //TODO
                 }
             }
         }

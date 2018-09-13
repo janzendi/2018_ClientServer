@@ -4,3 +4,11 @@ C:\Users\win10\Desktop\2018_ClientServer\Test\bin\Debug\Test.exe
 C:\Users\win10\Desktop\2018_ClientServer\Test\bin\Debug\Test.pdb
 C:\Users\win10\Desktop\2018_ClientServer\Test\obj\Debug\Test.exe
 C:\Users\win10\Desktop\2018_ClientServer\Test\obj\Debug\Test.pdb
+C:\Users\win10\Desktop\2018_ClientServer\Test\bin\Debug\Test.exe.config
+C:\Users\win10\Desktop\2018_ClientServer\Test\bin\Debug\ControlzEx.dll
+C:\Users\win10\Desktop\2018_ClientServer\Test\bin\Debug\MahApps.Metro.dll
+C:\Users\win10\Desktop\2018_ClientServer\Test\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\win10\Desktop\2018_ClientServer\Test\bin\Debug\ControlzEx.pdb
+C:\Users\win10\Desktop\2018_ClientServer\Test\bin\Debug\MahApps.Metro.pdb
+C:\Users\win10\Desktop\2018_ClientServer\Test\bin\Debug\MahApps.Metro.xml
+C:\Users\win10\Desktop\2018_ClientServer\Test\obj\Debug\Test.csproj.CopyComplete

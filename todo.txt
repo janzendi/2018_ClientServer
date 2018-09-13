@@ -1,3 +1,23 @@
+Prio 1
+
+- Admin Modus 
+
+- Lizensierung
+
+
+Prio 2
+Network Manager Programmieren.
 
 http://www.suncross.nl/ndm/ 
 Network drive manager anschauen ggf daran orientieren.
+
+Prio 3
+ConfigReadWriter.cs in global/config verschieben
+
+
+bullshit:
+  <license>
+    <sn></sn>
+    <id></id>
+    <activation></activation>
+  </license>

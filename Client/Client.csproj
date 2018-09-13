@@ -42,6 +42,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
@@ -69,6 +70,7 @@
     <Compile Include="global\readme\metroui\LicenseMetroUI.Designer.cs">
       <DependentUpon>LicenseMetroUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="global\windows.forms\FormMethods.cs" />
     <Compile Include="MetroMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,7 +113,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="global\config\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="config\icon.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

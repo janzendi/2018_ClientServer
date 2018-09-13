@@ -2,6 +2,7 @@
 using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
+using System.Management;
 
 namespace Test
 {
@@ -13,7 +14,35 @@ namespace Test
         [STAThread]
         static void Main()
         {
-            serialnumbertest();
+            string cpuInfo = string.Empty;
+            ManagementClass mc = new ManagementClass("win32_processor");
+            ManagementObjectCollection moc = mc.GetInstances();
+
+            foreach (ManagementObject mo in moc)
+            {
+                if (cpuInfo == "")
+                {
+                    //Get only the first CPU's ID
+                    cpuInfo = mo.Properties["processorID"].Value.ToString();
+                    break;
+                }
+            }
+            Console.WriteLine(cpuInfo.ToString());
+            
+            string tmp = "";
+            for (int i = 0; i < cpuInfo.Length; i++)
+            {
+                tmp += (char)(((char)cpuInfo[i] * (char)cpuInfo[i]) /2);
+            }
+            Console.WriteLine(tmp);
+            string tmp2 = "";
+            for (int i = 0; i < tmp.Length; i++)
+            {
+                tmp2 += (char)((char)tmp[i] - (char)6);
+            }
+            Console.WriteLine(tmp2);
+
+            Console.ReadLine();
         }
 
         public void xmltest()

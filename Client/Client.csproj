@@ -70,6 +70,7 @@
     <Compile Include="global\readme\metroui\LicenseMetroUI.Designer.cs">
       <DependentUpon>LicenseMetroUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="global\readme\license\Crypt.cs" />
     <Compile Include="global\windows.forms\FormMethods.cs" />
     <Compile Include="MetroMain.cs">
       <SubType>Form</SubType>

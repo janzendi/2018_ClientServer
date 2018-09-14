@@ -10,7 +10,7 @@ namespace Client.global.readme.license
         /// </summary>
         /// <returns>gibt eine Random Seriennumer zurück</returns>
         /// <created>janzen_d,2018-09-13</created>
-        public static string GetSerialNumber
+        private static string GetSerialNumber
         {
             get
             {
@@ -30,7 +30,7 @@ namespace Client.global.readme.license
         /// Gibt die aktuelle CPU ID von der ersten Sub-CPU zurück
         /// </summary>
         /// <created>janzen_d,2018-09-13</created>
-        public static string GetHardwareCPUID
+        private static string GetHardwareCPUID
         {
             get
             {
@@ -58,14 +58,8 @@ namespace Client.global.readme.license
         {
             try
             {
-                if (computerid == GetHardwareCPUID)
-                {
-
-                }
-                else
-                {
-                    return false;
-                }
+                if (computerid == Crypt.DecryptString(activationkey, serialnumber))
+                    return true;
             }
             catch (Exception)
             {
@@ -73,6 +67,23 @@ namespace Client.global.readme.license
                 throw; //TODO
             }
             return false;
+        }
+
+        public static string SOFTWARESERIAL
+        {
+            get
+            {
+                try
+                {
+
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+                return null;
+            }
         }
     }
 }

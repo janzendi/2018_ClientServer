@@ -249,11 +249,41 @@ namespace Client
                 this.richTextBox_Info.BorderStyle = System.Windows.Forms.BorderStyle.None;
                 metroStyleManager.Theme = config.ConfigReadWriter.METROTHEME;
                 metroStyleManager.Style = config.ConfigReadWriter.METROSTYLE;
-                
+
+
+                //
+                // Lizenzsystem
+                //
+                this.ENABLED = config.ConfigReadWriter.VALIDLICENSE;
             }
             catch (System.Exception)
             {
                 throw; //TODO
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <created>janzen_d,2018-09-13</created>
+        private bool ENABLED
+        {
+            set
+            {
+                try
+                {
+                        this.tabControl.Enabled = value;
+                        for (int i = 0; i < menuBar.Items.Count; i++)
+                        {
+                            if (i < menuBar.Items.Count - 1)
+                                this.menuBar.Items[i].Enabled = value;
+                        }
+                }
+                catch (System.Exception)
+                {
+
+                    throw;
+                }
             }
         }
 

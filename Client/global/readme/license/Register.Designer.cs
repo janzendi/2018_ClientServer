@@ -230,6 +230,18 @@
             this.mTxtBoxPCGenerateKey_1023.StyleManager = metroStyleManager;
             this.mTxtBoxPCKey_1022.StyleManager = metroStyleManager;
             this.mTxtBoxPCSerialNumber_1021.StyleManager = metroStyleManager;
+
+            //
+            // Lizenzsystem
+            //
+            if (config.ConfigReadWriter.VALIDLICENSE)
+            {
+
+            }
+            else
+            {
+                this.mTxtBoxPCSerialNumber_1021.Text = global.readme.license.LicenseHandler.SOFTWARESERIAL;
+            }
                         
         }
 

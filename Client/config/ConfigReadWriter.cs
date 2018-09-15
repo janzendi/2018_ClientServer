@@ -500,22 +500,125 @@ namespace Client.config
         /// <summary>
         /// Überprüft die Lizenz
         /// </summary>
-        /// /// <created>janzen_d,2018-09-13</created>
+        /// <created>janzen_d,2018-09-13</created>
         public static bool VALIDLICENSE
         {
             get
             {
                 try
                 {
+                    return global.readme.license.LicenseHandler.ActivationKeyIsValid(LICENSESOFTWAREID, LICENSEACTIVATIONKEY);
+                }
+                catch (Exception ex)
+                {
+                    global.log.MetroLog.INSTANCE.DebugWriteLine("ERROR: Exception thrown in class: ConfigReadWriter, METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + ex.ToString(), global.log.MetroLog.LogType.ERROR);
+                    return false;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Seriennummer wird zur Verschlüsselung genutzt
+        /// </summary>
+        /// <created>janzen_d,2018-09-15</created>
+        public static string LICENSESN
+        {
+            get
+            {
+                try
+                {
                     xmldocConfg.Load("config/config.xml");
-                    string serialnumber = xmldocConfg.SelectSingleNode("config/license/sn").InnerText;
-                    string computerid = xmldocConfg.SelectSingleNode("config/license/id").InnerText;
-                    string activationkey = xmldocConfg.SelectSingleNode("config/license/activation").InnerText;
-                    return global.readme.license.LicenseHandler.ActivationKeyIsValid(serialnumber, computerid, activationkey);
+                    return xmldocConfg.SelectSingleNode("config/license/sn").InnerText;
                 }
                 catch (Exception)
                 {
+
                     throw; //TODO
+                }
+            }
+            set
+            {
+                try
+                {
+                    xmldocConfg.Load("config/config.xml");
+                    xmldocConfg.SelectSingleNode("config/license/sn").InnerText = value;
+                    xmldocConfg.Save("config/config.xml");
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Softwareid wird zur zur Hardwareerkennung genutzt
+        /// </summary>
+        /// <created>janzen_d,2018-09-15</created>
+        public static string LICENSESOFTWAREID
+        {
+            get
+            {
+                try
+                {
+                    xmldocConfg.Load("config/config.xml");
+                    return global.readme.license.Crypt.DecryptString(xmldocConfg.SelectSingleNode("config/license/id").InnerText, LICENSESN);
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+            set
+            {
+                try
+                {
+                    xmldocConfg.Load("config/config.xml");
+                    global.readme.license.Crypt.EncryptString(xmldocConfg.SelectSingleNode("config/license/id").InnerText, LICENSESN);
+                    xmldocConfg.Save("config/config.xml");
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+        }
+
+
+        /// <summary>
+        /// Aktivierungskey auslesen
+        /// </summary>
+        /// <created>janzen_d,2018-09-15</created>
+        public static string LICENSEACTIVATIONKEY
+        {
+            get
+            {
+                try
+                {
+                    xmldocConfg.Load("config/config.xml");
+                    return xmldocConfg.SelectSingleNode("config/license/activation").InnerText;
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+            set
+            {
+                try
+                {
+                    xmldocConfg.Load("config/config.xml");
+                    xmldocConfg.SelectSingleNode("config/license/activation").InnerText = value;
+                    xmldocConfg.Save("config/config.xml");
+                }
+                catch (Exception)
+                {
+
+                    throw;
                 }
             }
         }

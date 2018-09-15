@@ -7,16 +7,17 @@ namespace Client.global.readme.license
     {
         /// <summary>
         /// Gibt eine zufällige Seriennummer zurück
+        /// Random Number from list between: 1000000, 2147483647
         /// </summary>
         /// <returns>gibt eine Random Seriennumer zurück</returns>
         /// <created>janzen_d,2018-09-13</created>
-        private static string GetSerialNumber
+        private static string GetRandomNumber
         {
             get
             {
                 try
                 {
-                    return SerialNumbers.serialnumbers[(new Random()).Next(SerialNumbers.serialnumbers.Count)].ToString();
+                    return (new Random()).Next(1000000, 2147483647).ToString().ToString();
                 }
                 catch (Exception)
                 {
@@ -51,39 +52,53 @@ namespace Client.global.readme.license
 
         /// <summary>
         /// Gibt den Aktivierungsstatus zurück.
+        /// Normale Lizenz => uN2c9haz4XsHUYD3DvX565kfQ9q6j3C
+        /// Admin Lizenz => 87ZvjVXxAErsrZ743647zipaE9DCZUg
         /// </summary>
         /// <returns></returns>
         /// <created>janzen_d,2018-09-13</created>
-        public static bool ActivationKeyIsValid(string serialnumber, string computerid, string activationkey)
+        public static bool ActivationKeyIsValid(string computerid, string activationkey)
         {
-            try
+            try //TODO Activiation key logic muss noch programmiert werden.
             {
-                if (computerid == Crypt.DecryptString(activationkey, serialnumber))
+                if (computerid == GetHardwareCPUID && (activationkey == Crypt.EncryptString(computerid, nomallicenseCryptkey) || activationkey == Crypt.EncryptString(computerid, adminlicenseCryptkey)))
                     return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw; //TODO
+                global.log.MetroLog.INSTANCE.DebugWriteLine("ERROR: Exception thrown in class: LicenseHandler, METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + ex.ToString(), global.log.MetroLog.LogType.ERROR);
+                return false;
             }
             return false;
         }
 
-        public static string SOFTWARESERIAL
+        public static string SOFTWAREID
         {
             get
             {
                 try
                 {
+                    if (config.ConfigReadWriter.VALIDLICENSE)
+                    {
+                        return null;
+                    }
+                    else
+                    {
+                        string id = GetHardwareCPUID;
+                        string sn = GetRandomNumber;
 
+                        return Crypt.EncryptString(id, sn);
+                    }
                 }
                 catch (Exception)
                 {
 
                     throw;
                 }
-                return null;
             }
         }
+
+        private static string nomallicenseCryptkey = "uN2c9haz4XsHUYD3DvX565kfQ9q6j3C";
+        private static string adminlicenseCryptkey = "87ZvjVXxAErsrZ743647zipaE9DCZUg";
     }
 }

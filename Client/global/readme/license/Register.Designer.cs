@@ -224,8 +224,11 @@
             this.StyleManager = metroStyleManager;
             //tile
             this.mTileMail_1024.StyleManager = metroStyleManager;
+            this.mTileMail_1024.Click += MTileMail_1024_Click;
             this.mTileRegister_1025.StyleManager = metroStyleManager;
+            this.mTileRegister_1025.Click += MTileRegister_1025_Click;
             this.mTileGenerator_1026.StyleManager = metroStyleManager;
+            this.mTxtBoxPCGenerateKey_1023.Click += MTxtBoxPCGenerateKey_1023_Click;
             //txtbox
             this.mTxtBoxPCGenerateKey_1023.StyleManager = metroStyleManager;
             this.mTxtBoxPCKey_1022.StyleManager = metroStyleManager;
@@ -239,10 +242,40 @@
 
             }
             else
-            {
-                this.mTxtBoxPCSerialNumber_1021.Text = global.readme.license.LicenseHandler.SOFTWARESERIAL;
-            }
+                this.mTxtBoxPCSerialNumber_1021.Text = global.readme.license.LicenseHandler.SOFTWAREID;
                         
+        }
+
+        private void MTxtBoxPCGenerateKey_1023_Click(object sender, System.EventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /// <summary>
+        /// Event um die Eingebene Lizenz zu aktivieren.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <created>janzen_d,2018-09-15</created>
+        private void MTileRegister_1025_Click(object sender, System.EventArgs e)
+        {
+            try
+            {
+                if (!config.ConfigReadWriter.VALIDLICENSE)
+                {
+
+                }
+            }
+            catch (System.Exception)
+            {
+
+                throw; TODO
+            }
+        }
+
+        private void MTileMail_1024_Click(object sender, System.EventArgs e)
+        {
+            throw new System.NotImplementedException();
         }
 
 

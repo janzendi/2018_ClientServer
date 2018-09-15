@@ -63,7 +63,6 @@
     <Compile Include="global\readme\license\Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
-    <Compile Include="global\readme\license\SerialNumbers.cs" />
     <Compile Include="global\readme\metroui\LicenseMetroUI.cs">
       <SubType>Form</SubType>
     </Compile>

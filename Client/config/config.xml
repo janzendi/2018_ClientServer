@@ -10,11 +10,11 @@
   <windowwidth>800</windowwidth>
   <windowlength>450</windowlength>
   <fullscreen>true</fullscreen>
-  <metrotheme>dark</metrotheme> <!-- light and dark possible -->
-  <metrostyle>0</metrostyle> <!-- Default = 0,  Black = 1,  White = 2,  Silver = 3,  Blue = 4,  Green = 5,  Lime = 6,  Teal = 7,  Orange = 8,  Brown = 9,  Pink = 10,  Magenta = 11,  Purple = 12,  Red = 13,  Yellow = 14 -->
+  <metrotheme>light</metrotheme> <!-- light and dark possible -->
+  <metrostyle>4</metrostyle> <!-- Default = 0,  Black = 1,  White = 2,  Silver = 3,  Blue = 4,  Green = 5,  Lime = 6,  Teal = 7,  Orange = 8,  Brown = 9,  Pink = 10,  Magenta = 11,  Purple = 12,  Red = 13,  Yellow = 14 -->
   <license>
-    <sn></sn>
-    <id></id>
-    <activation></activation>
+    <sn></sn> <!-- crypt key -->
+    <id></id> <!-- computer id -->
+    <activation></activation> <!-- activation key -->
   </license>
 </config>

@@ -71,24 +71,49 @@ namespace Client.global.readme.license
             }
             return false;
         }
+        
+        /// <summary>
+        /// Methode um Software zu aktivieren.
+        /// </summary>
+        /// <param name="activationkey"></param>
+        /// <returns></returns>
+        public static bool ActivateSoftware(string activationkey)
+        {
+            try
+            {
+                if (activationkey == Crypt.EncryptString(config.ConfigReadWriter.LICENSESOFTWAREIDCLEAR, nomallicenseCryptkey)
+                    || activationkey == Crypt.EncryptString(config.ConfigReadWriter.LICENSESOFTWAREIDCLEAR, adminlicenseCryptkey))
+                {
+                    config.ConfigReadWriter.LICENSEACTIVATIONKEY = activationkey;
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Gibt die Software ID zurück
+        /// </summary>
+        /// <created>janzen_d,2018-09-16</created>
         public static string SOFTWAREID
         {
             get
             {
                 try
                 {
-                    if (config.ConfigReadWriter.VALIDLICENSE)
+                    if (!config.ConfigReadWriter.VALIDLICENSE)
                     {
-                        return null;
-                    }
-                    else
-                    {
-                        string id = GetHardwareCPUID;
                         string sn = GetRandomNumber;
-
-                        return Crypt.EncryptString(id, sn);
+                        config.ConfigReadWriter.LICENSESN = sn;
+                        string id = GetHardwareCPUID;
+                        config.ConfigReadWriter.LICENSESOFTWAREIDCRYPT = id;
                     }
+                    return config.ConfigReadWriter.LICENSESOFTWAREIDCLEAR;
                 }
                 catch (Exception)
                 {
@@ -97,6 +122,8 @@ namespace Client.global.readme.license
                 }
             }
         }
+
+
 
         private static string nomallicenseCryptkey = "uN2c9haz4XsHUYD3DvX565kfQ9q6j3C";
         private static string adminlicenseCryptkey = "87ZvjVXxAErsrZ743647zipaE9DCZUg";

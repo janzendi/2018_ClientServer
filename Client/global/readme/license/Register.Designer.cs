@@ -261,21 +261,30 @@
         {
             try
             {
-                if (!config.ConfigReadWriter.VALIDLICENSE)
-                {
-
-                }
+                if (!config.ConfigReadWriter.VALIDLICENSE 
+                    && global.readme.license.LicenseHandler.ActivateSoftware(this.mTxtBoxPCKey_1022.Text))
+                    MetroFramework.MetroMessageBox.Show(this, global.language.LanguageHandler.INSTANCE.GETOBJWORD(1027)[2].ToString(), global.language.LanguageHandler.INSTANCE.GETOBJWORD(1028)[2].ToString(), System.Windows.Forms.MessageBoxButtons.OK);
+                else
+                    MetroFramework.MetroMessageBox.Show(this, global.language.LanguageHandler.INSTANCE.GETOBJWORD(1029)[2].ToString(), global.language.LanguageHandler.INSTANCE.GETOBJWORD(1028)[2].ToString(), System.Windows.Forms.MessageBoxButtons.OK);
             }
             catch (System.Exception)
             {
 
-                throw; TODO
+                throw; // TODO
             }
         }
 
         private void MTileMail_1024_Click(object sender, System.EventArgs e)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                System.Windows.Forms.Clipboard.SetText(mTxtBoxPCSerialNumber_1021.Text);
+            }
+            catch (System.Exception)
+            {
+
+                throw;
+            }
         }
 
 

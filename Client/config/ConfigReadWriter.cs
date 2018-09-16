@@ -507,7 +507,9 @@ namespace Client.config
             {
                 try
                 {
-                    return global.readme.license.LicenseHandler.ActivationKeyIsValid(LICENSESOFTWAREID, LICENSEACTIVATIONKEY);
+                    if (LICENSESOFTWAREIDCRYPT.Length > 5 && LICENSEACTIVATIONKEY.Length > 5)
+                        return global.readme.license.LicenseHandler.ActivationKeyIsValid(LICENSESOFTWAREIDCRYPT, LICENSEACTIVATIONKEY);
+                    return false;
                 }
                 catch (Exception ex)
                 {
@@ -556,14 +558,16 @@ namespace Client.config
         /// Softwareid wird zur zur Hardwareerkennung genutzt
         /// </summary>
         /// <created>janzen_d,2018-09-15</created>
-        public static string LICENSESOFTWAREID
+        public static string LICENSESOFTWAREIDCRYPT
         {
             get
             {
                 try
                 {
                     xmldocConfg.Load("config/config.xml");
-                    return global.readme.license.Crypt.DecryptString(xmldocConfg.SelectSingleNode("config/license/id").InnerText, LICENSESN);
+                    if (xmldocConfg.SelectSingleNode("config/license/id").InnerText.Length > 5)
+                        return global.readme.license.Crypt.DecryptString(xmldocConfg.SelectSingleNode("config/license/id").InnerText, LICENSESN);
+                    return "";
                 }
                 catch (Exception)
                 {
@@ -576,7 +580,8 @@ namespace Client.config
                 try
                 {
                     xmldocConfg.Load("config/config.xml");
-                    global.readme.license.Crypt.EncryptString(xmldocConfg.SelectSingleNode("config/license/id").InnerText, LICENSESN);
+                    string strtmp = global.readme.license.Crypt.EncryptString(value, LICENSESN);
+                    xmldocConfg.SelectSingleNode("config/license/id").InnerText = strtmp;
                     xmldocConfg.Save("config/config.xml");
                 }
                 catch (Exception)
@@ -587,6 +592,26 @@ namespace Client.config
             }
         }
 
+        /// <summary>
+        /// Softwareid wird zur zur Hardwareerkennung genutzt
+        /// </summary>
+        /// <created>janzen_d,2018-09-16</created>
+        public static string LICENSESOFTWAREIDCLEAR
+        {
+            get
+            {
+                try
+                {
+                    xmldocConfg.Load("config/config.xml");
+                    return xmldocConfg.SelectSingleNode("config/license/id").InnerText;
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+        }
 
         /// <summary>
         /// Aktivierungskey auslesen

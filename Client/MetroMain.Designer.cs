@@ -297,6 +297,7 @@ namespace Client
             {
                 global.readme.license.Register register = new global.readme.license.Register(this.StyleManager);
                 register.ShowDialog();
+                this.ENABLED = config.ConfigReadWriter.VALIDLICENSE;
             }
             catch (System.Exception)
             {

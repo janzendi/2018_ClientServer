@@ -29,6 +29,9 @@
     <text id="1024" tooltip="Schlüssel an Softwarelieferant schicken" objecttype="tag">Schlüssel senden</text>
     <text id="1025" tooltip="Software Registrieren" objecttype="tag">Software Registrieren</text>
     <text id="1026" tooltip="Schlüssel generieren" objecttype="tag">Schlüssel generieren</text>
+    <text id="1027" tooltip="missing" objecttype="messagebox">Software wurde erfolgreich aktiviert</text>
+    <text id="1028" tooltip="missing" objecttype="messagebox">Software Aktivierung</text>
+    <text id="1029" tooltip="missing" objecttype="messagebox">Software Schlüssel ist nicht korrekt.</text>
   </language>
 	<language id="en" text="English">
     <text id="1" tooltip="Missing text-id" objecttype="tag">Missing text-id</text>
@@ -59,6 +62,9 @@
     <text id="1024" tooltip="Send serial number to software supplier" objecttype="tag">Mail key</text>
     <text id="1025" tooltip="Register the software" objecttype="tag">Register software</text>
     <text id="1026" tooltip="Generate key" objecttype="tag">Key-Generator</text>
+    <text id="1027" tooltip="missing" objecttype="messagebox">Software activation was successful</text>
+    <text id="1028" tooltip="missing" objecttype="messagebox">Software activation</text>
+    <text id="1029" tooltip="missing" objecttype="messagebox">Software key was not correct</text>
     <text id="" tooltip="" objecttype="tag"></text>	
 	</language>
 </languages>

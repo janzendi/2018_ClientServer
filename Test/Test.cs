@@ -14,34 +14,14 @@ namespace Test
         [STAThread]
         static void Main()
         {
-            string cpuInfo = string.Empty;
-            ManagementClass mc = new ManagementClass("win32_processor");
-            ManagementObjectCollection moc = mc.GetInstances();
-
-            foreach (ManagementObject mo in moc)
-            {
-                if (cpuInfo == "")
-                {
-                    //Get only the first CPU's ID
-                    cpuInfo = mo.Properties["processorID"].Value.ToString();
-                    break;
-                }
-            }
-            Console.WriteLine(cpuInfo.ToString());
+            Console.Write("Typ in key: ");
+            string tmp = Console.ReadLine();
             
-            string tmp = "";
-            for (int i = 0; i < cpuInfo.Length; i++)
-            {
-                tmp += (char)(((char)cpuInfo[i] * (char)cpuInfo[i]) /2);
-            }
-            Console.WriteLine(tmp);
-            string tmp2 = "";
-            for (int i = 0; i < tmp.Length; i++)
-            {
-                tmp2 += (char)((char)tmp[i] - (char)6);
-            }
-            Console.WriteLine(tmp2);
+            string nomallicenseCryptkey = "uN2c9haz4XsHUYD3DvX565kfQ9q6j3C";
+            string adminlicenseCryptkey = "87ZvjVXxAErsrZ743647zipaE9DCZUg";
 
+            Console.WriteLine("admin: " + Crypt.EncryptString(tmp, adminlicenseCryptkey));
+            Console.WriteLine("normal: " + Crypt.EncryptString(tmp, nomallicenseCryptkey));
             Console.ReadLine();
         }
 
@@ -80,6 +60,40 @@ namespace Test
             }
             txtFile.Write(tmp);
             txtFile.Close();
+        }
+
+        public static void hardwarekeytst()
+        {
+
+            string cpuInfo = string.Empty;
+            ManagementClass mc = new ManagementClass("win32_processor");
+            ManagementObjectCollection moc = mc.GetInstances();
+
+            foreach (ManagementObject mo in moc)
+            {
+                if (cpuInfo == "")
+                {
+                    //Get only the first CPU's ID
+                    cpuInfo = mo.Properties["processorID"].Value.ToString();
+                    break;
+                }
+            }
+            Console.WriteLine(cpuInfo.ToString());
+
+            string tmp = "";
+            for (int i = 0; i < cpuInfo.Length; i++)
+            {
+                tmp += (char)(((char)cpuInfo[i] * (char)cpuInfo[i]) / 2);
+            }
+            Console.WriteLine(tmp);
+            string tmp2 = "";
+            for (int i = 0; i < tmp.Length; i++)
+            {
+                tmp2 += (char)((char)tmp[i] - (char)6);
+            }
+            Console.WriteLine(tmp2);
+
+            Console.ReadLine();
         }
     }
 }

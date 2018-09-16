@@ -32,6 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Crypt.cs" />
     <Compile Include="Rymate.cs">
       <SubType>Form</SubType>
     </Compile>

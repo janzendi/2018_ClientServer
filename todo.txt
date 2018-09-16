@@ -17,7 +17,11 @@ ConfigReadWriter.cs in global/config verschieben
 
 bullshit:
   <license>
-    <sn></sn>
-    <id></id>
-    <activation></activation>
+    <sn>1092289711</sn>
+    <!-- crypt key -->
+    <id>cvywdlUS4n6E4eHcSQPgdVoj3/KIsi6ZE0sSKtz8oKYGMOODiZoSvlA/lyxZdrft</id>
+    <!-- computer id -->
+    <activation>
+    </activation>
+    <!-- activation key -->
   </license>

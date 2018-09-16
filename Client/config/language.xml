@@ -31,7 +31,13 @@
     <text id="1026" tooltip="Schlüssel generieren" objecttype="tag">Schlüssel generieren</text>
     <text id="1027" tooltip="missing" objecttype="messagebox">Software wurde erfolgreich aktiviert</text>
     <text id="1028" tooltip="missing" objecttype="messagebox">Software Aktivierung</text>
-    <text id="1029" tooltip="missing" objecttype="messagebox">Software Schlüssel ist nicht korrekt.</text>
+    <text id="1029" tooltip="missing" objecttype="messagebox">Software Schlüssel ist nicht korrekt</text>
+    <text id="1030" tooltip="missing" objecttype="messagebox">Schlüssel per Mail schicken</text>
+    <text id="1031" tooltip="missing" objecttype="messagebox">Schlüssel wurde in die Zwischenablage kopiert. Bitte benutzen Sie ein Mail Programm Ihrer wahl und senden Sie eine Mail an "dim.janzen@gmail.com", um einen Aktivierungsschlüssel zu bekommen</text>
+    <text id="1032" tooltip="missing" objecttype="mail">Service-Tool Aktivierung by Dimitri Janzen</text>
+    <text id="1033" tooltip="missing" objecttype="mail">Service-Tool Seriennummer: </text>
+    <text id="1034" tooltip="missing" objecttype="mail">Aktivierungsschlüssel Generierung</text>
+    <text id="1035" tooltip="missing" objecttype="mail">Aktivierungsschlüssel wurde in die Zwischenablage kopiert:</text>
   </language>
 	<language id="en" text="English">
     <text id="1" tooltip="Missing text-id" objecttype="tag">Missing text-id</text>
@@ -64,7 +70,13 @@
     <text id="1026" tooltip="Generate key" objecttype="tag">Key-Generator</text>
     <text id="1027" tooltip="missing" objecttype="messagebox">Software activation was successful</text>
     <text id="1028" tooltip="missing" objecttype="messagebox">Software activation</text>
-    <text id="1029" tooltip="missing" objecttype="messagebox">Software key was not correct</text>
-    <text id="" tooltip="" objecttype="tag"></text>	
+    <text id="1029" tooltip="missing" objecttype="messagebox">Software key is not correct</text>
+    <text id="1030" tooltip="missing" objecttype="messagebox">Mail the key</text>
+    <text id="1031" tooltip="missing" objecttype="messagebox">Key is copied to clipboard. Please use a mail tool and send a mail to "dim.janzen@gmail.com" and get a activation key</text>
+    <text id="1032" tooltip="" objecttype="mail">Service-Tool activation by Dimitri Janzen</text>
+    <text id="1033" tooltip="" objecttype="mail">Service-Tool serial number: </text>
+    <text id="1034" tooltip="missing" objecttype="mail">Activation key generation</text>
+    <text id="1035" tooltip="missing" objecttype="mail">Activation key is copied to clipboard:</text>
+    <text id="" tooltip="" objecttype="tag"></text>
 	</language>
 </languages>

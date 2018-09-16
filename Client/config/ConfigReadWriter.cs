@@ -508,7 +508,7 @@ namespace Client.config
                 try
                 {
                     if (LICENSESOFTWAREIDCRYPT.Length > 5 && LICENSEACTIVATIONKEY.Length > 5)
-                        return global.readme.license.LicenseHandler.ActivationKeyIsValid(LICENSESOFTWAREIDCRYPT, LICENSEACTIVATIONKEY);
+                        return global.readme.license.LicenseHandler.ActivationKeyIsValid(LICENSESOFTWAREIDCRYPT,LICENSESOFTWAREIDCLEAR, LICENSEACTIVATIONKEY);
                     return false;
                 }
                 catch (Exception ex)

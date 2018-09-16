@@ -39,7 +39,7 @@ namespace Client.global.readme.license
                 {
                     //Get only the first CPU's ID
                     foreach (ManagementObject mo in (new ManagementClass("win32_processor")).GetInstances())
-                         return mo.Properties["processorID"].Value.ToString();
+                        return mo.Properties["processorID"].Value.ToString();
                 }
                 catch (Exception)
                 {
@@ -57,12 +57,59 @@ namespace Client.global.readme.license
         /// </summary>
         /// <returns></returns>
         /// <created>janzen_d,2018-09-13</created>
-        public static bool ActivationKeyIsValid(string computerid, string activationkey)
+        public static bool ActivationKeyIsValid(string computerid, string encryptcomputerid, string activationkey)
         {
-            try //TODO Activiation key logic muss noch programmiert werden.
+            if (isAdmin || isNormal)
+                return true;
+            else
             {
-                if (computerid == GetHardwareCPUID && (activationkey == Crypt.EncryptString(computerid, nomallicenseCryptkey) || activationkey == Crypt.EncryptString(computerid, adminlicenseCryptkey)))
-                    return true;
+
+            }
+            //
+            // Übersetzung per normalen Lizenz
+            //
+            string strnormallicense = null;
+            try
+            {
+                strnormallicense = Crypt.DecryptString(activationkey, nomallicenseCryptkey);
+
+            }
+            catch (Exception ex)
+            {
+                global.log.MetroLog.INSTANCE.DebugWriteLine("ERROR: Exception thrown in class: LicenseHandler, METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + ex.ToString(), global.log.MetroLog.LogType.WARNING);
+            }
+
+            //
+            // Übersetzung per Admin Lizenz
+            //
+            string stradminlicense = null;
+            try
+            {
+                stradminlicense = Crypt.DecryptString(activationkey, adminlicenseCryptkey);
+            }
+            catch (Exception ex)
+            {
+                global.log.MetroLog.INSTANCE.DebugWriteLine("ERROR: Exception thrown in class: LicenseHandler, METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + ex.ToString(), global.log.MetroLog.LogType.WARNING);
+            }
+
+            //
+            // Logik
+            //
+            try
+            {
+                if (computerid == GetHardwareCPUID)
+                {
+                    if (encryptcomputerid == strnormallicense)
+                    {
+                        isNormal = true;
+                        return true;
+                    }
+                    else if (encryptcomputerid == stradminlicense)
+                    {
+                        isAdmin = true;
+                        return true;
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -71,7 +118,7 @@ namespace Client.global.readme.license
             }
             return false;
         }
-        
+
         /// <summary>
         /// Methode um Software zu aktivieren.
         /// </summary>
@@ -79,14 +126,45 @@ namespace Client.global.readme.license
         /// <returns></returns>
         public static bool ActivateSoftware(string activationkey)
         {
+
+            //
+            // Übersetzung per normalen Lizenz
+            //
+            string strnormallicense = null;
             try
             {
-                if (activationkey == Crypt.EncryptString(config.ConfigReadWriter.LICENSESOFTWAREIDCLEAR, nomallicenseCryptkey)
-                    || activationkey == Crypt.EncryptString(config.ConfigReadWriter.LICENSESOFTWAREIDCLEAR, adminlicenseCryptkey))
-                {
-                    config.ConfigReadWriter.LICENSEACTIVATIONKEY = activationkey;
-                    return true;
-                }
+                strnormallicense = Crypt.DecryptString(activationkey, nomallicenseCryptkey);
+
+            }
+            catch (Exception ex)
+            {
+                global.log.MetroLog.INSTANCE.DebugWriteLine("ERROR: Exception thrown in class: LicenseHandler, METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + ex.ToString(), global.log.MetroLog.LogType.WARNING);
+            }
+
+            //
+            // Übersetzung per Admin Lizenz
+            //
+            string stradminlicense = null;
+            try
+            {
+                stradminlicense = Crypt.DecryptString(activationkey, adminlicenseCryptkey);
+            }
+            catch (Exception ex)
+            {
+                global.log.MetroLog.INSTANCE.DebugWriteLine("ERROR: Exception thrown in class: LicenseHandler, METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + ex.ToString(), global.log.MetroLog.LogType.WARNING);
+            }
+
+            //
+            // Logik
+            //
+            if (config.ConfigReadWriter.LICENSESOFTWAREIDCLEAR == strnormallicense
+                || config.ConfigReadWriter.LICENSESOFTWAREIDCLEAR == stradminlicense)
+            {
+                config.ConfigReadWriter.LICENSEACTIVATIONKEY = activationkey;
+                return true;
+            }
+            try
+            {
             }
             catch (Exception)
             {
@@ -123,9 +201,52 @@ namespace Client.global.readme.license
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <created>janzen_d,2018-09-16</created>
+        public static bool ISADMIN
+        {
+            get
+            {
+                try
+                {
+                    if (isAdmin && isNormal == false)
+                        return true;
+                    return false;
+                }
+                catch (Exception)
+                {
 
+                    throw;
+                }
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="serialnumber"></param>
+        /// <param name="isadmin"></param>
+        /// <returns>Gibt den Aktivierungsschlüsselzurück</returns>
+        public static string GenerateActivationKey(string serialnumber, bool isadmin)
+        {
+            try
+            {
+                if (isadmin)
+                    return Crypt.EncryptString(serialnumber, adminlicenseCryptkey);
+                return Crypt.EncryptString(serialnumber, nomallicenseCryptkey);
+            }
+            catch (Exception ex)
+            {
+                global.log.MetroLog.INSTANCE.WriteLine("Exception thrown in class: " + "LicenseHandler" + ", METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + ex.ToString(), global.log.MetroLog.LogType.ERROR);
+            }
+            return null;
+        }
 
         private static string nomallicenseCryptkey = "uN2c9haz4XsHUYD3DvX565kfQ9q6j3C";
         private static string adminlicenseCryptkey = "87ZvjVXxAErsrZ743647zipaE9DCZUg";
+        private static bool isNormal = false;
+        private static bool isAdmin = false;
     }
 }

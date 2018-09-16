@@ -192,7 +192,10 @@
 
 
         #region customInit
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="metroStyleManager"></param>
         private void CustomInitializeComponent(MetroFramework.Components.MetroStyleManager metroStyleManager)
         {
             //
@@ -228,7 +231,7 @@
             this.mTileRegister_1025.StyleManager = metroStyleManager;
             this.mTileRegister_1025.Click += MTileRegister_1025_Click;
             this.mTileGenerator_1026.StyleManager = metroStyleManager;
-            this.mTxtBoxPCGenerateKey_1023.Click += MTxtBoxPCGenerateKey_1023_Click;
+            this.mTileGenerator_1026.Click += MTileGenerator_1026_Click;
             //txtbox
             this.mTxtBoxPCGenerateKey_1023.StyleManager = metroStyleManager;
             this.mTxtBoxPCKey_1022.StyleManager = metroStyleManager;
@@ -239,17 +242,44 @@
             //
             if (config.ConfigReadWriter.VALIDLICENSE)
             {
-
+                this.mTxtBoxPCSerialNumber_1021.Text = config.ConfigReadWriter.LICENSESOFTWAREIDCLEAR;
+                if (!global.readme.license.LicenseHandler.ISADMIN)
+                {
+                    this.mTxtBoxPCGenerateKey_1023.Visible = false;
+                    this.mTileGenerator_1026.Visible = false;
+                    this.mTileGenerator_1026.Enabled = false;
+                }
             }
             else
+            {
                 this.mTxtBoxPCSerialNumber_1021.Text = global.readme.license.LicenseHandler.SOFTWAREID;
+                this.mTxtBoxPCGenerateKey_1023.Visible = false;
+                this.mTileGenerator_1026.Visible = false;
+                this.mTileGenerator_1026.Enabled = false;
+            }
                         
         }
 
-        private void MTxtBoxPCGenerateKey_1023_Click(object sender, System.EventArgs e)
+        /// <summary>
+        /// In dieser Methoder wird der Aktivierungsschlüssel erzeugt.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <created>janzen_d,2018-09-16</created>
+        private void MTileGenerator_1026_Click(object sender, System.EventArgs e)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                string result = global.readme.license.LicenseHandler.GenerateActivationKey(this.mTxtBoxPCGenerateKey_1023.Text, false);
+                MetroFramework.MetroMessageBox.Show(this, global.language.LanguageHandler.INSTANCE.GETOBJWORD(1035)[2].ToString() + "\n\n"+result, global.language.LanguageHandler.INSTANCE.GETOBJWORD(1034)[2].ToString(), System.Windows.Forms.MessageBoxButtons.OK);
+                System.Windows.Forms.Clipboard.SetText(result);
+            }
+            catch (System.Exception ex)
+            {
+                global.log.MetroLog.INSTANCE.WriteLine("Exception thrown in class: " + this.ToString() + ", METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + ex.ToString(), global.log.MetroLog.LogType.ERROR);
+            }
         }
+
 
         /// <summary>
         /// Event um die Eingebene Lizenz zu aktivieren.
@@ -265,7 +295,15 @@
                     && global.readme.license.LicenseHandler.ActivateSoftware(this.mTxtBoxPCKey_1022.Text))
                     MetroFramework.MetroMessageBox.Show(this, global.language.LanguageHandler.INSTANCE.GETOBJWORD(1027)[2].ToString(), global.language.LanguageHandler.INSTANCE.GETOBJWORD(1028)[2].ToString(), System.Windows.Forms.MessageBoxButtons.OK);
                 else
+                {
                     MetroFramework.MetroMessageBox.Show(this, global.language.LanguageHandler.INSTANCE.GETOBJWORD(1029)[2].ToString(), global.language.LanguageHandler.INSTANCE.GETOBJWORD(1028)[2].ToString(), System.Windows.Forms.MessageBoxButtons.OK);
+                    if (global.readme.license.LicenseHandler.ISADMIN)
+                    {
+                        this.mTxtBoxPCGenerateKey_1023.Visible = true;
+                        this.mTileGenerator_1026.Visible = true;
+                        this.mTileGenerator_1026.Enabled = true;
+                    }
+                }
             }
             catch (System.Exception)
             {
@@ -278,12 +316,16 @@
         {
             try
             {
+                System.Diagnostics.Process.Start("mailto:dim.janzen@gmail.com" + "?subject=" + global.language.LanguageHandler.INSTANCE.GETOBJWORD(1032)[2].ToString() + "&body=" + global.language.LanguageHandler.INSTANCE.GETOBJWORD(1033)[2].ToString() + global.readme.license.LicenseHandler.SOFTWAREID);
+                MetroFramework.MetroMessageBox.Show(this, global.language.LanguageHandler.INSTANCE.GETOBJWORD(1031)[2].ToString(), global.language.LanguageHandler.INSTANCE.GETOBJWORD(1030)[2].ToString(), System.Windows.Forms.MessageBoxButtons.OK);
                 System.Windows.Forms.Clipboard.SetText(mTxtBoxPCSerialNumber_1021.Text);
-            }
-            catch (System.Exception)
-            {
 
-                throw;
+            }
+            catch (System.Exception ex)
+            {
+                global.log.MetroLog.INSTANCE.WriteLine("Exception thrown in class: " + this.ToString() + ", METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + ex.ToString(), global.log.MetroLog.LogType.ERROR);
+                MetroFramework.MetroMessageBox.Show(this, global.language.LanguageHandler.INSTANCE.GETOBJWORD(1031)[2].ToString(), global.language.LanguageHandler.INSTANCE.GETOBJWORD(1030)[2].ToString(), System.Windows.Forms.MessageBoxButtons.OK);
+                System.Windows.Forms.Clipboard.SetText(mTxtBoxPCSerialNumber_1021.Text);
             }
         }
 

@@ -14,15 +14,9 @@ namespace Test
         [STAThread]
         static void Main()
         {
-            Console.Write("Typ in key: ");
-            string tmp = Console.ReadLine();
-            
-            string nomallicenseCryptkey = "uN2c9haz4XsHUYD3DvX565kfQ9q6j3C";
-            string adminlicenseCryptkey = "87ZvjVXxAErsrZ743647zipaE9DCZUg";
-
-            Console.WriteLine("admin: " + Crypt.EncryptString(tmp, adminlicenseCryptkey));
-            Console.WriteLine("normal: " + Crypt.EncryptString(tmp, nomallicenseCryptkey));
-            Console.ReadLine();
+            string subject = "subject";
+            string body = "body";
+            System.Diagnostics.Process.Start("mailto:name@domain.de" + "?subject=" + subject + "&body="+ body);
         }
 
         public void xmltest()
@@ -93,6 +87,20 @@ namespace Test
             }
             Console.WriteLine(tmp2);
 
+            Console.ReadLine();
+        }
+
+        public static void keygenerator()
+        {
+
+            Console.Write("Typ in key: ");
+            string tmp = Console.ReadLine();
+
+            string nomallicenseCryptkey = "uN2c9haz4XsHUYD3DvX565kfQ9q6j3C";
+            string adminlicenseCryptkey = "87ZvjVXxAErsrZ743647zipaE9DCZUg";
+
+            Console.WriteLine("admin: " + Crypt.EncryptString(tmp, adminlicenseCryptkey));
+            Console.WriteLine("normal: " + Crypt.EncryptString(tmp, nomallicenseCryptkey));
             Console.ReadLine();
         }
     }

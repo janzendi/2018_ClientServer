@@ -1,10 +1,3 @@
-Prio 1
-
-- Admin Modus 
-
-- Lizensierung
-
-
 Prio 2
 Network Manager Programmieren.
 
@@ -15,13 +8,12 @@ Prio 3
 ConfigReadWriter.cs in global/config verschieben
 
 
-bullshit:
+bullshit:  
   <license>
-    <sn>1092289711</sn>
+    <sn>903055012</sn>
     <!-- crypt key -->
-    <id>cvywdlUS4n6E4eHcSQPgdVoj3/KIsi6ZE0sSKtz8oKYGMOODiZoSvlA/lyxZdrft</id>
+    <id>pt1pxEPAZlzqtsaslTVCN5Y7ZOhoaYqJfQUeJPvFIHsOtKv4XE4XCE9qhuZ63nQs</id>
     <!-- computer id -->
-    <activation>
-    </activation>
+    <activation>FTd8OWgAJKXqwTMDmvXH+vmCQTGpRBVNiNv7D3omPldhnV0tt33cax2mlZYPfQWepy6Y8GwN/diEexZNhcx4TC1FyXV8wQE4wY1VFVSLQ18sxxmSQmtg8UyaVT0xC2XVFE0fCBkhl+/lo/Cs2Rh6s5xeHb1pr9dOG9i5YACLJhgpeSQMwD4V3lYpW/FpSUXO</activation>
     <!-- activation key -->
   </license>

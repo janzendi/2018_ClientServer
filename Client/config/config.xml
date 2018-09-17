@@ -13,8 +13,8 @@
   <metrotheme>light</metrotheme> <!-- light and dark possible -->
   <metrostyle>4</metrostyle> <!-- Default = 0,  Black = 1,  White = 2,  Silver = 3,  Blue = 4,  Green = 5,  Lime = 6,  Teal = 7,  Orange = 8,  Brown = 9,  Pink = 10,  Magenta = 11,  Purple = 12,  Red = 13,  Yellow = 14 -->
   <license>
-    <sn></sn>
-    <id></id> <!-- computer id -->
-    <activation></activation> <!-- activation key -->
+    <sn>903055012</sn>
+    <id>pt1pxEPAZlzqtsaslTVCN5Y7ZOhoaYqJfQUeJPvFIHsOtKv4XE4XCE9qhuZ63nQs</id> <!-- computer id -->
+    <activation>FTd8OWgAJKXqwTMDmvXH+vmCQTGpRBVNiNv7D3omPldhnV0tt33cax2mlZYPfQWepy6Y8GwN/diEexZNhcx4TC1FyXV8wQE4wY1VFVSLQ18sxxmSQmtg8UyaVT0xC2XVFE0fCBkhl+/lo/Cs2Rh6s5xeHb1pr9dOG9i5YACLJhgpeSQMwD4V3lYpW/FpSUXO</activation> <!-- activation key -->
   </license>
 </config>

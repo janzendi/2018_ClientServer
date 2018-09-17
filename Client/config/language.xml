@@ -38,6 +38,9 @@
     <text id="1033" tooltip="missing" objecttype="mail">Service-Tool Seriennummer: </text>
     <text id="1034" tooltip="missing" objecttype="mail">Aktivierungsschlüssel Generierung</text>
     <text id="1035" tooltip="missing" objecttype="mail">Aktivierungsschlüssel wurde in die Zwischenablage kopiert:</text>
+    <text id="1036" tooltip="missing" objecttype="tag">TWizard Ordner auswählen</text>
+    <text id="1037" tooltip="missing" objecttype="tag">TWizard AD</text>
+    <text id="" tooltip="" objecttype="tag"></text>
   </language>
 	<language id="en" text="English">
     <text id="1" tooltip="Missing text-id" objecttype="tag">Missing text-id</text>
@@ -77,6 +80,8 @@
     <text id="1033" tooltip="" objecttype="mail">Service-Tool serial number: </text>
     <text id="1034" tooltip="missing" objecttype="mail">Activation key generation</text>
     <text id="1035" tooltip="missing" objecttype="mail">Activation key is copied to clipboard:</text>
+    <text id="1036" tooltip="missing" objecttype="tag">Select TWizard root folder</text>
+    <text id="1037" tooltip="missing" objecttype="tag">TWizard AD</text>
     <text id="" tooltip="" objecttype="tag"></text>
 	</language>
 </languages>

@@ -42,6 +42,7 @@ namespace Client
             this.tabNetwork = new System.Windows.Forms.TabPage();
             this.richTextBox_Info = new System.Windows.Forms.RichTextBox();
             this.metroStyleManager = new MetroFramework.Components.MetroStyleManager(this.components);
+            this.tabTwad_1037 = new System.Windows.Forms.TabPage();
             this.statusStripbtm.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -96,6 +97,7 @@ namespace Client
             // tabControl
             // 
             this.tabControl.Controls.Add(this.tabNetwork);
+            this.tabControl.Controls.Add(this.tabTwad_1037);
             resources.ApplyResources(this.tabControl, "tabControl");
             this.tabControl.Multiline = true;
             this.tabControl.Name = "tabControl";
@@ -119,6 +121,12 @@ namespace Client
             // metroStyleManager
             // 
             this.metroStyleManager.Owner = this;
+            // 
+            // tabTwad_1037
+            // 
+            resources.ApplyResources(this.tabTwad_1037, "tabTwad_1037");
+            this.tabTwad_1037.Name = "tabTwad_1037";
+            this.tabTwad_1037.Tag = "1037";
             // 
             // MetroMain
             // 
@@ -208,6 +216,13 @@ namespace Client
                 toolStripMenuItemRegisterierung.Click += ToolStripMenuItemRegisterierung_Click;
                 toolStripMenuItemInfo.DropDownItems.Add(toolStripMenuItemRegisterierung);
 
+                //
+                // Panels 
+                //
+                pnlTwAd = new panel.TW_AD(metroStyleManager);
+                tabTwad_1037.Controls.Add(pnlTwAd);
+                
+
                 // Menubar Sprachen aufbauen
                 while (global.language.LanguageHandler.XMLREADISFINISH) { } // warten bis Lesevorgang abgeschlossen ist.
                 global.log.MetroLog.INSTANCE.WriteLine("Get Language data from file finalized.", global.log.MetroLog.LogType.INFO);
@@ -217,13 +232,13 @@ namespace Client
                     tmp_toolStripMenuItem.Click += Click_ChangeLanguage;
                     toolStripMenuItemLanguage.DropDownItems.Add(tmp_toolStripMenuItem);
                 }
-                ChangeLanguage(config.ConfigReadWriter.LANGUAGE); // Sprache aus config file lesen.
+                ChangeLanguage(global.config.ConfigReadWriter.LANGUAGE); // Sprache aus config file lesen.
 
                 // Form Größe anpassen.
                 if (this.Size.Width < System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width && this.Size.Height < System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height)
                 {
-                    this.Size = new System.Drawing.Size(config.ConfigReadWriter.WINDOWWIDTH, config.ConfigReadWriter.WINDOWLENGTH);
-                    if (config.ConfigReadWriter.FULLSCREEN)
+                    this.Size = new System.Drawing.Size(global.config.ConfigReadWriter.WINDOWWIDTH, global.config.ConfigReadWriter.WINDOWLENGTH);
+                    if (global.config.ConfigReadWriter.FULLSCREEN)
                         this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
                     else
                         this.WindowState = System.Windows.Forms.FormWindowState.Normal;
@@ -233,7 +248,7 @@ namespace Client
                 this.FormClosing += MetroMain_FormClosing;
 
                 //Icon definieren
-                this.Icon = new System.Drawing.Icon(config.ConfigReadWriter.PATHICON);
+                this.Icon = new System.Drawing.Icon(global.config.ConfigReadWriter.PATHICON);
                 
                 //Panel Transparent gestalten damit Metro design angezeigt wird.
                 tabNetwork.BackColor = System.Drawing.Color.Transparent;
@@ -247,14 +262,14 @@ namespace Client
                 this.richTextBox_Info.ForeColor = MetroLabel.DefaultForeColor;
                 this.richTextBox_Info.BackColor = MetroFramework.MetroColors.White;
                 this.richTextBox_Info.BorderStyle = System.Windows.Forms.BorderStyle.None;
-                metroStyleManager.Theme = config.ConfigReadWriter.METROTHEME;
-                metroStyleManager.Style = config.ConfigReadWriter.METROSTYLE;
+                metroStyleManager.Theme = global.config.ConfigReadWriter.METROTHEME;
+                metroStyleManager.Style = global.config.ConfigReadWriter.METROSTYLE;
 
 
                 //
                 // Lizenzsystem
                 //
-                this.ENABLED = config.ConfigReadWriter.VALIDLICENSE;
+                this.ENABLED = global.config.ConfigReadWriter.VALIDLICENSE;
             }
             catch (System.Exception)
             {
@@ -297,7 +312,7 @@ namespace Client
             {
                 global.readme.license.Register register = new global.readme.license.Register(this.StyleManager);
                 register.ShowDialog();
-                this.ENABLED = config.ConfigReadWriter.VALIDLICENSE;
+                this.ENABLED = global.config.ConfigReadWriter.VALIDLICENSE;
             }
             catch (System.Exception)
             {
@@ -370,29 +385,30 @@ namespace Client
         {
             try
             {
-                config.ConfigReadWriter.WINDOWWIDTH = this.Size.Width;
-                config.ConfigReadWriter.WINDOWLENGTH = this.Size.Height;
-                config.ConfigReadWriter.FULLSCREEN = (this.WindowState == System.Windows.Forms.FormWindowState.Maximized);
+                global.config.ConfigReadWriter.WINDOWWIDTH = this.Size.Width;
+                global.config.ConfigReadWriter.WINDOWLENGTH = this.Size.Height;
+                global.config.ConfigReadWriter.FULLSCREEN = (this.WindowState == System.Windows.Forms.FormWindowState.Maximized);
                 global.log.MetroLog.INSTANCE.DebugWriteLine(this.Size.Width.ToString() + " x " + this.Size.Height.ToString() + " " + this.WindowState.ToString(), global.log.MetroLog.LogType.INFO, 1011);
-                config.ConfigReadWriter.METROTHEME = metroStyleManager.Theme;
-                config.ConfigReadWriter.METROSTYLE = metroStyleManager.Style;
+                global.config.ConfigReadWriter.METROTHEME = metroStyleManager.Theme;
+                global.config.ConfigReadWriter.METROSTYLE = metroStyleManager.Style;
             }
             catch (System.Exception)
             {
                 throw; //TODO    
             }
         }
-        
+
         /// <summary>
         /// Methode um Sprache umzustellen.
         /// </summary>
         /// <created>janzen_d,2018-09-05</created>
+        /// <modified>janzen_d,2018-09-17: Panels hinzufügen</modified>
         private void ChangeLanguage(string language)
         {
             try
             {
                 strActualLanguage = language;
-                config.ConfigReadWriter.LANGUAGE = language;
+                global.config.ConfigReadWriter.LANGUAGE = language;
                 if (this.Tag != null && System.Int32.TryParse(this.Tag.ToString(), out int resulttextid2))
                 {
                     string[] arytmp2 = global.language.LanguageHandler.INSTANCE.GETOBJWORD(strActualLanguage, resulttextid2);
@@ -439,6 +455,10 @@ namespace Client
                         global.windows.forms.FormMethods.ChangeLanguage(control.Controls, metroToolTip, language);
                     }
                 }
+
+                // Panelsanpassen
+                if (pnlTwAd != null)
+                    pnlTwAd.ChangeLanguage(strActualLanguage);
             }
             catch (System.Exception)
             {
@@ -469,7 +489,7 @@ namespace Client
         #region threads
         private static void ReadXml()
         {
-            global.language.LanguageHandler.INSTANCE.ReadXml(config.ConfigReadWriter.LANGUAGEPATH);
+            global.language.LanguageHandler.INSTANCE.ReadXml(global.config.ConfigReadWriter.LANGUAGEPATH);
         }
         #endregion
 
@@ -492,6 +512,8 @@ namespace Client
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemRegisterierung;
         //Tooltip
         private MetroFramework.Components.MetroToolTip metroToolTip;
+        // Panels
+        private panel.TW_AD pnlTwAd;
         #endregion
 
 
@@ -505,5 +527,6 @@ namespace Client
         private System.Windows.Forms.ToolStripProgressBar statusprgbar;
         private System.Windows.Forms.ToolStripStatusLabel statusprgtxt;
         private MetroFramework.Components.MetroStyleManager metroStyleManager;
+        private System.Windows.Forms.TabPage tabTwad_1037;
     }
 }

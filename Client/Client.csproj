@@ -52,7 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="config\ConfigReadWriter.cs" />
+    <Compile Include="global\config\ConfigReadWriter.cs" />
     <Compile Include="global\language\LanguageHandler.cs" />
     <Compile Include="global\language\ObjWord.cs" />
     <Compile Include="global\log\MetroLog.cs" />
@@ -77,6 +77,12 @@
     <Compile Include="MetroMain.Designer.cs">
       <DependentUpon>MetroMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="panel\TW_AD.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="panel\TW_AD.Designer.cs">
+      <DependentUpon>TW_AD.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="global\readme\license\Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
@@ -89,6 +95,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MetroMain.resx">
       <DependentUpon>MetroMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="panel\TW_AD.resx">
+      <DependentUpon>TW_AD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -113,9 +122,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="global\config\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="config\icon.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

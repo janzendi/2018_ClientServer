@@ -65,6 +65,7 @@ namespace Client.global.windows.forms
             }
             else
             {
+                if (c.Tag != null) list.Add(c);
                 foreach (System.Windows.Forms.Control control in c.Controls)
                     list = GetAllControls(control, list);
             }

@@ -131,7 +131,7 @@ namespace Client.global.language
             {
                 global.log.MetroLog.INSTANCE.WriteLine("Exception thrown in class: " + this.ToString() + ", METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + e.ToString(), global.log.MetroLog.LogType.ERROR);
             }
-            return null;
+            return objword;
         }
 
         /// <summary>

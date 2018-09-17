@@ -40,6 +40,10 @@
     <text id="1035" tooltip="missing" objecttype="mail">Aktivierungsschlüssel wurde in die Zwischenablage kopiert:</text>
     <text id="1036" tooltip="missing" objecttype="tag">TWizard Ordner auswählen</text>
     <text id="1037" tooltip="missing" objecttype="tag">TWizard AD</text>
+    <text id="1038" tooltip="TWizard Pfad" objecttype="tag"></text>
+    <text id="1039" tooltip="TWizard Ordner auswählen" objecttype="tag">TW Ordner öffnen</text>
+    <text id="1040" tooltip="Konfiguration speichern" objecttype="tag">TW Speichern</text>
+    <text id="1041" tooltip="missing" objecttype="tag">TWizard Ordner wird versucht zu öffnen</text>
     <text id="" tooltip="" objecttype="tag"></text>
   </language>
 	<language id="en" text="English">
@@ -82,6 +86,10 @@
     <text id="1035" tooltip="missing" objecttype="mail">Activation key is copied to clipboard:</text>
     <text id="1036" tooltip="missing" objecttype="tag">Select TWizard root folder</text>
     <text id="1037" tooltip="missing" objecttype="tag">TWizard AD</text>
+    <text id="1038" tooltip="TWizard root path" objecttype="tag"></text>
+    <text id="1039" tooltip="Select TWizard folder" objecttype="tag">Open TW folder</text>
+    <text id="1040" tooltip="Save configuration" objecttype="tag">Save TW config</text>
+    <text id="1041" tooltip="missing" objecttype="tag">Try to open</text>
     <text id="" tooltip="" objecttype="tag"></text>
 	</language>
 </languages>

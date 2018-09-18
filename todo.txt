@@ -1,5 +1,5 @@
 Prio 1
-TW_AD Panel hinzufügen
+TW_AD Panel aufräumen
 
 gridmoduleid_1042 				0
 gridfullpath_1043				1

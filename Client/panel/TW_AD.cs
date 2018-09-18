@@ -37,6 +37,9 @@ namespace Client.panel
 
             // Ordner aus der History laden
             mtxtBox_TWPath_1038.Text = global.config.ConfigReadWriter.TWADPREPATH;
+
+            // Save button deaktivieren
+            mbtnSave_1040.Enabled = false;
         }
 
         /// <summary>
@@ -120,6 +123,9 @@ namespace Client.panel
                             }
                         }
                     }
+
+                    // Save button aktivieren
+                    mbtnSave_1040.Enabled = true;
                 }
             }
         }
@@ -139,29 +145,90 @@ namespace Client.panel
                 XmlNode xmlNodeAcc = xmlDocument.SelectSingleNode("EQUIPMENT/ACC_CONF/acc[@mainAppPrefix]");
                 if (xmlNodeAcc != null)
                 {
-                    listXmlEquipment.Add(xmlDocument);
                     string[] strRow = new string[11];
+                    listXmlEquipment.Add(xmlDocument);
                     strRow[3] = directory.ToString();
                     strRow[4] = listXmlEquipment.IndexOf(xmlDocument).ToString();
                     strRow[5] = xmlNodeAcc.Attributes["mainAppPrefix"].Value.ToString();
 
-                    XmlNode xmlNodeLvl2 = xmlDocument.SelectSingleNode("//Level2");
-                    if (xmlNodeLvl2 != null)
+                    XmlNodeList xmlNodeLvls = xmlDocument.SelectNodes("//groups/*[@name]");
+                    if (xmlNodeLvls.Count > 0)
                     {
-
+                        foreach (XmlNode xmlNodeLvl in xmlNodeLvls)
+                        {
+                            string tmp = null;
+                            try
+                            {
+                                tmp = xmlNodeLvl.Attributes["name"].Value;
+                            }
+                            catch (Exception)
+                            {
+                                throw;
+                            }
+                            if (tmp != null)
+                            {
+                                switch (xmlNodeLvl.Name)
+                                {
+                                    case "Level2":
+                                        strRow[6] = tmp;
+                                        break;
+                                    case "Level3":
+                                        strRow[7] = tmp;
+                                        break;
+                                    case "Level4":
+                                        strRow[8] = tmp;
+                                        break;
+                                    case "Level11":
+                                        strRow[9] = tmp;
+                                        break;
+                                    case "Level15":
+                                        strRow[10] = tmp;
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            }
+                        }
                     }
-                    XmlNode xmlNodeLvl3 = xmlDocument.SelectSingleNode("//Level3");
-                    XmlNode xmlNodeLvl4 = xmlDocument.SelectSingleNode("//Level4");
-                    XmlNode xmlNodeLvl11 = xmlDocument.SelectSingleNode("//Level11");
-                    XmlNode xmlNodeLvl15 = xmlDocument.SelectSingleNode("//Level15");
 
-                    XmlNodeList xmlNodetmp = xmlDocument.SelectNodes("//groups/*[@name]");
-                    if (xmlNodetmp.Count > 0)
-                    {
-                        global.log.MetroLog.INSTANCE.WriteLine("test:\t" + xmlNodetmp.ToString(), global.log.MetroLog.LogType.ERROR);
-
-                    }                    
+                    this.AddRow(strRow);
                 }
+            }
+        }
+
+        private delegate void dgAddRow(string[] gridrow);
+        /// <summary>
+        /// Thread Eine Zeile im DataGrid hinzufügen.
+        /// </summary>
+        /// <param name="gridrow"></param>
+        /// <created>janzen_d,2018-09-18</created>
+        private void AddRow(string[] gridrow)
+        {
+            try
+            {
+                if (metroGrid.InvokeRequired) //Threadprogrammierung um zu verhindern, das ein anderer Prozess gleichzeitig auf das Objekt zugreift.
+                {
+                    metroGrid.BeginInvoke(new dgAddRow(AddRow), new object[] { gridrow });
+                }
+                else
+                {
+                    metroGrid.Rows.Add(gridrow);
+                    for (int i = 5; i < 11; i++)
+                    {
+                        if (gridrow[i] != null)
+                            metroGrid.Rows[metroGrid.Rows.Count - 2].Cells[i].ReadOnly = false; // -2 da ein datagrid immer eine zusatzzeile besitzt.
+                        else
+                            break;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                string tmp = "ERROR: Log data could not be written. Please contact the developer and forward file \"LOGEXCEPTION.txt\" in the main application folder." + " Exception thrown in class: " + this.ToString() + ", METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + e.ToString();
+                MessageBox.Show(tmp);
+                TextWriter txtFile = new StreamWriter("LOGEXCEPTION.txt");
+                txtFile.Write(tmp);
+                txtFile.Close();
             }
         }
 
@@ -173,7 +240,35 @@ namespace Client.panel
         /// <created>janzen_d,2018-09-17</created>
         private void mbtnSave_1040_Click(object sender, EventArgs e)
         {
-
+            global.log.MetroLog.INSTANCE.DebugWriteLine(this.ToString() + " - "+ System.Reflection.MethodBase.GetCurrentMethod(), global.log.MetroLog.LogType.INFO, 1056);
+            try
+            {
+                foreach (DataGridViewRow dataRow in metroGrid.Rows)
+                {
+                    if (dataRow.Cells[4].Value == null || dataRow.Cells[4].Value.ToString() == String.Empty) // [4] = gridListequipmentid_1046
+                        continue;
+                    else
+                    {
+                        listXmlEquipment[Convert.ToInt32(dataRow.Cells[4].Value)].SelectSingleNode("EQUIPMENT/ACC_CONF/acc").Attributes["mainAppPrefix"].Value = dataRow.Cells[5].Value.ToString(); // [5] = gridADGroupprefix_1047
+                        if (dataRow.Cells[6].Value != null) // [6] = gridLvl2_1048
+                            listXmlEquipment[Convert.ToInt32(dataRow.Cells[4].Value)].SelectSingleNode("EQUIPMENT/ACC_CONF/acc/groups/Level2").Attributes["name"].Value = dataRow.Cells[6].Value.ToString();
+                        if (dataRow.Cells[7].Value != null) // [7] = gridLvl3_1049
+                            listXmlEquipment[Convert.ToInt32(dataRow.Cells[4].Value)].SelectSingleNode("EQUIPMENT/ACC_CONF/acc/groups/Level3").Attributes["name"].Value = dataRow.Cells[7].Value.ToString();
+                        if (dataRow.Cells[8].Value != null) // [8] = gridLvl4_1050
+                            listXmlEquipment[Convert.ToInt32(dataRow.Cells[4].Value)].SelectSingleNode("EQUIPMENT/ACC_CONF/acc/groups/Level4").Attributes["name"].Value = dataRow.Cells[8].Value.ToString();
+                        if (dataRow.Cells[9].Value != null) // [9] = gridLvl11_1051
+                            listXmlEquipment[Convert.ToInt32(dataRow.Cells[4].Value)].SelectSingleNode("EQUIPMENT/ACC_CONF/acc/groups/Level11").Attributes["name"].Value = dataRow.Cells[9].Value.ToString();
+                        if (dataRow.Cells[10].Value != null) // [10] = gridLvl15_1052
+                            listXmlEquipment[Convert.ToInt32(dataRow.Cells[4].Value)].SelectSingleNode("EQUIPMENT/ACC_CONF/acc/groups/Level15").Attributes["name"].Value = dataRow.Cells[10].Value.ToString();
+                        listXmlEquipment[Convert.ToInt32(dataRow.Cells[4].Value)].Save(dataRow.Cells[3].Value.ToString()); // [3] = gridTwequipmentfilepath_1045
+                        global.log.MetroLog.INSTANCE.WriteLine(dataRow.Cells[3].Value.ToString(), global.log.MetroLog.LogType.INFO, 1058);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                global.log.MetroLog.INSTANCE.DebugWriteLine(ex.ToString(), global.log.MetroLog.LogType.ERROR, 1057);
+            }
         }
     }
 }

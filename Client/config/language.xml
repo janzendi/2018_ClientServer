@@ -58,6 +58,9 @@
     <text id="1053" tooltip="" objecttype="error">TWizard Ordner gefunden</text>
     <text id="1054" tooltip="" objecttype="error">Anzahl gefundener aktiver TWizard Module:</text>
     <text id="1055" tooltip="" objecttype="error">TWizard module überprüfen:</text>
+    <text id="1056" tooltip="" objecttype="error">Aufruf der einer Methode in der Klasse:</text>
+    <text id="1057" tooltip="" objecttype="error">TW AD Konfiguration konnte nicht gespeichert werden.</text>
+    <text id="1058" tooltip="" objecttype="error">TW Datei wurde gespeichert: </text>
     <text id="" tooltip="" objecttype="tag"></text>
   </language>
 	<language id="en" text="English">
@@ -118,6 +121,9 @@
     <text id="1053" tooltip="" objecttype="error">TWizard folder found</text>
     <text id="1054" tooltip="" objecttype="error">Number active TWizard modules found:</text>
     <text id="1055" tooltip="" objecttype="error">Check TWizard module:</text>
-    <text id="" tooltip="" objecttype="tag"></text>
+    <text id="1056" tooltip="" objecttype="error">Call in a class a method:</text>
+    <text id="1057" tooltip="" objecttype="error">TW AD configuration could not be saved</text>
+    <text id="1058" tooltip="" objecttype="error">TW file was saved: </text>
+	<text id="" tooltip="" objecttype="tag"></text>
 	</language>
 </languages>

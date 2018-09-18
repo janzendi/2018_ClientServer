@@ -139,6 +139,7 @@
             // metroGrid
             // 
             this.metroGrid.AllowUserToResizeRows = false;
+            this.metroGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.metroGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.metroGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.metroGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -177,6 +178,7 @@
             this.metroGrid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.metroGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.metroGrid.Location = new System.Drawing.Point(3, 53);
+            this.metroGrid.MultiSelect = false;
             this.metroGrid.Name = "metroGrid";
             this.metroGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -202,15 +204,15 @@
             this.gridmoduleid_1042.MinimumWidth = 30;
             this.gridmoduleid_1042.Name = "gridmoduleid_1042";
             this.gridmoduleid_1042.ReadOnly = true;
+            this.gridmoduleid_1042.Visible = false;
             this.gridmoduleid_1042.Width = 35;
-            this.gridmoduleid_1042.Tag = 1042;
             // 
             // gridfullpath_1043
             // 
             this.gridfullpath_1043.HeaderText = "gridfullpath_1043";
             this.gridfullpath_1043.Name = "gridfullpath_1043";
             this.gridfullpath_1043.ReadOnly = true;
-            this.gridfullpath_1043.Tag = 1043;
+            this.gridfullpath_1043.Visible = false;
             // 
             // gridmodulename_1044
             // 
@@ -219,14 +221,12 @@
             this.gridmodulename_1044.Name = "gridmodulename_1044";
             this.gridmodulename_1044.ReadOnly = true;
             this.gridmodulename_1044.Width = 140;
-            this.gridmodulename_1044.Tag = 1044;
             // 
             // gridTwequipmentfilepath_1045
             // 
             this.gridTwequipmentfilepath_1045.HeaderText = "gridTwequipmentfilepath_1045";
             this.gridTwequipmentfilepath_1045.Name = "gridTwequipmentfilepath_1045";
             this.gridTwequipmentfilepath_1045.ReadOnly = true;
-            this.gridTwequipmentfilepath_1045.Tag = 1045;
             // 
             // gridListequipmentid_1046
             // 
@@ -235,7 +235,6 @@
             this.gridListequipmentid_1046.Name = "gridListequipmentid_1046";
             this.gridListequipmentid_1046.ReadOnly = true;
             this.gridListequipmentid_1046.Width = 35;
-            this.gridListequipmentid_1046.Tag = 1046;
             // 
             // gridADGroupprefix_1047
             // 
@@ -243,42 +242,36 @@
             this.gridADGroupprefix_1047.MinimumWidth = 100;
             this.gridADGroupprefix_1047.Name = "gridADGroupprefix_1047";
             this.gridADGroupprefix_1047.Width = 160;
-            this.gridADGroupprefix_1047.Tag = 1047;
             // 
             // gridLvl2_1048
             // 
             this.gridLvl2_1048.HeaderText = "gridLvl2_1048";
             this.gridLvl2_1048.Name = "gridLvl2_1048";
             this.gridLvl2_1048.ReadOnly = true;
-            this.gridLvl2_1048.Tag = 1048;
             // 
             // gridLvl3_1049
             // 
             this.gridLvl3_1049.HeaderText = "gridLvl3_1049";
             this.gridLvl3_1049.Name = "gridLvl3_1049";
             this.gridLvl3_1049.ReadOnly = true;
-            this.gridLvl3_1049.Tag = 1049;
             // 
             // gridLvl4_1050
             // 
             this.gridLvl4_1050.HeaderText = "gridLvl4_1050";
             this.gridLvl4_1050.Name = "gridLvl4_1050";
             this.gridLvl4_1050.ReadOnly = true;
-            this.gridLvl4_1050.Tag = 1050;
             // 
             // gridLvl11_1051
             // 
             this.gridLvl11_1051.HeaderText = "gridLvl11_1051";
             this.gridLvl11_1051.Name = "gridLvl11_1051";
             this.gridLvl11_1051.ReadOnly = true;
-            this.gridLvl11_1051.Tag = 1051;
             // 
             // gridLvl15_1052
             // 
             this.gridLvl15_1052.HeaderText = "gridLvl15_1052";
             this.gridLvl15_1052.Name = "gridLvl15_1052";
             this.gridLvl15_1052.ReadOnly = true;
-            this.gridLvl15_1052.Tag = 1052;
             // 
             // TW_AD
             // 
@@ -321,6 +314,50 @@
             metroToolTip = new MetroFramework.Components.MetroToolTip();
             metroToolTip.StyleManager = this.StyleManager;
 
+            // 
+            // gridmoduleid_1042
+            // 
+            this.gridmoduleid_1042.Tag = 1042;
+            // 
+            // gridfullpath_1043
+            // 
+            this.gridfullpath_1043.Tag = 1043;
+            // 
+            // gridmodulename_1044
+            // 
+            this.gridmodulename_1044.Tag = 1044;
+            // 
+            // gridTwequipmentfilepath_1045
+            // 
+            this.gridTwequipmentfilepath_1045.Tag = 1045;
+            // 
+            // gridListequipmentid_1046
+            // 
+            this.gridListequipmentid_1046.Tag = 1046;
+            // 
+            // gridADGroupprefix_1047
+            // 
+            this.gridADGroupprefix_1047.Tag = 1047;
+            // 
+            // gridLvl2_1048
+            // 
+            this.gridLvl2_1048.Tag = 1048;
+            // 
+            // gridLvl3_1049
+            // 
+            this.gridLvl3_1049.Tag = 1049;
+            // 
+            // gridLvl4_1050
+            // 
+            this.gridLvl4_1050.Tag = 1050;
+            // 
+            // gridLvl11_1051
+            // 
+            this.gridLvl11_1051.Tag = 1051;
+            // 
+            // gridLvl15_1052
+            // 
+            this.gridLvl15_1052.Tag = 1052;
         }
 
         /// <summary>

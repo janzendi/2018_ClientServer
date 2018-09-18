@@ -174,7 +174,7 @@ namespace Client.Layout.Layout_TWizard
                         {
                             Log.LogFile.INSTANCE.WriteLine("INFO -> Analyze directory: " + directories.FullName);
                             Log.LogFile.INSTANCE.ProgressBar((decimal)(i + 1) / (decimal)directoryCount, directories.Name);
-
+                            
                             if (activemodules.Contains(directories.Name))
                             {
                                 if (Directory.Exists(directories.FullName + "\\uhlmann\\tc\\equipment"))

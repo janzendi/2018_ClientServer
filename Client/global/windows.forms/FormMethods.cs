@@ -38,6 +38,27 @@ namespace Client.global.windows.forms
                                 }
                             }
                         }
+                        else if(itemcontrol is MetroFramework.Controls.MetroGrid)
+                        {
+                            foreach (System.Windows.Forms.DataGridViewColumn itemcolumn in ((MetroFramework.Controls.MetroGrid)itemcontrol).Columns)
+                            {
+                                if (itemcolumn.Tag != null && System.Int32.TryParse(itemcolumn.Tag.ToString(), out int resultcolumntextid))
+                                {
+                                    string[] arytmp = global.language.LanguageHandler.INSTANCE.GETOBJWORD(language, resultcolumntextid);
+                                    if (arytmp[2] != null || arytmp[2] != "")
+                                    {
+                                        if (arytmp[2].Length > 2)
+                                            itemcolumn.HeaderText = arytmp[2];
+                                        global.log.MetroLog.INSTANCE.DebugWriteLine("Set control text: " + itemcolumn.Name.ToString() + " = " + arytmp[2], global.log.MetroLog.LogType.INFO);
+                                        if (arytmp[0] != null || arytmp[0] != "")
+                                        {
+                                            itemcolumn.ToolTipText = arytmp[0];
+                                            global.log.MetroLog.INSTANCE.DebugWriteLine("Set control tool tip text: " + itemcolumn.Name.ToString() + " = " + arytmp[0], global.log.MetroLog.LogType.INFO);
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
 
                 }
@@ -61,7 +82,7 @@ namespace Client.global.windows.forms
         /// <modified>janzen_d,2018-09-13: Nach global verschoben</modified>
         private static System.Collections.Generic.List<System.Windows.Forms.Control> GetAllControls(System.Windows.Forms.Control c, System.Collections.Generic.List<System.Windows.Forms.Control> list)
         {
-            if (c.Controls.Count == 0 || c is MetroFramework.Controls.MetroTextBox) //|| c is MetroFramework.Controls.MetroGrid
+            if (c.Controls.Count == 0 || c is MetroFramework.Controls.MetroTextBox || c is MetroFramework.Controls.MetroGrid) //
             {
                 if (c is System.Windows.Forms.TabPage
                     || c is MetroFramework.Controls.MetroLabel

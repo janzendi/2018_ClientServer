@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.mtxtBox_TWPath_1038 = new MetroFramework.Controls.MetroTextBox();
@@ -38,6 +38,17 @@
             this.mbtnSave_1040 = new MetroFramework.Controls.MetroButton();
             this.metroGrid = new MetroFramework.Controls.MetroGrid();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.gridmoduleid_1042 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gridfullpath_1043 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gridmodulename_1044 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gridTwequipmentfilepath_1045 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gridListequipmentid_1046 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gridADGroupprefix_1047 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gridLvl2_1048 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gridLvl3_1049 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gridLvl4_1050 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gridLvl11_1051 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gridLvl15_1052 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid)).BeginInit();
@@ -132,23 +143,35 @@
             this.metroGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.metroGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.metroGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.metroGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.metroGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.metroGrid.DefaultCellStyle = dataGridViewCellStyle11;
+            this.metroGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.gridmoduleid_1042,
+            this.gridfullpath_1043,
+            this.gridmodulename_1044,
+            this.gridTwequipmentfilepath_1045,
+            this.gridListequipmentid_1046,
+            this.gridADGroupprefix_1047,
+            this.gridLvl2_1048,
+            this.gridLvl3_1049,
+            this.gridLvl4_1050,
+            this.gridLvl11_1051,
+            this.gridLvl15_1052});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.metroGrid.DefaultCellStyle = dataGridViewCellStyle2;
             this.metroGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroGrid.EnableHeadersVisualStyles = false;
             this.metroGrid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -156,14 +179,14 @@
             this.metroGrid.Location = new System.Drawing.Point(3, 53);
             this.metroGrid.Name = "metroGrid";
             this.metroGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.metroGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.metroGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.metroGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.metroGrid.Size = new System.Drawing.Size(674, 369);
@@ -172,6 +195,90 @@
             // folderBrowserDialog
             // 
             this.folderBrowserDialog.Tag = "1036";
+            // 
+            // gridmoduleid_1042
+            // 
+            this.gridmoduleid_1042.HeaderText = "gridmoduleid_1042";
+            this.gridmoduleid_1042.MinimumWidth = 30;
+            this.gridmoduleid_1042.Name = "gridmoduleid_1042";
+            this.gridmoduleid_1042.ReadOnly = true;
+            this.gridmoduleid_1042.Width = 35;
+            this.gridmoduleid_1042.Tag = 1042;
+            // 
+            // gridfullpath_1043
+            // 
+            this.gridfullpath_1043.HeaderText = "gridfullpath_1043";
+            this.gridfullpath_1043.Name = "gridfullpath_1043";
+            this.gridfullpath_1043.ReadOnly = true;
+            this.gridfullpath_1043.Tag = 1043;
+            // 
+            // gridmodulename_1044
+            // 
+            this.gridmodulename_1044.HeaderText = "gridmodulename_1044";
+            this.gridmodulename_1044.MinimumWidth = 100;
+            this.gridmodulename_1044.Name = "gridmodulename_1044";
+            this.gridmodulename_1044.ReadOnly = true;
+            this.gridmodulename_1044.Width = 140;
+            this.gridmodulename_1044.Tag = 1044;
+            // 
+            // gridTwequipmentfilepath_1045
+            // 
+            this.gridTwequipmentfilepath_1045.HeaderText = "gridTwequipmentfilepath_1045";
+            this.gridTwequipmentfilepath_1045.Name = "gridTwequipmentfilepath_1045";
+            this.gridTwequipmentfilepath_1045.ReadOnly = true;
+            this.gridTwequipmentfilepath_1045.Tag = 1045;
+            // 
+            // gridListequipmentid_1046
+            // 
+            this.gridListequipmentid_1046.HeaderText = "gridListequipmentid_1046";
+            this.gridListequipmentid_1046.MinimumWidth = 30;
+            this.gridListequipmentid_1046.Name = "gridListequipmentid_1046";
+            this.gridListequipmentid_1046.ReadOnly = true;
+            this.gridListequipmentid_1046.Width = 35;
+            this.gridListequipmentid_1046.Tag = 1046;
+            // 
+            // gridADGroupprefix_1047
+            // 
+            this.gridADGroupprefix_1047.HeaderText = "gridADGroupprefix_1047";
+            this.gridADGroupprefix_1047.MinimumWidth = 100;
+            this.gridADGroupprefix_1047.Name = "gridADGroupprefix_1047";
+            this.gridADGroupprefix_1047.Width = 160;
+            this.gridADGroupprefix_1047.Tag = 1047;
+            // 
+            // gridLvl2_1048
+            // 
+            this.gridLvl2_1048.HeaderText = "gridLvl2_1048";
+            this.gridLvl2_1048.Name = "gridLvl2_1048";
+            this.gridLvl2_1048.ReadOnly = true;
+            this.gridLvl2_1048.Tag = 1048;
+            // 
+            // gridLvl3_1049
+            // 
+            this.gridLvl3_1049.HeaderText = "gridLvl3_1049";
+            this.gridLvl3_1049.Name = "gridLvl3_1049";
+            this.gridLvl3_1049.ReadOnly = true;
+            this.gridLvl3_1049.Tag = 1049;
+            // 
+            // gridLvl4_1050
+            // 
+            this.gridLvl4_1050.HeaderText = "gridLvl4_1050";
+            this.gridLvl4_1050.Name = "gridLvl4_1050";
+            this.gridLvl4_1050.ReadOnly = true;
+            this.gridLvl4_1050.Tag = 1050;
+            // 
+            // gridLvl11_1051
+            // 
+            this.gridLvl11_1051.HeaderText = "gridLvl11_1051";
+            this.gridLvl11_1051.Name = "gridLvl11_1051";
+            this.gridLvl11_1051.ReadOnly = true;
+            this.gridLvl11_1051.Tag = 1051;
+            // 
+            // gridLvl15_1052
+            // 
+            this.gridLvl15_1052.HeaderText = "gridLvl15_1052";
+            this.gridLvl15_1052.Name = "gridLvl15_1052";
+            this.gridLvl15_1052.ReadOnly = true;
+            this.gridLvl15_1052.Tag = 1052;
             // 
             // TW_AD
             // 
@@ -248,5 +355,16 @@
         private MetroFramework.Controls.MetroButton mbtnSelectFolder_1039;
         private MetroFramework.Controls.MetroButton mbtnSave_1040;
         private MetroFramework.Controls.MetroGrid metroGrid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gridmoduleid_1042;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gridfullpath_1043;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gridmodulename_1044;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gridTwequipmentfilepath_1045;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gridListequipmentid_1046;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gridADGroupprefix_1047;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gridLvl2_1048;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gridLvl3_1049;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gridLvl4_1050;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gridLvl11_1051;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gridLvl15_1052;
     }
 }

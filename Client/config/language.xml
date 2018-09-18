@@ -2,11 +2,11 @@
 <languages version="0.1">
 	<language id="de" text="Deutsch">
     <text id="1" tooltip="Text wurde nicht gefunden" objecttype="tag">Text-ID fehlt</text>
-		<text id="1000" tooltip="das Urheberrecht liegt bei Dimitri Janzen" objecttype="tag">©Dimitri Janzen</text>	
-		<text id="1001" tooltip="Status Ausgabe" objecttype="tag">Status</text>
-		<text id="1002" tooltip="Datei" objecttype="tag">Datei</text>
-		<text id="1003" tooltip="Einstellungen" objecttype="tag">Einstellungen</text>
-		<text id="1004" tooltip="Speichern" objecttype="tag">Speichern</text>
+	<text id="1000" tooltip="das Urheberrecht liegt bei Dimitri Janzen" objecttype="tag">©Dimitri Janzen</text>	
+	<text id="1001" tooltip="Status Ausgabe" objecttype="tag">Status</text>
+	<text id="1002" tooltip="Datei" objecttype="tag">Datei</text>
+	<text id="1003" tooltip="Einstellungen" objecttype="tag">Einstellungen</text>
+	<text id="1004" tooltip="Speichern" objecttype="tag">Speichern</text>
     <text id="1005" tooltip="Hier kann die Sprache eingestellt werden." objecttype="tag">Spracheinstellungen</text>
     <text id="1006" tooltip="Auf dieser Seite können Sie Netzlaufwerke verbinden" objecttype="tag">Netzlaufwerk verbinden</text>
     <text id="1007" tooltip="Service Tool" objecttype="tag">Service Tool</text>
@@ -44,11 +44,25 @@
     <text id="1039" tooltip="TWizard Ordner auswählen" objecttype="tag">TW Ordner öffnen</text>
     <text id="1040" tooltip="Konfiguration speichern" objecttype="tag">TW Speichern</text>
     <text id="1041" tooltip="missing" objecttype="tag">TWizard Ordner wird versucht zu öffnen</text>
+    <text id="1042" tooltip="Dies ist die eigen generierte Modul ID" objecttype="datagrid">Modul ID</text>
+    <text id="1043" tooltip="Kompletter Pfad" objecttype="datagrid">Kompletter Dateipfad</text>
+    <text id="1044" tooltip="Modul Name" objecttype="datagrid">Modul Name</text>
+    <text id="1045" tooltip="Kompletter Pfad der Euqipment Datei" objecttype="datagrid">Equip. Pfad</text>
+    <text id="1046" tooltip="Liste Equipment ID" objecttype="datagrid">Liste equip. ID</text>
+    <text id="1047" tooltip="Gruppennamen Prefix" objecttype="datagrid">Gruppen Prefix</text>
+    <text id="1048" tooltip="Level 2 Bediener" objecttype="datagrid">Level2</text>
+    <text id="1049" tooltip="Level 3 Einrichter" objecttype="datagrid">Level3</text>
+    <text id="1050" tooltip="Level 4 Technicker" objecttype="datagrid">Level4</text>
+    <text id="1051" tooltip="Level 11 Administrator" objecttype="datagrid">Level11</text>
+    <text id="1052" tooltip="Level 15 Signaturlevel" objecttype="datagrid">Level15</text>
+    <text id="1053" tooltip="" objecttype="error">TWizard Ordner gefunden</text>
+    <text id="1054" tooltip="" objecttype="error">Anzahl gefundener aktiver TWizard Module:</text>
+    <text id="1055" tooltip="" objecttype="error">TWizard module überprüfen:</text>
     <text id="" tooltip="" objecttype="tag"></text>
   </language>
 	<language id="en" text="English">
     <text id="1" tooltip="Missing text-id" objecttype="tag">Missing text-id</text>
-		<text id="1000" tooltip="copyright by Dimitri Janzen" objecttype="tag">©Dimitri Janzen</text>
+	<text id="1000" tooltip="copyright by Dimitri Janzen" objecttype="tag">©Dimitri Janzen</text>
     <text id="1001" tooltip="status output" objecttype="tag">status</text>
     <text id="1002" tooltip="menu file" objecttype="tag">File</text>
     <text id="1003" tooltip="Options" objecttype="tag">Options</text>
@@ -90,6 +104,20 @@
     <text id="1039" tooltip="Select TWizard folder" objecttype="tag">Open TW folder</text>
     <text id="1040" tooltip="Save configuration" objecttype="tag">Save TW config</text>
     <text id="1041" tooltip="missing" objecttype="tag">Try to open</text>
+    <text id="1042" tooltip="missing" objecttype="datagrid">Module id</text>
+    <text id="1043" tooltip="missing" objecttype="datagrid">full file path</text>
+    <text id="1044" tooltip="missing" objecttype="datagrid">Module name</text>
+    <text id="1045" tooltip="missing" objecttype="datagrid">Equip. file path</text>
+    <text id="1046" tooltip="missing" objecttype="datagrid">List equip. ID</text>
+    <text id="1047" tooltip="missing" objecttype="datagrid">Group prefix</text>
+    <text id="1048" tooltip="Level 2 operator" objecttype="datagrid">Level2</text>
+    <text id="1049" tooltip="Level 3 setter" objecttype="datagrid">Level3</text>
+    <text id="1050" tooltip="Level 4 technician" objecttype="datagrid">Level4</text>
+    <text id="1051" tooltip="Level 11 admin" objecttype="datagrid">Level11</text>
+    <text id="1052" tooltip="Level 15 signature level" objecttype="datagrid">Level15</text>
+    <text id="1053" tooltip="" objecttype="error">TWizard folder found</text>
+    <text id="1054" tooltip="" objecttype="error">Number active TWizard modules found:</text>
+    <text id="1055" tooltip="" objecttype="error">Check TWizard module:</text>
     <text id="" tooltip="" objecttype="tag"></text>
 	</language>
 </languages>

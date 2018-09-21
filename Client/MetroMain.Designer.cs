@@ -40,9 +40,10 @@ namespace Client
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tabControl = new MetroFramework.Controls.MetroTabControl();
             this.tabNetwork = new System.Windows.Forms.TabPage();
+            this.tabTwstopc_1059 = new System.Windows.Forms.TabPage();
+            this.tabTwad_1037 = new System.Windows.Forms.TabPage();
             this.richTextBox_Info = new System.Windows.Forms.RichTextBox();
             this.metroStyleManager = new MetroFramework.Components.MetroStyleManager(this.components);
-            this.tabTwad_1037 = new System.Windows.Forms.TabPage();
             this.statusStripbtm.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -98,6 +99,7 @@ namespace Client
             // 
             this.tabControl.Controls.Add(this.tabNetwork);
             this.tabControl.Controls.Add(this.tabTwad_1037);
+            this.tabControl.Controls.Add(this.tabTwstopc_1059);
             resources.ApplyResources(this.tabControl, "tabControl");
             this.tabControl.Multiline = true;
             this.tabControl.Name = "tabControl";
@@ -111,6 +113,18 @@ namespace Client
             this.tabNetwork.Tag = "1006";
             this.tabNetwork.UseVisualStyleBackColor = true;
             // 
+            // tabTwstopc_1059
+            // 
+            resources.ApplyResources(this.tabTwstopc_1059, "tabTwstopc_1059");
+            this.tabTwstopc_1059.Name = "tabTwstopc_1059";
+            this.tabTwstopc_1059.Tag = "1059";
+            // 
+            // tabTwad_1037
+            // 
+            resources.ApplyResources(this.tabTwad_1037, "tabTwad_1037");
+            this.tabTwad_1037.Name = "tabTwad_1037";
+            this.tabTwad_1037.Tag = "1037";
+            // 
             // richTextBox_Info
             // 
             this.richTextBox_Info.BackColor = System.Drawing.SystemColors.Window;
@@ -121,12 +135,6 @@ namespace Client
             // metroStyleManager
             // 
             this.metroStyleManager.Owner = this;
-            // 
-            // tabTwad_1037
-            // 
-            resources.ApplyResources(this.tabTwad_1037, "tabTwad_1037");
-            this.tabTwad_1037.Name = "tabTwad_1037";
-            this.tabTwad_1037.Tag = "1037";
             // 
             // MetroMain
             // 
@@ -221,7 +229,9 @@ namespace Client
                 //
                 pnlTwAd = new panel.TW_AD(metroStyleManager);
                 tabTwad_1037.Controls.Add(pnlTwAd);
-                
+                pnlTwSTOPC = new panel.TW_STOPC(metroStyleManager);
+                tabTwstopc_1059.Controls.Add(pnlTwSTOPC);
+
 
                 // Menubar Sprachen aufbauen
                 while (global.language.LanguageHandler.XMLREADISFINISH) { } // warten bis Lesevorgang abgeschlossen ist.
@@ -381,6 +391,7 @@ namespace Client
         /// </summary>
         /// <created>janzen_d,2018-09-10</created>
         /// <modified>janzen_d,2018-09-12: Metro Stil und Theme hinzugefügt</modified>
+        /// <modified>janzen_d,2018-09-21: Tab Auswahl wird gespeichert</modified>
         private void MetroMain_FormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
         {
             try
@@ -459,6 +470,8 @@ namespace Client
                 // Panelsanpassen
                 if (pnlTwAd != null)
                     pnlTwAd.ChangeLanguage(strActualLanguage);
+                if (pnlTwSTOPC != null)
+                    pnlTwSTOPC.ChangeLanguage(strActualLanguage);
             }
             catch (System.Exception)
             {
@@ -514,6 +527,7 @@ namespace Client
         private MetroFramework.Components.MetroToolTip metroToolTip;
         // Panels
         private panel.TW_AD pnlTwAd;
+        private panel.TW_STOPC pnlTwSTOPC;
         #endregion
 
 
@@ -528,5 +542,6 @@ namespace Client
         private System.Windows.Forms.ToolStripStatusLabel statusprgtxt;
         private MetroFramework.Components.MetroStyleManager metroStyleManager;
         private System.Windows.Forms.TabPage tabTwad_1037;
+        private System.Windows.Forms.TabPage tabTwstopc_1059;
     }
 }

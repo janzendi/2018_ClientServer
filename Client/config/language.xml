@@ -61,6 +61,7 @@
     <text id="1056" tooltip="" objecttype="error">Aufruf der einer Methode in der Klasse:</text>
     <text id="1057" tooltip="" objecttype="error">TW AD Konfiguration konnte nicht gespeichert werden.</text>
     <text id="1058" tooltip="" objecttype="error">TW Datei wurde gespeichert: </text>
+    <text id="1059" tooltip="missing" objecttype="tag">TWizard Standard OPC</text>
     <text id="" tooltip="" objecttype="tag"></text>
   </language>
 	<language id="en" text="English">
@@ -124,6 +125,7 @@
     <text id="1056" tooltip="" objecttype="error">Call in a class a method:</text>
     <text id="1057" tooltip="" objecttype="error">TW AD configuration could not be saved</text>
     <text id="1058" tooltip="" objecttype="error">TW file was saved: </text>
+    <text id="1059" tooltip="missing" objecttype="tag">TWizard standard OPC</text>
 	<text id="" tooltip="" objecttype="tag"></text>
 	</language>
 </languages>

@@ -249,6 +249,30 @@
   <data name="&gt;&gt;tabTwad_1037.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="tabTwstopc_1059.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 38</value>
+  </data>
+  <data name="tabTwstopc_1059.Size" type="System.Drawing.Size, System.Drawing">
+    <value>746, 190</value>
+  </data>
+  <data name="tabTwstopc_1059.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="tabTwstopc_1059.Text" xml:space="preserve">
+    <value>tabTwstopc_1059</value>
+  </data>
+  <data name="&gt;&gt;tabTwstopc_1059.Name" xml:space="preserve">
+    <value>tabTwstopc_1059</value>
+  </data>
+  <data name="&gt;&gt;tabTwstopc_1059.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabTwstopc_1059.Parent" xml:space="preserve">
+    <value>tabControl</value>
+  </data>
+  <data name="&gt;&gt;tabTwstopc_1059.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <data name="tabControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>

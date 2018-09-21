@@ -1,6 +1,6 @@
 ﻿namespace Client.panel
 {
-    partial class TW_AD
+    partial class TW_STOPC
     {
         /// <summary> 
         /// Erforderliche Designervariable.
@@ -31,7 +31,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.mtxtBox_TWPath_1038 = new MetroFramework.Controls.MetroTextBox();
             this.mbtnSelectFolder_1039 = new MetroFramework.Controls.MetroButton();
@@ -48,27 +49,29 @@
             this.gridLvl4_1050 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gridLvl11_1051 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gridLvl15_1052 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
-            this.tableLayoutPanel.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid)).BeginInit();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel
+            // folderBrowserDialog
             // 
-            this.tableLayoutPanel.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel.ColumnCount = 1;
-            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel.Controls.Add(this.flowLayoutPanel1, 0, 0);
-            this.tableLayoutPanel.Controls.Add(this.metroGrid, 0, 1);
-            this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel.Name = "tableLayoutPanel";
-            this.tableLayoutPanel.RowCount = 2;
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel.Size = new System.Drawing.Size(680, 425);
-            this.tableLayoutPanel.TabIndex = 0;
+            this.folderBrowserDialog.Tag = "1036";
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.metroGrid, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(663, 345);
+            this.tableLayoutPanel1.TabIndex = 0;
             // 
             // flowLayoutPanel1
             // 
@@ -78,8 +81,8 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(674, 44);
-            this.flowLayoutPanel1.TabIndex = 0;
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(657, 44);
+            this.flowLayoutPanel1.TabIndex = 1;
             // 
             // mtxtBox_TWPath_1038
             // 
@@ -123,7 +126,6 @@
             this.mbtnSelectFolder_1039.Tag = "1039";
             this.mbtnSelectFolder_1039.Text = "mbtnSelectFolder_1039";
             this.mbtnSelectFolder_1039.UseSelectable = true;
-            this.mbtnSelectFolder_1039.Click += new System.EventHandler(this.mbtnSelectFolder_1039_Click);
             // 
             // mbtnSave_1040
             // 
@@ -134,7 +136,6 @@
             this.mbtnSave_1040.Tag = "1040";
             this.mbtnSave_1040.Text = "mbtnSave_1040";
             this.mbtnSave_1040.UseSelectable = true;
-            this.mbtnSave_1040.Click += new System.EventHandler(this.mbtnSave_1040_Click);
             // 
             // metroGrid
             // 
@@ -191,8 +192,8 @@
             this.metroGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.metroGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.metroGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.metroGrid.Size = new System.Drawing.Size(674, 369);
-            this.metroGrid.TabIndex = 1;
+            this.metroGrid.Size = new System.Drawing.Size(657, 289);
+            this.metroGrid.TabIndex = 2;
             // 
             // gridmoduleid_1042
             // 
@@ -269,18 +270,14 @@
             this.gridLvl15_1052.Name = "gridLvl15_1052";
             this.gridLvl15_1052.ReadOnly = true;
             // 
-            // folderBrowserDialog
-            // 
-            this.folderBrowserDialog.Tag = "1036";
-            // 
-            // TW_AD
+            // TW_STOPC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.tableLayoutPanel);
-            this.Name = "TW_AD";
-            this.Size = new System.Drawing.Size(680, 425);
-            this.tableLayoutPanel.ResumeLayout(false);
+            this.Controls.Add(this.tableLayoutPanel1);
+            this.Name = "TW_STOPC";
+            this.Size = new System.Drawing.Size(663, 345);
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid)).EndInit();
             this.ResumeLayout(false);
@@ -313,51 +310,7 @@
             //
             metroToolTip = new MetroFramework.Components.MetroToolTip();
             metroToolTip.StyleManager = this.StyleManager;
-
-            // 
-            // gridmoduleid_1042
-            // 
-            this.gridmoduleid_1042.Tag = 1042;
-            // 
-            // gridfullpath_1043
-            // 
-            this.gridfullpath_1043.Tag = 1043;
-            // 
-            // gridmodulename_1044
-            // 
-            this.gridmodulename_1044.Tag = 1044;
-            // 
-            // gridTwequipmentfilepath_1045
-            // 
-            this.gridTwequipmentfilepath_1045.Tag = 1045;
-            // 
-            // gridListequipmentid_1046
-            // 
-            this.gridListequipmentid_1046.Tag = 1046;
-            // 
-            // gridADGroupprefix_1047
-            // 
-            this.gridADGroupprefix_1047.Tag = 1047;
-            // 
-            // gridLvl2_1048
-            // 
-            this.gridLvl2_1048.Tag = 1048;
-            // 
-            // gridLvl3_1049
-            // 
-            this.gridLvl3_1049.Tag = 1049;
-            // 
-            // gridLvl4_1050
-            // 
-            this.gridLvl4_1050.Tag = 1050;
-            // 
-            // gridLvl11_1051
-            // 
-            this.gridLvl11_1051.Tag = 1051;
-            // 
-            // gridLvl15_1052
-            // 
-            this.gridLvl15_1052.Tag = 1052;
+            
         }
 
         /// <summary>
@@ -380,13 +333,13 @@
                 throw;
             }
         }
-        
+
         //Tooltip
         private MetroFramework.Components.MetroToolTip metroToolTip;
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private MetroFramework.Controls.MetroTextBox mtxtBox_TWPath_1038;
         private MetroFramework.Controls.MetroButton mbtnSelectFolder_1039;

@@ -1,6 +1,5 @@
 Prio 1
-TW_AD Panel aufräumen
-
+TW_AD DOCTYPE [] entfernen
 gridmoduleid_1042 				0
 gridfullpath_1043				1
 gridmodulename_1044				2

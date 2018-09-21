@@ -20,4 +20,7 @@
   <twad>
     <path></path>
   </twad>
+  <mainform>
+    <tabpage> </tabpage>
+  </mainform>
 </config>

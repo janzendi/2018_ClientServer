@@ -83,6 +83,12 @@
     <Compile Include="panel\TW_AD.Designer.cs">
       <DependentUpon>TW_AD.cs</DependentUpon>
     </Compile>
+    <Compile Include="panel\TW_STOPC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="panel\TW_STOPC.Designer.cs">
+      <DependentUpon>TW_STOPC.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="global\readme\license\Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
@@ -98,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="panel\TW_AD.resx">
       <DependentUpon>TW_AD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="panel\TW_STOPC.resx">
+      <DependentUpon>TW_STOPC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

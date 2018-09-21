@@ -1,23 +1,22 @@
-17.09.2018 15:26:52:	LogFile-System initialized
-17.09.2018 15:26:52:	Call -> Void .ctor()
-17.09.2018 15:26:52:	Local used drive letter: C:\
-17.09.2018 15:26:52:	Local used drive letter: D:\
-17.09.2018 15:26:52:	Load default config file. Filename: Config/default.xml
-17.09.2018 15:26:52:	Default config file version: 1.0
-17.09.2018 15:26:52:	Methode Client.Config.XML.SaveAndLoadConfig.GetXmlNodeNetwork(XmlNodeList list). ChildNode item: machines
-17.09.2018 15:26:52:	Methode GetXmlNetworkList. Add network to list:    description: 	00_SLC_1650507_ESXi letter: 	Y:\ user: 	d password: 	d network path: 	\\172.20.12.146\c$
-17.09.2018 15:26:52:	Methode GetXmlNetworkList. Add network to list:    description: 	01_BLM_1380208_ESXi letter: 	X:\ user: 	uhlmann password: 	winlauph network path: 	\\172.20.12.147\c$
-17.09.2018 15:26:52:	Methode GetXmlNetworkList. Add network to list:    description: 	02_HH1_1040120_ESXi letter: 	V:\ user: 	uhlmann password: 	winlauph network path: 	\\172.20.12.124\c$
-17.09.2018 15:26:52:	Methode GetXmlNetworkList. Add network to list:    description: 	03_HH2_1040138_ESXi letter: 	T:\ user: 	uhlmann password: 	winlauph network path: 	\\172.20.13.250\c$
-17.09.2018 15:26:52:	Methode GetXmlNetworkList. Add network to list:    description: 	04_CTM_0890116_ESXi letter: 	S:\ user: 	uhlmann password: 	winlauph network path: 	\\172.20.12.148\c$
-17.09.2018 15:26:52:	Methode GetXmlNetworkList. Add network to list:    description: 	05_USP_1720148_ESXi letter: 	Q:\ user: 	uhlmann password: 	winlauph network path: 	\\172.20.14.1\c$
-17.09.2018 15:26:52:	Methode GetXmlNetworkList. Add network to list:    description: 	06_USP_1040101_ESXi letter: 	P:\ user: 	uhlmann password: 	winlauph network path: 	\\172.20.11.162\c$
-17.09.2018 15:26:52:	Call -> Void AddRow(Client.Config.XML.XMLNetworkConnection)
-17.09.2018 15:26:52:	Call -> Void AddRow(Client.Config.XML.XMLNetworkConnection)
-17.09.2018 15:26:53:	Call -> Void AddRow(Client.Config.XML.XMLNetworkConnection)
-17.09.2018 15:26:53:	Call -> Void AddRow(Client.Config.XML.XMLNetworkConnection)
-17.09.2018 15:26:53:	Call -> Void AddRow(Client.Config.XML.XMLNetworkConnection)
-17.09.2018 15:26:53:	Call -> Void AddRow(Client.Config.XML.XMLNetworkConnection)
-17.09.2018 15:26:53:	Call -> Void AddRow(Client.Config.XML.XMLNetworkConnection)
-17.09.2018 15:26:53:	Test -> tblPanel.RowCount.ToString(): 0, tblPanel.ColumnCount.ToString(): 0
-17.09.2018 15:27:14:	Try to save log.txt
+21.09.2018 10:19:08:	LogFile-System initialized
+21.09.2018 10:19:08:	Call -> Void .ctor()
+21.09.2018 10:19:08:	Local used drive letter: C:\
+21.09.2018 10:19:08:	Load default config file. Filename: Config/default.xml
+21.09.2018 10:19:08:	Default config file version: 1.0
+21.09.2018 10:19:08:	Methode Client.Config.XML.SaveAndLoadConfig.GetXmlNodeNetwork(XmlNodeList list). ChildNode item: machines
+21.09.2018 10:19:08:	Methode GetXmlNetworkList. Add network to list:    description: 	00_SLC_1650507_ESXi letter: 	Y:\ user: 	d password: 	d network path: 	\\172.20.12.146\c$
+21.09.2018 10:19:08:	Methode GetXmlNetworkList. Add network to list:    description: 	01_BLM_1380208_ESXi letter: 	X:\ user: 	uhlmann password: 	winlauph network path: 	\\172.20.12.147\c$
+21.09.2018 10:19:08:	Methode GetXmlNetworkList. Add network to list:    description: 	02_HH1_1040120_ESXi letter: 	V:\ user: 	uhlmann password: 	winlauph network path: 	\\172.20.12.124\c$
+21.09.2018 10:19:08:	Methode GetXmlNetworkList. Add network to list:    description: 	03_HH2_1040138_ESXi letter: 	T:\ user: 	uhlmann password: 	winlauph network path: 	\\172.20.13.250\c$
+21.09.2018 10:19:08:	Methode GetXmlNetworkList. Add network to list:    description: 	04_CTM_0890116_ESXi letter: 	S:\ user: 	uhlmann password: 	winlauph network path: 	\\172.20.12.148\c$
+21.09.2018 10:19:08:	Methode GetXmlNetworkList. Add network to list:    description: 	05_USP_1720148_ESXi letter: 	Q:\ user: 	uhlmann password: 	winlauph network path: 	\\172.20.14.1\c$
+21.09.2018 10:19:08:	Methode GetXmlNetworkList. Add network to list:    description: 	06_USP_1040101_ESXi letter: 	P:\ user: 	uhlmann password: 	winlauph network path: 	\\172.20.11.162\c$
+21.09.2018 10:19:08:	Call -> Void AddRow(Client.Config.XML.XMLNetworkConnection)
+21.09.2018 10:19:08:	Call -> Void AddRow(Client.Config.XML.XMLNetworkConnection)
+21.09.2018 10:19:08:	Call -> Void AddRow(Client.Config.XML.XMLNetworkConnection)
+21.09.2018 10:19:08:	Call -> Void AddRow(Client.Config.XML.XMLNetworkConnection)
+21.09.2018 10:19:08:	Call -> Void AddRow(Client.Config.XML.XMLNetworkConnection)
+21.09.2018 10:19:08:	Call -> Void AddRow(Client.Config.XML.XMLNetworkConnection)
+21.09.2018 10:19:08:	Call -> Void AddRow(Client.Config.XML.XMLNetworkConnection)
+21.09.2018 10:19:09:	Test -> tblPanel.RowCount.ToString(): 0, tblPanel.ColumnCount.ToString(): 0
+21.09.2018 10:19:29:	Try to save log.txt

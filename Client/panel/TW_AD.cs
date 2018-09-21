@@ -10,6 +10,7 @@ using MetroFramework.Forms;
 using MetroFramework.Controls;
 using MetroFramework.Fonts;
 using System.Xml;
+using System.Xml.Linq;
 using System.IO;
 using System.Threading;
 
@@ -40,6 +41,8 @@ namespace Client.panel
 
             // Save button deaktivieren
             mbtnSave_1040.Enabled = false;
+
+            metroGrid.EditMode = DataGridViewEditMode.EditProgrammatically;
         }
 
         /// <summary>
@@ -49,9 +52,9 @@ namespace Client.panel
         /// <param name="e"></param>
         /// <created>janzen_d,2018-09-17</created>
         /// <modified>janzen_d,2018-09-18: Logik weitergearbeitet</modified>
-        private void mbtnSelectFolder_1039_Click(object sender, EventArgs e) //TODO
+        private void mbtnSelectFolder_1039_Click(object sender, EventArgs e)
         {
-            global.log.MetroLog.INSTANCE.WriteLine("", global.log.MetroLog.LogType.INFO,1041);
+            global.log.MetroLog.INSTANCE.WriteLine("", global.log.MetroLog.LogType.INFO, 1041);
             folderBrowserDialog.SelectedPath = mtxtBox_TWPath_1038.Text; // versuchen Ordner aus der Textbox setzen
             if (folderBrowserDialog.ShowDialog(this) == DialogResult.OK) // Ordner öffnen
             {
@@ -103,7 +106,6 @@ namespace Client.panel
                         {
                             // Log Informationen
                             global.log.MetroLog.INSTANCE.DebugWriteLine(" " + directory.FullName, global.log.MetroLog.LogType.INFO, 1055);
-                            global.log.MetroLog.INSTANCE.ProgressBar((decimal)(i + 1) / (decimal)directoryCount, directory.Name);
 
                             //
                             // Für jedes equipmentfile ein Thread starten
@@ -122,6 +124,7 @@ namespace Client.panel
                                 }
                             }
                         }
+                        global.log.MetroLog.INSTANCE.ProgressBar((decimal)(++i) / (decimal)directoryCount, directory.Name);
                     }
 
                     // Save button aktivieren
@@ -152,7 +155,8 @@ namespace Client.panel
                     strRow[5] = xmlNodeAcc.Attributes["mainAppPrefix"].Value.ToString();
 
                     XmlNodeList xmlNodeLvls = xmlDocument.SelectNodes("//groups/*[@name]");
-                    if (xmlNodeLvls.Count > 0)
+                    XmlNodeList xmlNodeAuth = xmlDocument.SelectNodes("//groups/*[@authorityValue]");
+                    if (xmlNodeLvls.Count > 0) // Mit Gruppen suffix
                     {
                         foreach (XmlNode xmlNodeLvl in xmlNodeLvls)
                         {
@@ -183,6 +187,44 @@ namespace Client.panel
                                         break;
                                     case "Level15":
                                         strRow[10] = tmp;
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            }
+                        }
+                    }
+                    else if (xmlNodeAuth.Count > 0) // Keine Gruppen Suffix konfiguriert
+                    {
+                        foreach (XmlNode xmlNodeLvl in xmlNodeAuth)
+                        {
+                            string tmp = null;
+                            try
+                            {
+                                tmp = xmlNodeLvl.Attributes["authorityValue"].Value;
+                            }
+                            catch (Exception) // TODO
+                            {
+                                throw;
+                            }
+                            if (tmp != null)
+                            {
+                                switch (xmlNodeLvl.Name)
+                                {
+                                    case "Level2":
+                                        strRow[6] = xmlNodeLvl.Name;
+                                        break;
+                                    case "Level3":
+                                        strRow[7] = xmlNodeLvl.Name;
+                                        break;
+                                    case "Level4":
+                                        strRow[8] = xmlNodeLvl.Name;
+                                        break;
+                                    case "Level11":
+                                        strRow[9] = xmlNodeLvl.Name;
+                                        break;
+                                    case "Level15":
+                                        strRow[10] = xmlNodeLvl.Name;
                                         break;
                                     default:
                                         break;
@@ -238,37 +280,145 @@ namespace Client.panel
         /// <param name="sender"></param>
         /// <param name="e"></param>
         /// <created>janzen_d,2018-09-17</created>
+        /// <modified>janzen_d,2018-09-19</modified>
+        /// <modified>janzen_d,2018-09-21: Bracket Logik in Threads ausgelagert</modified>
         private void mbtnSave_1040_Click(object sender, EventArgs e)
         {
-            global.log.MetroLog.INSTANCE.DebugWriteLine(this.ToString() + " - "+ System.Reflection.MethodBase.GetCurrentMethod(), global.log.MetroLog.LogType.INFO, 1056);
-            try
+            global.log.MetroLog.INSTANCE.DebugWriteLine(this.ToString() + " - " + System.Reflection.MethodBase.GetCurrentMethod(), global.log.MetroLog.LogType.INFO, 1056);
+            int iProgress = 0;
+            foreach (DataGridViewRow dataRow in metroGrid.Rows)
             {
-                foreach (DataGridViewRow dataRow in metroGrid.Rows)
+                if (dataRow.Cells[4].Value == null || dataRow.Cells[4].Value.ToString() == String.Empty || dataRow.Cells[4].Value.ToString() == "") // [4] = gridListequipmentid_1046
+                    continue;
+                else
                 {
-                    if (dataRow.Cells[4].Value == null || dataRow.Cells[4].Value.ToString() == String.Empty) // [4] = gridListequipmentid_1046
-                        continue;
-                    else
+                    // Group prefix
+                    try { listXmlEquipment[Convert.ToInt32(dataRow.Cells[4].Value)].SelectSingleNode("EQUIPMENT/ACC_CONF/acc").Attributes["mainAppPrefix"].Value = dataRow.Cells[5].Value.ToString(); } // [5] = gridADGroupprefix_1047                   
+                    catch (Exception ex) { global.log.MetroLog.INSTANCE.DebugWriteLine(ex.ToString(), global.log.MetroLog.LogType.ERROR, 1057); }
+
+                    // [6] = gridLvl2_1048
+                    try
                     {
-                        listXmlEquipment[Convert.ToInt32(dataRow.Cells[4].Value)].SelectSingleNode("EQUIPMENT/ACC_CONF/acc").Attributes["mainAppPrefix"].Value = dataRow.Cells[5].Value.ToString(); // [5] = gridADGroupprefix_1047
-                        if (dataRow.Cells[6].Value != null) // [6] = gridLvl2_1048
+                        if (dataRow.Cells[6].Value != null && dataRow.Cells[6].Value.ToString().Length > 2)
                             listXmlEquipment[Convert.ToInt32(dataRow.Cells[4].Value)].SelectSingleNode("EQUIPMENT/ACC_CONF/acc/groups/Level2").Attributes["name"].Value = dataRow.Cells[6].Value.ToString();
-                        if (dataRow.Cells[7].Value != null) // [7] = gridLvl3_1049
+                    }
+                    catch (Exception ex)
+                    {
+                        XmlNode xmlNode = listXmlEquipment[Convert.ToInt32(dataRow.Cells[4].Value)].SelectSingleNode("EQUIPMENT/ACC_CONF/acc/groups/Level2");
+                        XmlAttribute typeAttr = listXmlEquipment[Convert.ToInt32(dataRow.Cells[4].Value)].CreateAttribute("name");
+                        typeAttr.Value = dataRow.Cells[6].Value.ToString();
+                        xmlNode.Attributes.Append(typeAttr);
+                        global.log.MetroLog.INSTANCE.DebugWriteLine(ex.ToString(), global.log.MetroLog.LogType.WARNING, 1057);
+                    }
+
+                    // [7] = gridLvl3_1049
+                    try
+                    {
+                        if (dataRow.Cells[7].Value != null)
                             listXmlEquipment[Convert.ToInt32(dataRow.Cells[4].Value)].SelectSingleNode("EQUIPMENT/ACC_CONF/acc/groups/Level3").Attributes["name"].Value = dataRow.Cells[7].Value.ToString();
-                        if (dataRow.Cells[8].Value != null) // [8] = gridLvl4_1050
+                    }
+                    catch (Exception ex)
+                    {
+                        XmlNode xmlNode = listXmlEquipment[Convert.ToInt32(dataRow.Cells[4].Value)].SelectSingleNode("EQUIPMENT/ACC_CONF/acc/groups/Level3");
+                        XmlAttribute typeAttr = listXmlEquipment[Convert.ToInt32(dataRow.Cells[4].Value)].CreateAttribute("name");
+                        typeAttr.Value = dataRow.Cells[7].Value.ToString();
+                        xmlNode.Attributes.Append(typeAttr);
+                        global.log.MetroLog.INSTANCE.DebugWriteLine(ex.ToString(), global.log.MetroLog.LogType.WARNING, 1057);
+                    }
+
+                    // [8] = gridLvl4_1050
+                    try
+                    {
+                        if (dataRow.Cells[8].Value != null)
                             listXmlEquipment[Convert.ToInt32(dataRow.Cells[4].Value)].SelectSingleNode("EQUIPMENT/ACC_CONF/acc/groups/Level4").Attributes["name"].Value = dataRow.Cells[8].Value.ToString();
-                        if (dataRow.Cells[9].Value != null) // [9] = gridLvl11_1051
+                    }
+                    catch (Exception ex)
+                    {
+                        XmlNode xmlNode = listXmlEquipment[Convert.ToInt32(dataRow.Cells[4].Value)].SelectSingleNode("EQUIPMENT/ACC_CONF/acc/groups/Level4");
+                        XmlAttribute typeAttr = listXmlEquipment[Convert.ToInt32(dataRow.Cells[4].Value)].CreateAttribute("name");
+                        typeAttr.Value = dataRow.Cells[8].Value.ToString();
+                        xmlNode.Attributes.Append(typeAttr);
+                        global.log.MetroLog.INSTANCE.DebugWriteLine(ex.ToString(), global.log.MetroLog.LogType.WARNING, 1057);
+                    }
+
+                    // [9] = gridLvl11_1051
+                    try
+                    {
+                        if (dataRow.Cells[9].Value != null)
                             listXmlEquipment[Convert.ToInt32(dataRow.Cells[4].Value)].SelectSingleNode("EQUIPMENT/ACC_CONF/acc/groups/Level11").Attributes["name"].Value = dataRow.Cells[9].Value.ToString();
-                        if (dataRow.Cells[10].Value != null) // [10] = gridLvl15_1052
+                    }
+                    catch (Exception ex)
+                    {
+                        XmlNode xmlNode = listXmlEquipment[Convert.ToInt32(dataRow.Cells[4].Value)].SelectSingleNode("EQUIPMENT/ACC_CONF/acc/groups/Level11");
+                        XmlAttribute typeAttr = listXmlEquipment[Convert.ToInt32(dataRow.Cells[4].Value)].CreateAttribute("name");
+                        typeAttr.Value = dataRow.Cells[9].Value.ToString();
+                        xmlNode.Attributes.Append(typeAttr);
+                        global.log.MetroLog.INSTANCE.DebugWriteLine(ex.ToString(), global.log.MetroLog.LogType.WARNING, 1057);
+                    }
+
+                    // [10] = gridLvl15_1052
+                    try
+                    {
+                        if (dataRow.Cells[10].Value != null)
                             listXmlEquipment[Convert.ToInt32(dataRow.Cells[4].Value)].SelectSingleNode("EQUIPMENT/ACC_CONF/acc/groups/Level15").Attributes["name"].Value = dataRow.Cells[10].Value.ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        XmlNode xmlNode = listXmlEquipment[Convert.ToInt32(dataRow.Cells[4].Value)].SelectSingleNode("EQUIPMENT/ACC_CONF/acc/groups/Level15");
+                        XmlAttribute typeAttr = listXmlEquipment[Convert.ToInt32(dataRow.Cells[4].Value)].CreateAttribute("name");
+                        typeAttr.Value = dataRow.Cells[10].Value.ToString();
+                        xmlNode.Attributes.Append(typeAttr);
+                        global.log.MetroLog.INSTANCE.DebugWriteLine(ex.ToString(), global.log.MetroLog.LogType.WARNING, 1057);
+                    }
+
+                    try
+                    {
                         listXmlEquipment[Convert.ToInt32(dataRow.Cells[4].Value)].Save(dataRow.Cells[3].Value.ToString()); // [3] = gridTwequipmentfilepath_1045
+                        // Thread starten
+                        Thread thread = new Thread(new ParameterizedThreadStart(DeleteBracketsInDOCTYPE));
+                        thread.Start(dataRow.Cells[3].Value.ToString());
                         global.log.MetroLog.INSTANCE.WriteLine(dataRow.Cells[3].Value.ToString(), global.log.MetroLog.LogType.INFO, 1058);
+                        global.log.MetroLog.INSTANCE.ProgressBar((decimal)(++iProgress) / ((decimal)metroGrid.Rows.Count-1), dataRow.Cells[3].Value.ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        global.log.MetroLog.INSTANCE.DebugWriteLine(ex.ToString(), global.log.MetroLog.LogType.ERROR, 1057);
                     }
                 }
             }
-            catch (Exception ex)
+        }
+
+        /// <summary>
+        /// Thread Methode um im DOCTYPE [] zu löschen.
+        /// </summary>
+        /// <param name="filepath"></param>
+        /// <created>janzen_d,2018-09-21</created>
+        private void DeleteBracketsInDOCTYPE(object filepath)
+        {
+            try
             {
-                global.log.MetroLog.INSTANCE.DebugWriteLine(ex.ToString(), global.log.MetroLog.LogType.ERROR, 1057);
+                string[] file = File.ReadAllLines(filepath.ToString());
+                string line = null;
+                for (int i = 0; i < file.Length; i++)
+                {
+                    line = file[i];
+                    int firstBracket = line.IndexOf('[');
+                    int secondBracket = line.IndexOf(']');
+                    if ((secondBracket - firstBracket) == 1)
+                    {
+                        file[i] = file[i].Replace('[', ' ');
+                        file[i] = file[i].Replace(']', ' ');
+                        break;
+                    }
+                }
+                File.WriteAllLines(filepath.ToString(), file);
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
+  
     }
 }

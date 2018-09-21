@@ -20,7 +20,10 @@
   <twad>
     <path></path>
   </twad>
+  <twopc>
+    <path></path>
+  </twopc>
   <mainform>
-    <tabpage> </tabpage>
+    <tabpage>0</tabpage>
   </mainform>
 </config>

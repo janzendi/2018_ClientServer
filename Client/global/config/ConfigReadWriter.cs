@@ -648,6 +648,9 @@ namespace Client.global.config
             }
         }
 
+        /// <summary>
+        /// Vordefinierter TWizard standard Pfad
+        /// </summary>
         public static string TWADPREPATH
         {
             get
@@ -669,6 +672,78 @@ namespace Client.global.config
                 {
                     xmldocConfg.Load("config/config.xml");
                     xmldocConfg.SelectSingleNode("config/twad/path").InnerText = value;
+                    xmldocConfg.Save("config/config.xml");
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Eigenschaft um auf den TabIndex zuzugreifen.
+        /// </summary>
+        /// <created>janzen_d,2018-09-21</created>
+        public static int  MAINFORMTABPAGE
+        {
+            get
+            {
+                try
+                {
+                    xmldocConfg.Load("config/config.xml");
+                    Int32.TryParse(xmldocConfg.SelectSingleNode("config/mainform/tabpage").InnerText, out int result);
+                    return result;
+
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+                return 0;
+            }
+            set
+            {
+                try
+                {
+                    xmldocConfg.Load("config/config.xml");
+                    xmldocConfg.SelectSingleNode("config/mainform/tabpage").InnerText = value.ToString();
+                    xmldocConfg.Save("config/config.xml");
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+        }
+
+        /// <summary>
+        /// TWizard OPC STandard Pfad
+        /// </summary>
+        /// <created>janzen_d,2018-09-21</created>
+        public static string TWOPCPATH
+        {
+            get
+            {
+                try
+                {
+                    xmldocConfg.Load("config/config.xml");
+                    return xmldocConfg.SelectSingleNode("config/twopc/path").InnerText;
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+            set
+            {
+                try
+                {
+                    xmldocConfg.Load("config/config.xml");
+                    xmldocConfg.SelectSingleNode("config/twopc/path").InnerText = value;
                     xmldocConfg.Save("config/config.xml");
                 }
                 catch (Exception)

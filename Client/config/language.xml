@@ -62,6 +62,24 @@
     <text id="1057" tooltip="" objecttype="error">TW AD Konfiguration konnte nicht gespeichert werden.</text>
     <text id="1058" tooltip="" objecttype="error">TW Datei wurde gespeichert: </text>
     <text id="1059" tooltip="missing" objecttype="tag">TWizard Standard OPC</text>
+    <text id="1060" tooltip="missing" objecttype="datagrid">List-ID</text>
+    <text id="1061" tooltip="missing" objecttype="datagrid">Variablenname</text>
+    <text id="1062" tooltip="missing" objecttype="datagrid">Batch Variablenname</text>
+    <text id="1063" tooltip="missing" objecttype="datagrid">BDE Zähler Typ</text>
+    <text id="1064" tooltip="missing" objecttype="datagrid">Text-ID</text>
+    <text id="1065" tooltip="missing" objecttype="datagrid">Kommentar</text>
+    <text id="1066" tooltip="missing" objecttype="datagrid">OPC Daten Typ</text>
+    <text id="1067" tooltip="missing" objecttype="datagrid">OPC RWU Rechte</text>
+    <text id="1068" tooltip="missing" objecttype="datagrid">OPC alias</text>
+    <text id="1069" tooltip="missing" objecttype="datagrid">OPC aktiviert</text>
+    <text id="1070" tooltip="missing" objecttype="datagrid">Array Größe</text>
+    <text id="1071" tooltip="missing" objecttype="datagrid">Semantic</text>
+    <text id="1072" tooltip="missing" objecttype="datagrid">DC Lese Periode</text>
+    <text id="1073" tooltip="missing" objecttype="datagrid">DC Log Threshold</text>
+    <text id="1074" tooltip="missing" objecttype="datagrid">DC Max Persistence</text>
+    <text id="1075" tooltip="missing" objecttype="datagrid">Pfad pv_batch</text>
+    <text id="1076" tooltip="missing" objecttype="datagrid">Pfad pv_equipment</text>
+    <text id="1077" tooltip="missing" objecttype="datagrid">Pfad pv_process</text>
     <text id="" tooltip="" objecttype="tag"></text>
   </language>
 	<language id="en" text="English">
@@ -126,6 +144,24 @@
     <text id="1057" tooltip="" objecttype="error">TW AD configuration could not be saved</text>
     <text id="1058" tooltip="" objecttype="error">TW file was saved: </text>
     <text id="1059" tooltip="missing" objecttype="tag">TWizard standard OPC</text>
+    <text id="1060" tooltip="missing" objecttype="datagrid">List-ID</text>
+    <text id="1061" tooltip="missing" objecttype="datagrid">variable name</text>
+    <text id="1062" tooltip="missing" objecttype="datagrid">Batch variable name</text>
+    <text id="1063" tooltip="missing" objecttype="datagrid">PDA counter type</text>
+    <text id="1064" tooltip="missing" objecttype="datagrid">Text-ID</text>
+    <text id="1065" tooltip="missing" objecttype="datagrid">comment</text>
+    <text id="1066" tooltip="missing" objecttype="datagrid">OPC data type</text>
+    <text id="1067" tooltip="missing" objecttype="datagrid">OPC RWU rights</text>
+    <text id="1068" tooltip="missing" objecttype="datagrid">OPC alias</text>
+    <text id="1069" tooltip="missing" objecttype="datagrid">OPC active</text>
+    <text id="1070" tooltip="missing" objecttype="datagrid">Array size</text>
+    <text id="1071" tooltip="missing" objecttype="datagrid">pv semantic</text>
+    <text id="1072" tooltip="missing" objecttype="datagrid">DC read periode</text>
+    <text id="1073" tooltip="missing" objecttype="datagrid">DC log threshold</text>
+    <text id="1074" tooltip="missing" objecttype="datagrid">DC max persistence</text>
+    <text id="1075" tooltip="missing" objecttype="datagrid">path pv_batch</text>
+    <text id="1076" tooltip="missing" objecttype="datagrid">path pv_equipment</text>
+    <text id="1077" tooltip="missing" objecttype="datagrid">path pv_process</text>
 	<text id="" tooltip="" objecttype="tag"></text>
 	</language>
 </languages>

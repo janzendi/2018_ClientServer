@@ -12,6 +12,26 @@ gridLvl4_1050					8
 gridLvl11_1051					9
 gridLvl15_1052					10
 
+TW_OPC
+gridlistid_1060					0
+gridmodulename_1044				1
+gridvariablename_1061			2
+gridpvbatchvariable_1062		3
+gridpdacountertype_1063			4
+gridtextid_1064					5
+gridcomment_1065				6
+gridopcdatatype_1066			7
+gridopcrwu_1067					8
+gridopcalias_1068				9
+gridopcactive_1069				10
+gridarrysize_1070				11
+gridsemantic_1071				12
+griddcreadperiod_1072			13
+griddclogthreshold_1073			14
+griddcmaxpersistence_1074		15
+gridpathpvbatch_1075			16
+gridpathpvequipment_1076		17
+gridpathpvprocess_1077			18
 
 		
 Prio 2

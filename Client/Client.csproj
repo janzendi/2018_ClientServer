@@ -131,7 +131,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="global\objects\twizard\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="config\icon.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

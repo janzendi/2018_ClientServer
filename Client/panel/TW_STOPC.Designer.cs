@@ -33,25 +33,33 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.metroGrid = new MetroFramework.Controls.MetroGrid();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.mtxtBox_TWPath_1038 = new MetroFramework.Controls.MetroTextBox();
             this.mbtnSelectFolder_1039 = new MetroFramework.Controls.MetroButton();
             this.mbtnSave_1040 = new MetroFramework.Controls.MetroButton();
-            this.metroGrid = new MetroFramework.Controls.MetroGrid();
-            this.gridmoduleid_1042 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gridfullpath_1043 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gridlistid_1060 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gridmodulename_1044 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gridTwequipmentfilepath_1045 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gridListequipmentid_1046 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gridADGroupprefix_1047 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gridLvl2_1048 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gridLvl3_1049 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gridLvl4_1050 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gridLvl11_1051 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gridLvl15_1052 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gridvariablename_1061 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gridpvbatchvariable_1062 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gridpdacountertype_1063 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gridtextid_1064 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gridcomment_1065 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gridopcdatatype_1066 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gridopcrwu_1067 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gridopcalias_1068 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gridopcactive_1069 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gridarrysize_1070 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gridsemantic_1071 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.griddcreadperiod_1072 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.griddclogthreshold_1073 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.griddcmaxpersistence_1074 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gridpathpvbatch_1075 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gridpathpvequipment_1076 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gridpathpvprocess_1077 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid)).BeginInit();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // folderBrowserDialog
@@ -72,6 +80,72 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(663, 345);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // metroGrid
+            // 
+            this.metroGrid.AllowUserToResizeRows = false;
+            this.metroGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.metroGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.metroGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.metroGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.metroGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.metroGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.metroGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.gridlistid_1060,
+            this.gridmodulename_1044,
+            this.gridvariablename_1061,
+            this.gridpvbatchvariable_1062,
+            this.gridpdacountertype_1063,
+            this.gridtextid_1064,
+            this.gridcomment_1065,
+            this.gridopcdatatype_1066,
+            this.gridopcrwu_1067,
+            this.gridopcalias_1068,
+            this.gridopcactive_1069,
+            this.gridarrysize_1070,
+            this.gridsemantic_1071,
+            this.griddcreadperiod_1072,
+            this.griddclogthreshold_1073,
+            this.griddcmaxpersistence_1074,
+            this.gridpathpvbatch_1075,
+            this.gridpathpvequipment_1076,
+            this.gridpathpvprocess_1077});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.metroGrid.DefaultCellStyle = dataGridViewCellStyle2;
+            this.metroGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.metroGrid.EnableHeadersVisualStyles = false;
+            this.metroGrid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.metroGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.metroGrid.Location = new System.Drawing.Point(3, 53);
+            this.metroGrid.MultiSelect = false;
+            this.metroGrid.Name = "metroGrid";
+            this.metroGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.metroGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.metroGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.metroGrid.Size = new System.Drawing.Size(657, 289);
+            this.metroGrid.TabIndex = 2;
             // 
             // flowLayoutPanel1
             // 
@@ -137,79 +211,11 @@
             this.mbtnSave_1040.Text = "mbtnSave_1040";
             this.mbtnSave_1040.UseSelectable = true;
             // 
-            // metroGrid
+            // gridlistid_1060
             // 
-            this.metroGrid.AllowUserToResizeRows = false;
-            this.metroGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.metroGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.metroGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.metroGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.metroGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.metroGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.metroGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.metroGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.gridmoduleid_1042,
-            this.gridfullpath_1043,
-            this.gridmodulename_1044,
-            this.gridTwequipmentfilepath_1045,
-            this.gridListequipmentid_1046,
-            this.gridADGroupprefix_1047,
-            this.gridLvl2_1048,
-            this.gridLvl3_1049,
-            this.gridLvl4_1050,
-            this.gridLvl11_1051,
-            this.gridLvl15_1052});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.metroGrid.DefaultCellStyle = dataGridViewCellStyle2;
-            this.metroGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.metroGrid.EnableHeadersVisualStyles = false;
-            this.metroGrid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.metroGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.metroGrid.Location = new System.Drawing.Point(3, 53);
-            this.metroGrid.MultiSelect = false;
-            this.metroGrid.Name = "metroGrid";
-            this.metroGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.metroGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.metroGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.metroGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.metroGrid.Size = new System.Drawing.Size(657, 289);
-            this.metroGrid.TabIndex = 2;
-            // 
-            // gridmoduleid_1042
-            // 
-            this.gridmoduleid_1042.HeaderText = "gridmoduleid_1042";
-            this.gridmoduleid_1042.MinimumWidth = 30;
-            this.gridmoduleid_1042.Name = "gridmoduleid_1042";
-            this.gridmoduleid_1042.ReadOnly = true;
-            this.gridmoduleid_1042.Visible = false;
-            this.gridmoduleid_1042.Width = 35;
-            // 
-            // gridfullpath_1043
-            // 
-            this.gridfullpath_1043.HeaderText = "gridfullpath_1043";
-            this.gridfullpath_1043.Name = "gridfullpath_1043";
-            this.gridfullpath_1043.ReadOnly = true;
-            this.gridfullpath_1043.Visible = false;
+            this.gridlistid_1060.HeaderText = "gridlistid_1060";
+            this.gridlistid_1060.Name = "gridlistid_1060";
+            this.gridlistid_1060.ReadOnly = true;
             // 
             // gridmodulename_1044
             // 
@@ -219,56 +225,107 @@
             this.gridmodulename_1044.ReadOnly = true;
             this.gridmodulename_1044.Width = 140;
             // 
-            // gridTwequipmentfilepath_1045
+            // gridvariablename_1061
             // 
-            this.gridTwequipmentfilepath_1045.HeaderText = "gridTwequipmentfilepath_1045";
-            this.gridTwequipmentfilepath_1045.Name = "gridTwequipmentfilepath_1045";
-            this.gridTwequipmentfilepath_1045.ReadOnly = true;
+            this.gridvariablename_1061.HeaderText = "gridvariablename_1061";
+            this.gridvariablename_1061.Name = "gridvariablename_1061";
+            this.gridvariablename_1061.ReadOnly = true;
             // 
-            // gridListequipmentid_1046
+            // gridpvbatchvariable_1062
             // 
-            this.gridListequipmentid_1046.HeaderText = "gridListequipmentid_1046";
-            this.gridListequipmentid_1046.MinimumWidth = 30;
-            this.gridListequipmentid_1046.Name = "gridListequipmentid_1046";
-            this.gridListequipmentid_1046.ReadOnly = true;
-            this.gridListequipmentid_1046.Width = 35;
+            this.gridpvbatchvariable_1062.HeaderText = "gridpvbatchvariable_1062";
+            this.gridpvbatchvariable_1062.Name = "gridpvbatchvariable_1062";
+            this.gridpvbatchvariable_1062.ReadOnly = true;
             // 
-            // gridADGroupprefix_1047
+            // gridpdacountertype_1063
             // 
-            this.gridADGroupprefix_1047.HeaderText = "gridADGroupprefix_1047";
-            this.gridADGroupprefix_1047.MinimumWidth = 100;
-            this.gridADGroupprefix_1047.Name = "gridADGroupprefix_1047";
-            this.gridADGroupprefix_1047.Width = 160;
+            this.gridpdacountertype_1063.HeaderText = "gridpdacountertype_1063";
+            this.gridpdacountertype_1063.Name = "gridpdacountertype_1063";
+            this.gridpdacountertype_1063.ReadOnly = true;
             // 
-            // gridLvl2_1048
+            // gridtextid_1064
             // 
-            this.gridLvl2_1048.HeaderText = "gridLvl2_1048";
-            this.gridLvl2_1048.Name = "gridLvl2_1048";
-            this.gridLvl2_1048.ReadOnly = true;
+            this.gridtextid_1064.HeaderText = "gridtextid_1064";
+            this.gridtextid_1064.Name = "gridtextid_1064";
+            this.gridtextid_1064.ReadOnly = true;
             // 
-            // gridLvl3_1049
+            // gridcomment_1065
             // 
-            this.gridLvl3_1049.HeaderText = "gridLvl3_1049";
-            this.gridLvl3_1049.Name = "gridLvl3_1049";
-            this.gridLvl3_1049.ReadOnly = true;
+            this.gridcomment_1065.HeaderText = "gridcomment_1065";
+            this.gridcomment_1065.Name = "gridcomment_1065";
+            this.gridcomment_1065.ReadOnly = true;
             // 
-            // gridLvl4_1050
+            // gridopcdatatype_1066
             // 
-            this.gridLvl4_1050.HeaderText = "gridLvl4_1050";
-            this.gridLvl4_1050.Name = "gridLvl4_1050";
-            this.gridLvl4_1050.ReadOnly = true;
+            this.gridopcdatatype_1066.HeaderText = "gridopcdatatype_1066";
+            this.gridopcdatatype_1066.Name = "gridopcdatatype_1066";
+            this.gridopcdatatype_1066.ReadOnly = true;
             // 
-            // gridLvl11_1051
+            // gridopcrwu_1067
             // 
-            this.gridLvl11_1051.HeaderText = "gridLvl11_1051";
-            this.gridLvl11_1051.Name = "gridLvl11_1051";
-            this.gridLvl11_1051.ReadOnly = true;
+            this.gridopcrwu_1067.HeaderText = "gridopcrwu_1067";
+            this.gridopcrwu_1067.Name = "gridopcrwu_1067";
+            this.gridopcrwu_1067.ReadOnly = true;
             // 
-            // gridLvl15_1052
+            // gridopcalias_1068
             // 
-            this.gridLvl15_1052.HeaderText = "gridLvl15_1052";
-            this.gridLvl15_1052.Name = "gridLvl15_1052";
-            this.gridLvl15_1052.ReadOnly = true;
+            this.gridopcalias_1068.HeaderText = "gridopcalias_1068";
+            this.gridopcalias_1068.Name = "gridopcalias_1068";
+            this.gridopcalias_1068.ReadOnly = true;
+            // 
+            // gridopcactive_1069
+            // 
+            this.gridopcactive_1069.HeaderText = "gridopcactive_1069";
+            this.gridopcactive_1069.Name = "gridopcactive_1069";
+            this.gridopcactive_1069.ReadOnly = true;
+            // 
+            // gridarrysize_1070
+            // 
+            this.gridarrysize_1070.HeaderText = "gridarrysize_1070";
+            this.gridarrysize_1070.Name = "gridarrysize_1070";
+            this.gridarrysize_1070.ReadOnly = true;
+            // 
+            // gridsemantic_1071
+            // 
+            this.gridsemantic_1071.HeaderText = "gridsemantic_1071";
+            this.gridsemantic_1071.Name = "gridsemantic_1071";
+            this.gridsemantic_1071.ReadOnly = true;
+            // 
+            // griddcreadperiod_1072
+            // 
+            this.griddcreadperiod_1072.HeaderText = "griddcreadperiod_1072";
+            this.griddcreadperiod_1072.Name = "griddcreadperiod_1072";
+            this.griddcreadperiod_1072.ReadOnly = true;
+            // 
+            // griddclogthreshold_1073
+            // 
+            this.griddclogthreshold_1073.HeaderText = "griddclogthreshold_1073";
+            this.griddclogthreshold_1073.Name = "griddclogthreshold_1073";
+            this.griddclogthreshold_1073.ReadOnly = true;
+            // 
+            // griddcmaxpersistence_1074
+            // 
+            this.griddcmaxpersistence_1074.HeaderText = "griddcmaxpersistence_1074";
+            this.griddcmaxpersistence_1074.Name = "griddcmaxpersistence_1074";
+            this.griddcmaxpersistence_1074.ReadOnly = true;
+            // 
+            // gridpathpvbatch_1075
+            // 
+            this.gridpathpvbatch_1075.HeaderText = "gridpathpvbatch_1075";
+            this.gridpathpvbatch_1075.Name = "gridpathpvbatch_1075";
+            this.gridpathpvbatch_1075.ReadOnly = true;
+            // 
+            // gridpathpvequipment_1076
+            // 
+            this.gridpathpvequipment_1076.HeaderText = "gridpathpvequipment_1076";
+            this.gridpathpvequipment_1076.Name = "gridpathpvequipment_1076";
+            this.gridpathpvequipment_1076.ReadOnly = true;
+            // 
+            // gridpathpvprocess_1077
+            // 
+            this.gridpathpvprocess_1077.HeaderText = "gridpathpvprocess_1077";
+            this.gridpathpvprocess_1077.Name = "gridpathpvprocess_1077";
+            this.gridpathpvprocess_1077.ReadOnly = true;
             // 
             // TW_STOPC
             // 
@@ -278,8 +335,8 @@
             this.Name = "TW_STOPC";
             this.Size = new System.Drawing.Size(663, 345);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid)).EndInit();
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -310,7 +367,196 @@
             //
             metroToolTip = new MetroFramework.Components.MetroToolTip();
             metroToolTip.StyleManager = this.StyleManager;
-            
+
+            //
+            // Textbox
+            //
+            this.mtxtBox_TWPath_1038.Text = global.config.ConfigReadWriter.TWOPCPATH;
+
+            //
+            // Button
+            //
+            this.mbtnSave_1040.Click += MbtnSave_1040_Click;
+            this.mbtnSave_1040.Enabled = false;
+            this.mbtnSelectFolder_1039.Click += MbtnSelectFolder_1039_Click;
+            // 
+            // gridlistid_1060
+            // 
+            this.gridlistid_1060.Tag = 1060;
+            // 
+            // gridmodulename_1044
+            // 
+            this.gridmodulename_1044.Tag = 1044;
+            // 
+            // gridvariablename_1061
+            // 
+            this.gridvariablename_1061.Tag = 1061;
+            // 
+            // gridpvbatchvariable_1062
+            // 
+            this.gridpvbatchvariable_1062.Tag = 1062;
+            // 
+            // gridpdacountertype_1063
+            // 
+            this.gridpdacountertype_1063.Tag = 1063;
+            // 
+            // gridtextid_1064
+            // 
+            this.gridtextid_1064.Tag = 1064;
+            // 
+            // gridcomment_1065
+            // 
+            this.gridcomment_1065.Tag = 1065;
+            // 
+            // gridopcdatatype_1066
+            // 
+            this.gridopcdatatype_1066.Tag = 1066;
+            // 
+            // gridopcrwu_1067
+            // 
+            this.gridopcrwu_1067.Tag = 1067;
+            // 
+            // gridopcalias_1068
+            // 
+            this.gridopcalias_1068.Tag = 1068;
+            // 
+            // gridopcactive_1069
+            // 
+            this.gridopcactive_1069.Tag = 1069;
+            // 
+            // gridarrysize_1070
+            // 
+            this.gridarrysize_1070.Tag = 1070;
+            // 
+            // gridsemantic_1071
+            // 
+            this.gridsemantic_1071.Tag = 1071;
+            // 
+            // griddcreadperiod_1072
+            // 
+            this.griddcreadperiod_1072.Tag = 1072;
+            // 
+            // griddclogthreshold_1073
+            // 
+            this.griddclogthreshold_1073.Tag = 1073;
+            // 
+            // griddcmaxpersistence_1074
+            // 
+            this.griddcmaxpersistence_1074.Tag = 1074;
+            // 
+            // gridpathpvbatch_1075
+            // 
+            this.gridpathpvbatch_1075.Tag = 1075;
+            // 
+            // gridpathpvequipment_1076
+            // 
+            this.gridpathpvequipment_1076.Tag = 1076;
+            // 
+            // gridpathpvprocess_1077
+            // 
+            this.gridpathpvprocess_1077.Tag = 1077;
+
+        }
+
+        /// <summary>
+        /// Event um Twizard einzulesen.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <created>janzen_d,2018-09-21</created>
+        private void MbtnSelectFolder_1039_Click(object sender, System.EventArgs e)
+        {
+            global.log.MetroLog.INSTANCE.WriteLine("", global.log.MetroLog.LogType.INFO, 1041);
+            folderBrowserDialog.SelectedPath = mtxtBox_TWPath_1038.Text; // versuchen Ordner aus der Textbox setzen
+            if (folderBrowserDialog.ShowDialog(this) == System.Windows.Forms.DialogResult.OK) // Ordner öffnen
+            {
+                if (System.IO.Directory.Exists(folderBrowserDialog.SelectedPath + "\\platform\\fm") && System.IO.File.Exists(folderBrowserDialog.SelectedPath + "\\build\\version_1\\process.xml"))
+                {
+                    //Alte Daten löschen
+                    metroGrid.Rows.Clear();
+                    // TODO Liste leeren
+
+                    //
+                    // Ordner gefunden
+                    //
+                    mtxtBox_TWPath_1038.Text = folderBrowserDialog.SelectedPath;
+                    global.config.ConfigReadWriter.TWADPREPATH = folderBrowserDialog.SelectedPath;
+                    global.log.MetroLog.INSTANCE.WriteLine("", global.log.MetroLog.LogType.INFO, 1053);
+
+                    //
+                    // Temp Liste erstellen
+                    //
+                    System.Collections.Generic.List<string> activemodules = new System.Collections.Generic.List<string>();
+
+                    // \\build\\version_1\\process.xml durchsuchen auf aktive Module
+                    System.Xml.XmlDocument xmlDocumentProcessXML = new System.Xml.XmlDocument();
+                    xmlDocumentProcessXML.XmlResolver = null;
+                    xmlDocumentProcessXML.Load(folderBrowserDialog.SelectedPath + "\\build\\version_1\\process.xml");
+                    foreach (System.Xml.XmlNode fmNode in xmlDocumentProcessXML.SelectNodes("/PROCESS/PM/FLOW/FM"))
+                    {
+                        try
+                        {
+                            if (fmNode.Attributes["act"].Value == "1" && fmNode.Attributes["dir"].Value != null && fmNode.Attributes["dir"].Value != System.String.Empty && fmNode.Attributes["dir"].Value != "")
+                                activemodules.Add(fmNode.Attributes["dir"].Value);
+                        }
+                        catch (System.Exception)
+                        {
+                            continue;
+                        }
+                    }
+                    global.log.MetroLog.INSTANCE.WriteLine(" " + activemodules.Count.ToString(), global.log.MetroLog.LogType.INFO, 1054);
+
+                    //
+                    // Alle euqipment Dateien durchsuchen
+                    //
+                    System.IO.DirectoryInfo dcPlattform = new System.IO.DirectoryInfo(folderBrowserDialog.SelectedPath + "\\platform\\fm");
+                    int directoryCount = dcPlattform.GetDirectories().Length;
+                    int i = 0;
+                    foreach (System.IO.DirectoryInfo directory in dcPlattform.GetDirectories())
+                    {
+                        if (activemodules.Contains(directory.Name))
+                        {
+                            // Log Informationen
+                            global.log.MetroLog.INSTANCE.DebugWriteLine(" " + directory.FullName, global.log.MetroLog.LogType.INFO, 1055);
+
+                            //
+                            // Für jedes equipmentfile ein Thread starten
+                            //
+                            if (System.IO.Directory.Exists(directory.FullName + "\\uhlmann\\tc\\pv_equipment") && System.IO.Directory.Exists(directory.FullName + "\\uhlmann\\tc\\pv_process"))
+                            {
+                                // Thread starten
+                                System.Threading.Thread thread = new System.Threading.Thread(new System.Threading.ParameterizedThreadStart(ThreadAnalyzeTWOPC));
+                                thread.Start(directory.FullName);
+                            }
+                        }
+                        global.log.MetroLog.INSTANCE.ProgressBar((decimal)(++i) / (decimal)directoryCount, directory.Name);
+                    }
+
+                    // Save button aktivieren
+                    mbtnSave_1040.Enabled = true;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Thread um Twizard analisieren
+        /// </summary>
+        /// <param name="twizardpath"></param>
+        /// <created>janzen_d,2018-09-21</created>
+        private void ThreadAnalyzeTWOPC(object twizardpath)
+        {
+
+        }
+
+        /// <summary>
+        /// Event um Änderungen zu speichern
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <created>janzen_d,2018-09-21</created>
+        private void MbtnSave_1040_Click(object sender, System.EventArgs e)
+        {
+            throw new System.NotImplementedException();
         }
 
         /// <summary>
@@ -345,16 +591,24 @@
         private MetroFramework.Controls.MetroButton mbtnSelectFolder_1039;
         private MetroFramework.Controls.MetroButton mbtnSave_1040;
         private MetroFramework.Controls.MetroGrid metroGrid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gridmoduleid_1042;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gridfullpath_1043;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gridlistid_1060;
         private System.Windows.Forms.DataGridViewTextBoxColumn gridmodulename_1044;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gridTwequipmentfilepath_1045;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gridListequipmentid_1046;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gridADGroupprefix_1047;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gridLvl2_1048;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gridLvl3_1049;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gridLvl4_1050;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gridLvl11_1051;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gridLvl15_1052;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gridvariablename_1061;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gridpvbatchvariable_1062;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gridpdacountertype_1063;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gridtextid_1064;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gridcomment_1065;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gridopcdatatype_1066;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gridopcrwu_1067;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gridopcalias_1068;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gridopcactive_1069;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gridarrysize_1070;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gridsemantic_1071;
+        private System.Windows.Forms.DataGridViewTextBoxColumn griddcreadperiod_1072;
+        private System.Windows.Forms.DataGridViewTextBoxColumn griddclogthreshold_1073;
+        private System.Windows.Forms.DataGridViewTextBoxColumn griddcmaxpersistence_1074;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gridpathpvbatch_1075;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gridpathpvequipment_1076;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gridpathpvprocess_1077;
     }
 }

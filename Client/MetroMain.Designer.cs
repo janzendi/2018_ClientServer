@@ -280,6 +280,18 @@ namespace Client
                 // Lizenzsystem
                 //
                 this.ENABLED = global.config.ConfigReadWriter.VALIDLICENSE;
+
+                //
+                // TabCOntrol
+                //
+                try
+                {
+                    this.tabControl.SelectedIndex = global.config.ConfigReadWriter.MAINFORMTABPAGE;
+                }
+                catch (System.Exception)
+                {
+                    this.tabControl.SelectedIndex = 0;
+                }
             }
             catch (System.Exception)
             {
@@ -402,6 +414,7 @@ namespace Client
                 global.log.MetroLog.INSTANCE.DebugWriteLine(this.Size.Width.ToString() + " x " + this.Size.Height.ToString() + " " + this.WindowState.ToString(), global.log.MetroLog.LogType.INFO, 1011);
                 global.config.ConfigReadWriter.METROTHEME = metroStyleManager.Theme;
                 global.config.ConfigReadWriter.METROSTYLE = metroStyleManager.Style;
+                global.config.ConfigReadWriter.MAINFORMTABPAGE = this.tabControl.SelectedIndex;
             }
             catch (System.Exception)
             {

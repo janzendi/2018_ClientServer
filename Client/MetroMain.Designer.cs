@@ -404,6 +404,7 @@ namespace Client
         /// <created>janzen_d,2018-09-10</created>
         /// <modified>janzen_d,2018-09-12: Metro Stil und Theme hinzugefügt</modified>
         /// <modified>janzen_d,2018-09-21: Tab Auswahl wird gespeichert</modified>
+        /// <modified>janzen_d,2018-09-22: Panel Close events hinzugefügt</modified>
         private void MetroMain_FormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
         {
             try
@@ -415,6 +416,11 @@ namespace Client
                 global.config.ConfigReadWriter.METROTHEME = metroStyleManager.Theme;
                 global.config.ConfigReadWriter.METROSTYLE = metroStyleManager.Style;
                 global.config.ConfigReadWriter.MAINFORMTABPAGE = this.tabControl.SelectedIndex;
+                
+                //
+                // Panel close events
+                //
+                pnlTwSTOPC.Close();
             }
             catch (System.Exception)
             {

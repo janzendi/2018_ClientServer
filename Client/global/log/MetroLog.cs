@@ -238,22 +238,30 @@ namespace Client.global.log
             Console_Info.ScrollToCaret();
         }
 
+        private delegate void dgProgressBar(decimal divident, string text);
         public void ProgressBar(decimal divident, string text)
         {
-            try
+            if (pBarProgress.GetCurrentParent().InvokeRequired)
             {
-                lblProgessBar.Text = text;
-                int temp = (int)(divident * 100);
-                pBarProgress.Value = temp;
-                if (pBarProgress.Value == 100)
-                {
-                    pBarProgress.Value = 0;
-                    lblProgessBar.Text = "Ready";
-                }
+                pBarProgress.GetCurrentParent().BeginInvoke(new dgProgressBar(ProgressBar), new object[] { divident, text });
             }
-            catch (Exception exception)
+            else
             {
-                global.log.MetroLog.INSTANCE.WriteLine("ERROR: Exception thrown in class: " + this.ToString() + ", METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + exception.ToString(), LogType.ERROR);
+                try
+                {
+                    lblProgessBar.Text = text;
+                    int temp = (int)(divident * 100);
+                    pBarProgress.Value = temp;
+                    if (pBarProgress.Value == 100)
+                    {
+                        pBarProgress.Value = 0;
+                        lblProgessBar.Text = "Ready";
+                    }
+                }
+                catch (Exception exception)
+                {
+                    global.log.MetroLog.INSTANCE.WriteLine("ERROR: Exception thrown in class: " + this.ToString() + ", METHOD: " + System.Reflection.MethodBase.GetCurrentMethod() + ", EXCEPTION INFORMATION: " + exception.ToString(), LogType.ERROR);
+                }
             }
         }
 

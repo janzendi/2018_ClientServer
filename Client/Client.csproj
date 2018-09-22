@@ -56,6 +56,7 @@
     <Compile Include="global\language\LanguageHandler.cs" />
     <Compile Include="global\language\ObjWord.cs" />
     <Compile Include="global\log\MetroLog.cs" />
+    <Compile Include="global\objects\twizard\OPCTag.cs" />
     <Compile Include="global\readme\license\LicenseHandler.cs" />
     <Compile Include="global\readme\license\Register.cs">
       <SubType>Form</SubType>
@@ -131,9 +132,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="global\objects\twizard\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="config\icon.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

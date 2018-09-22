@@ -114,13 +114,16 @@ namespace Client.panel
             }
         }
 
+        /// <summary>
+        /// Methode um Grid zu befüllen
+        /// </summary>
+        /// <created>janzen_d,2018-09-22</created>
         private void AddData()
         {
             //
             // prüfen ob alle Threads fertig sind
             //
-            bool finishloop = false;
-            while (finishloop)
+            while (true)
             {
                 int finishcount = 0;
                 for (int icount = 0; icount < listThreads.Count; icount++)
@@ -129,8 +132,10 @@ namespace Client.panel
                         finishcount++;
                 }
                 if (finishcount == (listThreads.Count - 1))
-                    finishloop = true;
+                    break;
             }
+
+            Thread threadStdVariables = new Thread()
 
             for (int icount = 0; icount < listOpcTags.Count; icount++)
             {
@@ -141,7 +146,14 @@ namespace Client.panel
             EnableSaveButton(true);
         }
 
+        private void ThreadStandardvariablen
+
         private delegate void dgEnableSaveButton(bool value);
+        /// <summary>
+        /// Multithread Save button aktivieren
+        /// </summary>
+        /// <param name="value"></param>
+        /// <created>janzen_d,2018-09-22</created>
         private void EnableSaveButton(bool value)
         {
             try

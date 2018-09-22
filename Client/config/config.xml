@@ -22,8 +22,41 @@
   </twad>
   <twopc>
     <path></path>
+    <opcbatchvariables>
+      <opc>BMT_ErrorInfo</opc>
+      <opc>BMT_BatchStop</opc>
+      <opc>BMT_BatchStart</opc>
+      <opc>BMT_BatchCtrlState</opc>
+      <opc>BMT_Connection_OK</opc>
+      <opc>BMT_TokenBit_UP</opc>
+      <opc>BMT_BatchCtrlState</opc>
+      <opc>EM_FirstFault</opc>
+      <opc>EM_FirstFaultText</opc>
+      <opc>EM_FirstFaultClass</opc>
+      <opc>EM_MachineStopError</opc>
+      <opc>EM_MachineStopErrorText</opc>
+      <opc>EM_MachineStopErrorClass</opc>
+      <opc>EM_OpcErrorNumberList</opc>
+      <opc>EM_OpcErrorClassList</opc>
+      <opc>EM_OpcErrorDeviceList</opc>
+      <opc>EM_OpcErrorTextList</opc>
+      <opc>EM_OpcWarningNumberList</opc>
+      <opc>EM_OpcWarningClassList</opc>
+      <opc>EM_OpcWarningDeviceList</opc>
+      <opc>EM_OpcWarningTextList</opc>
+    </opcbatchvariables>
+    <bmtprefix>
+      <bmt>BMT_</bmt>
+    </bmtprefix>
+    <dcanalogsemantic>
+      <tag>analogDataPoints</tag>
+      <tag>analog</tag>
+      <tag>Analog</tag>
+    </dcanalogsemantic>
   </twopc>
   <mainform>
     <tabpage>0</tabpage>
   </mainform>
+  <global>
+  </global>
 </config>

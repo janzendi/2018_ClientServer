@@ -753,5 +753,65 @@ namespace Client.global.config
                 }
             }
         }
+
+        private static List<string> liststdvariables = new List<string>();
+        /// <summary>
+        /// Liest alle Standard Variablen aus ("config/twopc/opcbatchvariables/opc")
+        /// </summary>
+        /// <created>janzen_d,2018-09-22</created>
+        public static List<string> GetSTDVARIABLES
+        {
+            get
+            {
+                if (!(liststdvariables.Count > 0))
+                {
+                    xmldocConfg.Load("config/config.xml");
+                    XmlNodeList xmlNodeList = xmldocConfg.SelectNodes("config/twopc/opcbatchvariables/opc");
+                    foreach (XmlNode item in xmlNodeList)
+                        liststdvariables.Add(item.Value);
+                }
+                return liststdvariables;
+            }
+        }
+
+        private static List<string> listbmtprefix = new List<string>();
+        /// <summary>
+        /// Liest alle Standard Variablen aus ("config/twopc/opcbatchvariables/opc")
+        /// </summary>
+        /// <created>janzen_d,2018-09-22</created>
+        public static List<string> GetBMTPREFIX
+        {
+            get
+            {
+                if (!(liststdvariables.Count > 0))
+                {
+                    xmldocConfg.Load("config/config.xml");
+                    XmlNodeList xmlNodeList = xmldocConfg.SelectNodes("config/twopc/bmtprefix/bmt");
+                    foreach (XmlNode item in xmlNodeList)
+                        listbmtprefix.Add(item.Value);
+                }
+                return listbmtprefix;
+            }
+        }
+
+        private static List<string> listdcanalogsemantic = new List<string>();
+        /// <summary>
+        /// Liest alle Standard Variablen aus ("config/twopc/opcbatchvariables/opc")
+        /// </summary>
+        /// <created>janzen_d,2018-09-22</created>
+        public static List<string> GetANALOGSEMANTIC
+        {
+            get
+            {
+                if (!(liststdvariables.Count > 0))
+                {
+                    xmldocConfg.Load("config/config.xml");
+                    XmlNodeList xmlNodeList = xmldocConfg.SelectNodes("config/twopc/bmtprefix/bmt");
+                    foreach (XmlNode item in xmlNodeList)
+                        listdcanalogsemantic.Add(item.Value);
+                }
+                return listdcanalogsemantic;
+            }
+        }
     }
 }

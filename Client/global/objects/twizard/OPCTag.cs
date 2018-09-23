@@ -286,6 +286,37 @@ namespace Client.global.objects.twizard
                 this.strpvequipmentpath = value;
             }
         }
+
+        private string strbatchvariable;
+        /// <summary>
+        /// Eigenschaft für batch Variable
+        /// </summary>
+        /// <created>janzen_d,2018-09-23</created>
+        public string BATCHVARIABLE
+        {
+            set
+            {
+                this.strbatchvariable = value;
+            }
+            get
+            {
+                return this.strbatchvariable;
+            }
+        }
+
+        private string strpvbatchpath;
+        /// <summary>
+        /// pv_batch Pfad
+        /// </summary>
+        /// <created>janzen_d,2018-09-23</created>
+        public string PVBATCHPATH
+        {
+            set
+            {
+                this.strpvbatchpath = value;
+            }
+        }
+
         #endregion
 
         #region Rückgabe Methoden und Eigenschaften
@@ -302,7 +333,7 @@ namespace Client.global.objects.twizard
                     return new string[] { listid.ToString(),
                         strmodulename,
                         strvariablename,
-                        null,
+                        strbatchvariable,
                         intpdacountertype.ToString(),
                         inttextid.ToString(),
                         strcmt,
@@ -315,7 +346,7 @@ namespace Client.global.objects.twizard
                         strdcreadperiod,
                         strlogthreshold,
                         strdcmaxpersistence,
-                        null,
+                        strpvbatchpath,
                         strpvequipmentpath,
                         strpvprocesspath};
                 }

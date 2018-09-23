@@ -768,7 +768,7 @@ namespace Client.global.config
                     xmldocConfg.Load("config/config.xml");
                     XmlNodeList xmlNodeList = xmldocConfg.SelectNodes("config/twopc/opcbatchvariables/opc");
                     foreach (XmlNode item in xmlNodeList)
-                        liststdvariables.Add(item.Value);
+                        liststdvariables.Add(item.InnerText);
                 }
                 return liststdvariables;
             }
@@ -783,12 +783,12 @@ namespace Client.global.config
         {
             get
             {
-                if (!(liststdvariables.Count > 0))
+                if (!(listbmtprefix.Count > 0))
                 {
                     xmldocConfg.Load("config/config.xml");
                     XmlNodeList xmlNodeList = xmldocConfg.SelectNodes("config/twopc/bmtprefix/bmt");
                     foreach (XmlNode item in xmlNodeList)
-                        listbmtprefix.Add(item.Value);
+                        listbmtprefix.Add(item.InnerText);
                 }
                 return listbmtprefix;
             }
@@ -806,9 +806,9 @@ namespace Client.global.config
                 if (!(liststdvariables.Count > 0))
                 {
                     xmldocConfg.Load("config/config.xml");
-                    XmlNodeList xmlNodeList = xmldocConfg.SelectNodes("config/twopc/bmtprefix/bmt");
+                    XmlNodeList xmlNodeList = xmldocConfg.SelectNodes("config/twopc/dcanalogsemantic/tag");
                     foreach (XmlNode item in xmlNodeList)
-                        listdcanalogsemantic.Add(item.Value);
+                        listdcanalogsemantic.Add(item.InnerText);
                 }
                 return listdcanalogsemantic;
             }

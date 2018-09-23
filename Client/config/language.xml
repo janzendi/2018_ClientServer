@@ -80,6 +80,8 @@
     <text id="1075" tooltip="missing" objecttype="datagrid">Pfad pv_batch</text>
     <text id="1076" tooltip="missing" objecttype="datagrid">Pfad pv_equipment</text>
     <text id="1077" tooltip="missing" objecttype="datagrid">Pfad pv_process</text>
+    <text id="1078" tooltip="missing" objecttype="info">Standard Variablen</text>
+    <text id="1079" tooltip="missing" objecttype="info">Batch Variablen</text>
     <text id="" tooltip="" objecttype="tag"></text>
   </language>
 	<language id="en" text="English">
@@ -162,6 +164,8 @@
     <text id="1075" tooltip="missing" objecttype="datagrid">path pv_batch</text>
     <text id="1076" tooltip="missing" objecttype="datagrid">path pv_equipment</text>
     <text id="1077" tooltip="missing" objecttype="datagrid">path pv_process</text>
+    <text id="1078" tooltip="missing" objecttype="info">Standard variables</text>
+    <text id="1079" tooltip="missing" objecttype="info">Batch variables</text>
 	<text id="" tooltip="" objecttype="tag"></text>
 	</language>
 </languages>

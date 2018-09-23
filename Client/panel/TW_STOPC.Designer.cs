@@ -34,10 +34,6 @@
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.metroGrid = new MetroFramework.Controls.MetroGrid();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.mtxtBox_TWPath_1038 = new MetroFramework.Controls.MetroTextBox();
-            this.mbtnSelectFolder_1039 = new MetroFramework.Controls.MetroButton();
-            this.mbtnSave_1040 = new MetroFramework.Controls.MetroButton();
             this.gridlistid_1060 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gridmodulename_1044 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gridvariablename_1061 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,6 +53,10 @@
             this.gridpathpvbatch_1075 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gridpathpvequipment_1076 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gridpathpvprocess_1077 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.mtxtBox_TWPath_1038 = new MetroFramework.Controls.MetroTextBox();
+            this.mbtnSelectFolder_1039 = new MetroFramework.Controls.MetroButton();
+            this.mbtnSave_1040 = new MetroFramework.Controls.MetroButton();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
@@ -142,74 +142,11 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.metroGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.metroGrid.RowHeadersWidth = 100;
             this.metroGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.metroGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.metroGrid.Size = new System.Drawing.Size(657, 289);
             this.metroGrid.TabIndex = 2;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.mtxtBox_TWPath_1038);
-            this.flowLayoutPanel1.Controls.Add(this.mbtnSelectFolder_1039);
-            this.flowLayoutPanel1.Controls.Add(this.mbtnSave_1040);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(657, 44);
-            this.flowLayoutPanel1.TabIndex = 1;
-            // 
-            // mtxtBox_TWPath_1038
-            // 
-            // 
-            // 
-            // 
-            this.mtxtBox_TWPath_1038.CustomButton.Image = null;
-            this.mtxtBox_TWPath_1038.CustomButton.Location = new System.Drawing.Point(206, 2);
-            this.mtxtBox_TWPath_1038.CustomButton.Name = "";
-            this.mtxtBox_TWPath_1038.CustomButton.Size = new System.Drawing.Size(29, 29);
-            this.mtxtBox_TWPath_1038.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.mtxtBox_TWPath_1038.CustomButton.TabIndex = 1;
-            this.mtxtBox_TWPath_1038.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.mtxtBox_TWPath_1038.CustomButton.UseSelectable = true;
-            this.mtxtBox_TWPath_1038.CustomButton.Visible = false;
-            this.mtxtBox_TWPath_1038.Lines = new string[] {
-        "mtxtBox_TWPath_1038"};
-            this.mtxtBox_TWPath_1038.Location = new System.Drawing.Point(3, 3);
-            this.mtxtBox_TWPath_1038.MaxLength = 32767;
-            this.mtxtBox_TWPath_1038.Name = "mtxtBox_TWPath_1038";
-            this.mtxtBox_TWPath_1038.PasswordChar = '\0';
-            this.mtxtBox_TWPath_1038.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.mtxtBox_TWPath_1038.SelectedText = "";
-            this.mtxtBox_TWPath_1038.SelectionLength = 0;
-            this.mtxtBox_TWPath_1038.SelectionStart = 0;
-            this.mtxtBox_TWPath_1038.ShortcutsEnabled = true;
-            this.mtxtBox_TWPath_1038.Size = new System.Drawing.Size(238, 34);
-            this.mtxtBox_TWPath_1038.TabIndex = 0;
-            this.mtxtBox_TWPath_1038.Tag = "1038";
-            this.mtxtBox_TWPath_1038.Text = "mtxtBox_TWPath_1038";
-            this.mtxtBox_TWPath_1038.UseSelectable = true;
-            this.mtxtBox_TWPath_1038.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.mtxtBox_TWPath_1038.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // mbtnSelectFolder_1039
-            // 
-            this.mbtnSelectFolder_1039.Location = new System.Drawing.Point(247, 3);
-            this.mbtnSelectFolder_1039.Name = "mbtnSelectFolder_1039";
-            this.mbtnSelectFolder_1039.Size = new System.Drawing.Size(140, 34);
-            this.mbtnSelectFolder_1039.TabIndex = 1;
-            this.mbtnSelectFolder_1039.Tag = "1039";
-            this.mbtnSelectFolder_1039.Text = "mbtnSelectFolder_1039";
-            this.mbtnSelectFolder_1039.UseSelectable = true;
-            // 
-            // mbtnSave_1040
-            // 
-            this.mbtnSave_1040.Location = new System.Drawing.Point(393, 3);
-            this.mbtnSave_1040.Name = "mbtnSave_1040";
-            this.mbtnSave_1040.Size = new System.Drawing.Size(140, 34);
-            this.mbtnSave_1040.TabIndex = 2;
-            this.mbtnSave_1040.Tag = "1040";
-            this.mbtnSave_1040.Text = "mbtnSave_1040";
-            this.mbtnSave_1040.UseSelectable = true;
             // 
             // gridlistid_1060
             // 
@@ -326,6 +263,70 @@
             this.gridpathpvprocess_1077.HeaderText = "gridpathpvprocess_1077";
             this.gridpathpvprocess_1077.Name = "gridpathpvprocess_1077";
             this.gridpathpvprocess_1077.ReadOnly = true;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.mtxtBox_TWPath_1038);
+            this.flowLayoutPanel1.Controls.Add(this.mbtnSelectFolder_1039);
+            this.flowLayoutPanel1.Controls.Add(this.mbtnSave_1040);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(657, 44);
+            this.flowLayoutPanel1.TabIndex = 1;
+            // 
+            // mtxtBox_TWPath_1038
+            // 
+            // 
+            // 
+            // 
+            this.mtxtBox_TWPath_1038.CustomButton.Image = null;
+            this.mtxtBox_TWPath_1038.CustomButton.Location = new System.Drawing.Point(206, 2);
+            this.mtxtBox_TWPath_1038.CustomButton.Name = "";
+            this.mtxtBox_TWPath_1038.CustomButton.Size = new System.Drawing.Size(29, 29);
+            this.mtxtBox_TWPath_1038.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.mtxtBox_TWPath_1038.CustomButton.TabIndex = 1;
+            this.mtxtBox_TWPath_1038.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.mtxtBox_TWPath_1038.CustomButton.UseSelectable = true;
+            this.mtxtBox_TWPath_1038.CustomButton.Visible = false;
+            this.mtxtBox_TWPath_1038.Lines = new string[] {
+        "mtxtBox_TWPath_1038"};
+            this.mtxtBox_TWPath_1038.Location = new System.Drawing.Point(3, 3);
+            this.mtxtBox_TWPath_1038.MaxLength = 32767;
+            this.mtxtBox_TWPath_1038.Name = "mtxtBox_TWPath_1038";
+            this.mtxtBox_TWPath_1038.PasswordChar = '\0';
+            this.mtxtBox_TWPath_1038.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.mtxtBox_TWPath_1038.SelectedText = "";
+            this.mtxtBox_TWPath_1038.SelectionLength = 0;
+            this.mtxtBox_TWPath_1038.SelectionStart = 0;
+            this.mtxtBox_TWPath_1038.ShortcutsEnabled = true;
+            this.mtxtBox_TWPath_1038.Size = new System.Drawing.Size(238, 34);
+            this.mtxtBox_TWPath_1038.TabIndex = 0;
+            this.mtxtBox_TWPath_1038.Tag = "1038";
+            this.mtxtBox_TWPath_1038.Text = "mtxtBox_TWPath_1038";
+            this.mtxtBox_TWPath_1038.UseSelectable = true;
+            this.mtxtBox_TWPath_1038.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.mtxtBox_TWPath_1038.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // mbtnSelectFolder_1039
+            // 
+            this.mbtnSelectFolder_1039.Location = new System.Drawing.Point(247, 3);
+            this.mbtnSelectFolder_1039.Name = "mbtnSelectFolder_1039";
+            this.mbtnSelectFolder_1039.Size = new System.Drawing.Size(140, 34);
+            this.mbtnSelectFolder_1039.TabIndex = 1;
+            this.mbtnSelectFolder_1039.Tag = "1039";
+            this.mbtnSelectFolder_1039.Text = "mbtnSelectFolder_1039";
+            this.mbtnSelectFolder_1039.UseSelectable = true;
+            // 
+            // mbtnSave_1040
+            // 
+            this.mbtnSave_1040.Location = new System.Drawing.Point(393, 3);
+            this.mbtnSave_1040.Name = "mbtnSave_1040";
+            this.mbtnSave_1040.Size = new System.Drawing.Size(140, 34);
+            this.mbtnSave_1040.TabIndex = 2;
+            this.mbtnSave_1040.Tag = "1040";
+            this.mbtnSave_1040.Text = "mbtnSave_1040";
+            this.mbtnSave_1040.UseSelectable = true;
             // 
             // TW_STOPC
             // 

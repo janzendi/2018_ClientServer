@@ -188,6 +188,10 @@ namespace Client.global.objects.twizard
             {
                 this.strsemantic = value;
             }
+            get
+            {
+                return this.strsemantic;
+            }
         }
 
         private string strdcreadperiod;
@@ -200,6 +204,10 @@ namespace Client.global.objects.twizard
             set
             {
                 this.strdcreadperiod = value;
+            }
+            get
+            {
+                return this.strdcreadperiod;
             }
         }
 
@@ -214,6 +222,10 @@ namespace Client.global.objects.twizard
             {
                 this.strlogthreshold = value;
             }
+            get
+            {
+                return this.strlogthreshold;
+            }
         }
 
         private string strdcmaxpersistence;
@@ -226,6 +238,10 @@ namespace Client.global.objects.twizard
             set
             {
                 this.strdcmaxpersistence = value;
+            }
+            get
+            {
+                return this.strdcmaxpersistence;
             }
         }
 
@@ -314,6 +330,10 @@ namespace Client.global.objects.twizard
             set
             {
                 this.strpvbatchpath = value;
+            }
+            get
+            {
+                return this.strpvbatchpath;
             }
         }
 

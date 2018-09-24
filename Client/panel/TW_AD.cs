@@ -18,6 +18,17 @@ namespace Client.panel
 {
     /// <summary>
     /// 
+    ///    gridmoduleid_1042 				0
+    ///    gridfullpath_1043				1
+    ///    gridmodulename_1044				2
+    ///    gridTwequipmentfilepath_1045	    3
+    ///    gridListequipmentid_1046		    4
+    ///    gridADGroupprefix_1047			5
+    ///    gridLvl2_1048					6
+    ///    gridLvl3_1049					7
+    ///    gridLvl4_1050					8
+    ///    gridLvl11_1051					9
+    ///    gridLvl15_1052					10
     /// </summary>
     public partial class TW_AD : MetroUserControl
     {

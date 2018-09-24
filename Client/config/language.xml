@@ -82,6 +82,8 @@
     <text id="1077" tooltip="missing" objecttype="datagrid">Pfad pv_process</text>
     <text id="1078" tooltip="missing" objecttype="info">Standard Variablen</text>
     <text id="1079" tooltip="missing" objecttype="info">Batch Variablen</text>
+    <text id="1080" tooltip="missing" objecttype="info">Batch Variable gefunden: </text>
+    <text id="1081" tooltip="missing" objecttype="info">Batch variable gefunden und zusammen geführt: </text>
     <text id="" tooltip="" objecttype="tag"></text>
   </language>
 	<language id="en" text="English">
@@ -166,6 +168,8 @@
     <text id="1077" tooltip="missing" objecttype="datagrid">path pv_process</text>
     <text id="1078" tooltip="missing" objecttype="info">Standard variables</text>
     <text id="1079" tooltip="missing" objecttype="info">Batch variables</text>
+    <text id="1080" tooltip="missing" objecttype="info">Batch variable found: </text>
+    <text id="1081" tooltip="missing" objecttype="info">Batch variable found and merged: </text>
 	<text id="" tooltip="" objecttype="tag"></text>
 	</language>
 </languages>

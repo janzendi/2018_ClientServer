@@ -11,6 +11,28 @@ namespace Client.panel
 {
     /// <summary>
     /// User Control für Standard OPC Interface
+    /// 
+    ///TW_OPC
+    ///gridlistid_1060                  0		-
+    ///gridmodulename_1044				1		-
+    ///gridvariablename_1061			2		-
+    ///gridpvbatchvariable_1062		    3		-
+    ///gridpdacountertype_1063			4		-
+    ///gridtextid_1064					5		-
+    ///gridcomment_1065				    6		-
+    ///gridopcdatatype_1066			    7		-
+    ///gridopcrwu_1067					8		-
+    ///gridopcalias_1068				9		-
+    ///gridopcactive_1069				10		-
+    ///gridarrysize_1070				11		-
+    ///gridsemantic_1071				12		-
+    ///griddcreadperiod_1072			13		-
+    ///griddclogthreshold_1073			14		-
+    ///griddcmaxpersistence_1074		15		-
+    ///gridpathpvbatch_1075			    16		-
+    ///gridpathpvequipment_1076		    17		-
+    ///gridpathpvprocess_1077			18		-
+    ///
     /// </summary>
     /// <created>janzen_d,2018-09-21</created>
     public partial class TW_STOPC : MetroUserControl
@@ -141,6 +163,7 @@ namespace Client.panel
             (new Thread(new ThreadStart(ThreadStandardVariablen))).Start();
             (new Thread(new ThreadStart(ThreadBatchVariablen))).Start();
             (new Thread(new ThreadStart(ThreadAnalogVariables))).Start();
+            (new Thread(new ThreadStart(ThreadCounterVariables))).Start();
 
             //TODO löschen
             /*for (int icount = 0; icount < listOpcTags.Count; icount++)
@@ -154,10 +177,41 @@ namespace Client.panel
         }
         
         /// <summary>
-        /// Thread um alle Standardvariablen hinzuzufügen
+        /// Thread um alle Analog Variablen hinzuzufügen
         /// </summary>
         /// <created>janzen_d,2018-09-23</created>
         private void ThreadAnalogVariables()
+        {
+            try
+            {
+                List<string> tmpListanlvar = global.config.ConfigReadWriter.GetANALOGSEMANTIC;
+                List<int> tmpListid = new List<int>();
+                if (tmpListanlvar.Count >0)
+                {
+                    foreach (string analogitem in tmpListanlvar)
+                    {
+                        for (int i = 0; i < listOpcTags.Count; i++)
+                        {
+                            if (listOpcTags[i].DCREADPERIOD !=null || listOpcTags[i].SEMANTIC != null || listOpcTags[i].LOGTHRESHOLD != null || listOpcTags[i].DCMAXPERSISTENCE != null)
+                            {
+
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Thread um alle Counter Variablen hinzuzufügen
+        /// </summary>
+        /// <created>janzen_d,2018-09-23</created>
+        private void ThreadCounterVariables()
         {
             try
             {
@@ -205,28 +259,44 @@ namespace Client.panel
         /// Thread Batch Variable durchsuchen
         /// </summary>
         /// <created>janzen_d,2018-09-23</created>
+        /// <modified>janzen_d,2018-09-24: fertiggestellt</modified>
         private void ThreadBatchVariablen()
         {
             try
             {
-                List<string> tmpListstdvar = global.config.ConfigReadWriter.GetBMTPREFIX;
+                List<string> tmpListbmtprefix = global.config.ConfigReadWriter.GetBMTPREFIX;
                 List<int> tmpListid = new List<int>();
-                if (tmpListstdvar.Count > 0)
+                Dictionary<string, string> tmpdictBatchvars = new Dictionary<string, string>();
+                if (tmpListbmtprefix.Count > 0) // wenn ein prefix konfiguriert ist
                 {
-                    foreach (string stritem in tmpListstdvar)
+                    for (int i = 0; i < listOpcTags.Count; i++) // eine Liste der BatchVariablen erstellen -> tmpdictBatchvars<batch variable, pv_batch path>
                     {
-                        for (int i = 0; i < listOpcTags.Count; i++)
+                        if (listOpcTags[i].BATCHVARIABLE != null && listOpcTags[i].PVBATCHPATH != null)
                         {
-                            if (listOpcTags[i].BATCHVARIABLE != null)
+                            tmpdictBatchvars.Add(listOpcTags[i].BATCHVARIABLE, listOpcTags[i].PVBATCHPATH);
+                            global.log.MetroLog.INSTANCE.DebugWriteLine(listOpcTags[i].BATCHVARIABLE, global.log.MetroLog.LogType.INFO, 1080);
+                        }
+                    }
+
+                    if (tmpdictBatchvars.Count > 0)
+                    {
+                        for (int iinner = 0; iinner < listOpcTags.Count; iinner++) // alle Variablen durchgehen
+                        {
+                            for (int iprefix = 0; iprefix < tmpListbmtprefix.Count; iprefix++) // jeden bmt prefix prüfen
                             {
-                                if (listOpcTags[i].BATCHVARIABLE.Contains(stritem))
+                                foreach (string key in tmpdictBatchvars.Keys) // mit jeder gefundenen batchvariable vergleichen
                                 {
-                                    tmpListid.Add(i);
+                                    if (listOpcTags[iinner].VARIABLENAME == (tmpListbmtprefix[iprefix] + key))
+                                    {
+                                        listOpcTags[iinner].BATCHVARIABLE = key;
+                                        listOpcTags[iinner].PVBATCHPATH = tmpdictBatchvars[key];
+                                        tmpListid.Add(iinner);
+                                        global.log.MetroLog.INSTANCE.DebugWriteLine(listOpcTags[iinner].VARIABLENAME, global.log.MetroLog.LogType.INFO, 1081);
+                                    }
                                 }
                             }
                         }
                     }
-                    
                     AddListids(tmpListid.ToArray(), 1079);
                 }
             }

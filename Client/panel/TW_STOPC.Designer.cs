@@ -57,6 +57,7 @@
             this.mtxtBox_TWPath_1038 = new MetroFramework.Controls.MetroTextBox();
             this.mbtnSelectFolder_1039 = new MetroFramework.Controls.MetroButton();
             this.mbtnSave_1040 = new MetroFramework.Controls.MetroButton();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
@@ -78,7 +79,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(663, 345);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(867, 461);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // metroGrid
@@ -145,7 +146,7 @@
             this.metroGrid.RowHeadersWidth = 100;
             this.metroGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.metroGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.metroGrid.Size = new System.Drawing.Size(657, 289);
+            this.metroGrid.Size = new System.Drawing.Size(861, 405);
             this.metroGrid.TabIndex = 2;
             // 
             // gridlistid_1060
@@ -269,10 +270,11 @@
             this.flowLayoutPanel1.Controls.Add(this.mtxtBox_TWPath_1038);
             this.flowLayoutPanel1.Controls.Add(this.mbtnSelectFolder_1039);
             this.flowLayoutPanel1.Controls.Add(this.mbtnSave_1040);
+            this.flowLayoutPanel1.Controls.Add(this.metroButton1);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(657, 44);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(861, 44);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // mtxtBox_TWPath_1038
@@ -328,13 +330,23 @@
             this.mbtnSave_1040.Text = "mbtnSave_1040";
             this.mbtnSave_1040.UseSelectable = true;
             // 
+            // metroButton1
+            // 
+            this.metroButton1.Location = new System.Drawing.Point(539, 3);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(140, 34);
+            this.metroButton1.TabIndex = 3;
+            this.metroButton1.Tag = "1040";
+            this.metroButton1.Text = "metroButton1";
+            this.metroButton1.UseSelectable = true;
+            // 
             // TW_STOPC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "TW_STOPC";
-            this.Size = new System.Drawing.Size(663, 345);
+            this.Size = new System.Drawing.Size(867, 461);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
@@ -512,5 +524,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn gridpathpvbatch_1075;
         private System.Windows.Forms.DataGridViewTextBoxColumn gridpathpvequipment_1076;
         private System.Windows.Forms.DataGridViewTextBoxColumn gridpathpvprocess_1077;
+        private MetroFramework.Controls.MetroButton metroButton1;
     }
 }

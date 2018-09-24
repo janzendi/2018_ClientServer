@@ -2,13 +2,8 @@ TODO bugfixes
 		<?xml version="1.0" encoding="ISO-8859-1"?> Wird falsch eingetragen muss noch geprüft werden.
 Prio 1
 TW OPC
-Analog und Counter thread fertigstellen
 
-analog
-						strsemantic, 		-> siehe config liste 	-> SEMANTIC
-                        strdcreadperiod,	-> falls vorhanden		-> DCREADPERIOD
-                        strlogthreshold,	-> falls vorhanden		-> LOGTHRESHOLD
-                        strdcmaxpersistence -> falls vorhanden		-> DCMAXPERSISTENCE
+automatic und save button
 		
 Prio 2
 Network Manager Programmieren.

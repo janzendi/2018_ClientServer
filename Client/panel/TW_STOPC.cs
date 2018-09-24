@@ -51,7 +51,7 @@ namespace Client.panel
 
         public void Close()
         {
-            global.config.ConfigReadWriter.TWOPCPATH=this.mtxtBox_TWPath_1038.Text;
+            global.config.ConfigReadWriter.TWOPCPATH = this.mtxtBox_TWPath_1038.Text;
         }
 
         /// <summary>
@@ -142,6 +142,7 @@ namespace Client.panel
         /// <created>janzen_d,2018-09-22</created>
         private void AddData()
         {
+            global.log.MetroLog.INSTANCE.ProgressBar(1 / 2, global.language.LanguageHandler.INSTANCE.GETOBJWORD(1086)[2].ToString());
             //
             // prüfen ob alle Threads fertig sind
             //
@@ -160,10 +161,28 @@ namespace Client.panel
             //
             // Threads starten
             //
-            (new Thread(new ThreadStart(ThreadStandardVariablen))).Start();
-            (new Thread(new ThreadStart(ThreadBatchVariablen))).Start();
-            (new Thread(new ThreadStart(ThreadAnalogVariables))).Start();
-            (new Thread(new ThreadStart(ThreadCounterVariables))).Start();
+            listThreads.Clear();
+            listThreads.Add(new Thread(new ThreadStart(ThreadStandardVariablen)));
+            listThreads.Add(new Thread(new ThreadStart(ThreadBatchVariablen)));
+            listThreads.Add(new Thread(new ThreadStart(ThreadAnalogVariables)));
+            listThreads.Add(new Thread(new ThreadStart(ThreadCounterVariables)));
+            for (int i = 0; i < listThreads.Count; i++)
+                listThreads[i].Start();
+
+            //
+            // prüfen ob alle Threads fertig sind
+            //
+            while (true)
+            {
+                int finishcount = 0;
+                for (int icount = 0; icount < listThreads.Count; icount++)
+                {
+                    if (!listThreads[icount].IsAlive)
+                        finishcount++;
+                }
+                if (finishcount == listThreads.Count)
+                    break;
+            }
 
             //TODO löschen
             /*for (int icount = 0; icount < listOpcTags.Count; icount++)
@@ -174,8 +193,9 @@ namespace Client.panel
 
             // Save button aktivieren
             EnableSaveButton(true);
+            global.log.MetroLog.INSTANCE.ProgressBar(1, global.language.LanguageHandler.INSTANCE.GETOBJWORD(1086)[2].ToString());
         }
-        
+
         /// <summary>
         /// Thread um alle Analog Variablen hinzuzufügen
         /// </summary>
@@ -184,27 +204,50 @@ namespace Client.panel
         {
             try
             {
-                List<string> tmpListanlvar = global.config.ConfigReadWriter.GetANALOGSEMANTIC;
                 List<int> tmpListid = new List<int>();
-                if (tmpListanlvar.Count >0)
+                for (int i = 0; i < listOpcTags.Count; i++)
                 {
-                    foreach (string analogitem in tmpListanlvar)
+                    if (((listOpcTags[i].DCREADPERIOD != null && listOpcTags[i].DCREADPERIOD.Length > 0) || (listOpcTags[i].SEMANTIC != null && anlvarContainsSemantic(listOpcTags[i].SEMANTIC))) && listOpcTags[i].INTPDACOUNTERTYPE == 0)
                     {
-                        for (int i = 0; i < listOpcTags.Count; i++)
-                        {
-                            if (listOpcTags[i].DCREADPERIOD !=null || listOpcTags[i].SEMANTIC != null || listOpcTags[i].LOGTHRESHOLD != null || listOpcTags[i].DCMAXPERSISTENCE != null)
-                            {
-
-                            }
-                        }
+                        tmpListid.Add(i);
+                        global.log.MetroLog.INSTANCE.DebugWriteLine(listOpcTags[i].VARIABLENAME, global.log.MetroLog.LogType.INFO, 1082);
                     }
                 }
+                if (tmpListid.Count > 0)
+                    AddListids(tmpListid.ToArray(), 1083);
             }
             catch (Exception)
             {
 
                 throw;
             }
+        }
+
+        /// <summary>
+        /// LogikMethode für ThreadAnalogVariables()
+        /// </summary>
+        /// <param name="analogvariable"></param>
+        /// <returns></returns>
+        /// <created>janzen_d,2018-09-24</created>
+        private bool anlvarContainsSemantic(string analogvariable)
+        {
+            if (analogvariable != null)
+            {
+                try
+                {
+                    List<string> tmpListanlvar = global.config.ConfigReadWriter.GetANALOGSEMANTIC;
+                    foreach (string item in tmpListanlvar)
+                    {
+                        if (analogvariable.Contains(item))
+                            return true;
+                    }
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+            return false;
         }
 
         /// <summary>
@@ -215,7 +258,17 @@ namespace Client.panel
         {
             try
             {
-
+                List<int> tmpListid = new List<int>();
+                for (int i = 0; i < listOpcTags.Count; i++)
+                {
+                    if (listOpcTags[i].INTPDACOUNTERTYPE > 0)
+                    {
+                        tmpListid.Add(i);
+                        global.log.MetroLog.INSTANCE.DebugWriteLine(listOpcTags[i].VARIABLENAME, global.log.MetroLog.LogType.INFO, 1085);
+                    }
+                }
+                if (tmpListid.Count > 0)
+                    AddListids(tmpListid.ToArray(), 1084);
             }
             catch (Exception)
             {
@@ -245,7 +298,7 @@ namespace Client.panel
                         }
                     }
 
-                    AddListids(tmpListid.ToArray(),1078);
+                    AddListids(tmpListid.ToArray(), 1078);
                 }
             }
             catch (Exception)
@@ -318,7 +371,7 @@ namespace Client.panel
             try
             {
                 if (mbtnSave_1040.InvokeRequired)
-                    mbtnSave_1040.BeginInvoke(new dgEnableSaveButton(EnableSaveButton),new object[] { value });
+                    mbtnSave_1040.BeginInvoke(new dgEnableSaveButton(EnableSaveButton), new object[] { value });
                 else
                     mbtnSave_1040.Enabled = value;
             }
@@ -328,7 +381,7 @@ namespace Client.panel
                 throw;
             }
         }
-        
+
         private delegate void dgAddRow(string[] gridrow);
         /// <summary>
         /// Thread Eine Zeile im DataGrid hinzufügen.
@@ -346,13 +399,10 @@ namespace Client.panel
                 else
                 {
                     metroGrid.Rows.Add(gridrow);
-                    /*for (int i = 5; i < 19; i++) //TODO falls 
+                    for (int i = 7; i < 12; i++)
                     {
-                        if (gridrow[i] != null)
-                            metroGrid.Rows[metroGrid.Rows.Count - 2].Cells[i].ReadOnly = false; // -2 da ein datagrid immer eine zusatzzeile besitzt.
-                        else
-                            break;
-                    }*/
+                        metroGrid.Rows[metroGrid.Rows.Count - 2].Cells[i].ReadOnly = false; // -2 da ein datagrid immer eine zusatzzeile besitzt.
+                    }
                 }
             }
             catch (Exception e)
@@ -383,7 +433,12 @@ namespace Client.panel
                 {
                     for (int i = 0; i < listids.Length; i++)
                     {
-                        metroGrid.Rows.Add(listOpcTags[listids[i]].GetGridRow);
+                        string[] gridrow = listOpcTags[listids[i]].GetGridRow;
+                        metroGrid.Rows.Add(gridrow);
+                        for (int inner = 7; inner < 12; inner++)
+                        {
+                            metroGrid.Rows[metroGrid.Rows.Count - 2].Cells[inner].ReadOnly = false; // -2 da ein datagrid immer eine zusatzzeile besitzt.
+                        }
                         metroGrid.Rows[metroGrid.Rows.Count - 2].HeaderCell.Value = global.language.LanguageHandler.INSTANCE.GETOBJWORD(headeartextid)[2].ToString();
                         metroGrid.Rows[metroGrid.Rows.Count - 2].HeaderCell.ToolTipText = global.language.LanguageHandler.INSTANCE.GETOBJWORD(headeartextid)[0].ToString();
                         global.log.MetroLog.INSTANCE.ProgressBar((decimal)(i + 1) / (decimal)listids.Length, listOpcTags[listids[i]].VARIABLENAME);

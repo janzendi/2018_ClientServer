@@ -272,6 +272,17 @@ namespace Client.global.objects.twizard
                 else
                     this.intpdacountertype = 0;
             }
+            get
+            {
+                return this.intpdacountertype.ToString();
+            }
+        }
+        public int INTPDACOUNTERTYPE
+        {
+            get
+            {
+                return this.intpdacountertype;
+            }
         }
 
         private int intarrysize;

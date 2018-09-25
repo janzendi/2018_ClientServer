@@ -24,3 +24,7 @@ bullshit:
     <activation>FTd8OWgAJKXqwTMDmvXH+vmCQTGpRBVNiNv7D3omPldhnV0tt33cax2mlZYPfQWepy6Y8GwN/diEexZNhcx4TC1FyXV8wQE4wY1VFVSLQ18sxxmSQmtg8UyaVT0xC2XVFE0fCBkhl+/lo/Cs2Rh6s5xeHb1pr9dOG9i5YACLJhgpeSQMwD4V3lYpW/FpSUXO</activation>
     <!-- activation key -->
   </license>
+  
+  sql: Server=localhost\SQLEXPRESS;Database=master;Trusted_Connection=True;
+  
+  Adminup2day#Storm

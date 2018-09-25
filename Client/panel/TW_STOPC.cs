@@ -366,6 +366,7 @@ namespace Client.panel
         /// </summary>
         /// <param name="value"></param>
         /// <created>janzen_d,2018-09-22</created>
+        /// <modified>janzen_d,2018-09-25: Standard OPC Interface hinzugefügt</modified>
         private void EnableSaveButton(bool value)
         {
             try
@@ -374,6 +375,10 @@ namespace Client.panel
                     mbtnSave_1040.BeginInvoke(new dgEnableSaveButton(EnableSaveButton), new object[] { value });
                 else
                     mbtnSave_1040.Enabled = value;
+                if (mbtnOPC_1087.InvokeRequired)
+                    mbtnOPC_1087.BeginInvoke(new dgEnableSaveButton(EnableSaveButton), new object[] { value });
+                else
+                    mbtnOPC_1087.Enabled = value;
             }
             catch (Exception)
             {

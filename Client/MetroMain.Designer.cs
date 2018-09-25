@@ -206,7 +206,10 @@ namespace Client
                 toolStripMenuItemTheme.Tag = 1018;
                 toolStripMenuItemDesign.DropDownItems.Add(toolStripMenuItemTheme);
                 toolStripMenuItemTheme.Click += ToolStripMenuItemTheme_Click;
-
+                toolStripMenuItemSqlConnectForm = new System.Windows.Forms.ToolStripMenuItem("SqlConnect_1088");
+                toolStripMenuItemSqlConnectForm.Tag = 1088;
+                toolStripMenuItemOptions.DropDownItems.Add(toolStripMenuItemSqlConnectForm);
+                toolStripMenuItemSqlConnectForm.Click += ToolStripMenuItemSqlConnectForm_Click;
                 //Menu3
                 toolStripMenuItemInfo = new System.Windows.Forms.ToolStripMenuItem("Info_1012");
                 toolStripMenuItemInfo.Tag = 1012;
@@ -231,6 +234,11 @@ namespace Client
                 tabTwad_1037.Controls.Add(pnlTwAd);
                 pnlTwSTOPC = new panel.TW_STOPC(metroStyleManager);
                 tabTwstopc_1059.Controls.Add(pnlTwSTOPC);
+
+                //
+                // Forms
+                //
+                formSQLConnection = new forms.Form_SQLConnection(this.metroStyleManager);
 
 
                 // Menubar Sprachen aufbauen
@@ -296,6 +304,25 @@ namespace Client
             catch (System.Exception)
             {
                 throw; //TODO
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <created>janzen_d,2018-09-13</created>
+        private void ToolStripMenuItemSqlConnectForm_Click(object sender, System.EventArgs e)
+        {
+            try
+            {
+                formSQLConnection.Show();
+            }
+            catch (System.Exception)
+            {
+
+                throw;
             }
         }
 
@@ -491,6 +518,9 @@ namespace Client
                     pnlTwAd.ChangeLanguage(strActualLanguage);
                 if (pnlTwSTOPC != null)
                     pnlTwSTOPC.ChangeLanguage(strActualLanguage);
+                // Forms anpassen
+                if (formSQLConnection != null)
+                    formSQLConnection.ChangeLanguage(strActualLanguage);
             }
             catch (System.Exception)
             {
@@ -537,6 +567,7 @@ namespace Client
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemDesign;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemStyle;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemTheme;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSqlConnectForm;
         //Menu3
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemInfo;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemLicense;
@@ -547,6 +578,8 @@ namespace Client
         // Panels
         private panel.TW_AD pnlTwAd;
         private panel.TW_STOPC pnlTwSTOPC;
+        //Forms
+        private forms.Form_SQLConnection formSQLConnection;
         #endregion
 
 

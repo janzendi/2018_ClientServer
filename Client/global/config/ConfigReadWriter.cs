@@ -813,5 +813,213 @@ namespace Client.global.config
                 return listdcanalogsemantic;
             }
         }
+
+
+        /// <summary>
+        /// SQL Server IP und name
+        /// </summary>
+        /// <created>janzen_d,2018-09-26</created>
+        public static string SQLSERVER
+        {
+            get
+            {
+                try
+                {
+                    xmldocConfg.Load("config/config.xml");
+                    return xmldocConfg.SelectSingleNode("config/sql/dbserver").InnerText;
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+            set
+            {
+                try
+                {
+                    xmldocConfg.Load("config/config.xml");
+                    xmldocConfg.SelectSingleNode("config/sql/dbserver").InnerText = value;
+                    xmldocConfg.Save("config/config.xml");
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+        }
+
+        /// <summary>
+        /// SQL Tabellenname
+        /// </summary>
+        /// <created>janzen_d,2018-09-26</created>
+        public static string SQLTABLENAME
+        {
+            get
+            {
+                try
+                {
+                    xmldocConfg.Load("config/config.xml");
+                    return xmldocConfg.SelectSingleNode("config/sql/dbtable").InnerText;
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+            set
+            {
+                try
+                {
+                    xmldocConfg.Load("config/config.xml");
+                    xmldocConfg.SelectSingleNode("config/sql/dbtable").InnerText = value;
+                    xmldocConfg.Save("config/config.xml");
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+        }
+
+
+        /// <summary>
+        /// SQL Benutzername
+        /// </summary>
+        /// <created>janzen_d,2018-09-26</created>
+        public static string SQLUSERID
+        {
+            get
+            {
+                try
+                {
+                    xmldocConfg.Load("config/config.xml");
+                    return xmldocConfg.SelectSingleNode("config/sql/dbuser").InnerText;
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+            set
+            {
+                try
+                {
+                    xmldocConfg.Load("config/config.xml");
+                    xmldocConfg.SelectSingleNode("config/sql/dbuser").InnerText = value;
+                    xmldocConfg.Save("config/config.xml");
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+        }
+
+        /// <summary>
+        /// SQL Benutzername
+        /// </summary>
+        /// <created>janzen_d,2018-09-26</created>
+        public static string SQLPASSWORD
+        {
+            get
+            {
+                try
+                {
+                    xmldocConfg.Load("config/config.xml");
+                    return global.readme.license.Crypt.DecryptString(xmldocConfg.SelectSingleNode("config/sql/dbpassword").InnerText, "DimitriJanzen");
+                }
+                catch (Exception)
+                {
+                    return String.Empty;
+                }
+            }
+            set
+            {
+                try
+                {
+                    xmldocConfg.Load("config/config.xml");
+                    xmldocConfg.SelectSingleNode("config/sql/dbpassword").InnerText = global.readme.license.Crypt.EncryptString(value, "DimitriJanzen");
+                    xmldocConfg.Save("config/config.xml");
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+        }
+
+
+        /// <summary>
+        /// SQL Local
+        /// </summary>
+        /// <created>janzen_d,2018-09-26</created>
+        public static string SQLLOCALSERVERNAME
+        {
+            get
+            {
+                try
+                {
+                    xmldocConfg.Load("config/config.xml");
+                    return xmldocConfg.SelectSingleNode("config/sql/localserver").InnerText;
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+            set
+            {
+                try
+                {
+                    xmldocConfg.Load("config/config.xml");
+                    xmldocConfg.SelectSingleNode("config/sql/localserver").InnerText = value;
+                    xmldocConfg.Save("config/config.xml");
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+        }
+
+
+        /// <summary>
+        /// SQL Local
+        /// </summary>
+        /// <created>janzen_d,2018-09-26</created>
+        public static string SQLLOCALFILEPATH
+        {
+            get
+            {
+                try
+                {
+                    xmldocConfg.Load("config/config.xml");
+                    return xmldocConfg.SelectSingleNode("config/sql/localpath").InnerText;
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+            set
+            {
+                try
+                {
+                    xmldocConfg.Load("config/config.xml");
+                    xmldocConfg.SelectSingleNode("config/sql/localpath").InnerText = value;
+                    xmldocConfg.Save("config/config.xml");
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+        }
     }
 }

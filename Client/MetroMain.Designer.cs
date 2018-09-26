@@ -448,6 +448,11 @@ namespace Client
                 // Panel close events
                 //
                 pnlTwSTOPC.Close();
+
+                //
+                // Form close events
+                //
+                formSQLConnection.Closing();
             }
             catch (System.Exception)
             {

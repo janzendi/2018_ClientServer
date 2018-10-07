@@ -209,7 +209,8 @@ namespace Client
                 toolStripMenuItemSqlConnectForm = new System.Windows.Forms.ToolStripMenuItem("SqlConnect_1088");
                 toolStripMenuItemSqlConnectForm.Tag = 1088;
                 toolStripMenuItemOptions.DropDownItems.Add(toolStripMenuItemSqlConnectForm);
-                toolStripMenuItemSqlConnectForm.Click += ToolStripMenuItemSqlConnectForm_Click;
+                //toolStripMenuItemSqlConnectForm.Click += ToolStripMenuItemSqlConnectForm_Click;
+                toolStripMenuItemSqlConnectForm.Enabled = false;
                 //Menu3
                 toolStripMenuItemInfo = new System.Windows.Forms.ToolStripMenuItem("Info_1012");
                 toolStripMenuItemInfo.Tag = 1012;

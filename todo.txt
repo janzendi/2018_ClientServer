@@ -11,8 +11,6 @@ Network Manager Programmieren.
 http://www.suncross.nl/ndm/ 
 Network drive manager anschauen ggf daran orientieren.
 
-Prio 3
-ConfigReadWriter.cs in global/config verschieben
 
 
 bullshit:  
@@ -28,3 +26,6 @@ bullshit:
   sql: Server=localhost\SQLEXPRESS;Database=master;Trusted_Connection=True;
   
   Adminup2day#Storm
+  
+"SELECT * FROM dbo.ENGLISCH WHERE NUMMER 0 AND 1000"
+

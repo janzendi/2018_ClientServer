@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using System.Text.RegularExpressions;
+using System.Data.OleDb;
 
 namespace Test
 {
@@ -17,115 +19,128 @@ namespace Test
         [STAThread]
         static void Main()
         {
-            sqlconnect();
-        }
-
-        public static void sqlconnect()
-        {
-            // Create the connection to the resource!
-            // This is the connection, that is established and
-            // will be available throughout this block.
-            using (SqlConnection conn = new SqlConnection())
-            {
-                // Create the connectionString
-                // Trusted_Connection is used to denote the connection uses Windows Authentication
-                string tmpconnect = "Data Source=DESKTOP-88P6IC0\\SQLEXPRESS;Initial Catalog = ProductionDB; User ID = dbuser; Password = d";
-                string tmpconnect2 = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\win10\\Desktop\\2018_ClientServer\\Client\\config\\DB.mdf;Integrated Security=True;User ID = dbuser; Password = DimitriJanzen";
-                string tmpconnect3 = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\win10\\Desktop\\2018_ClientServer\\Client\\config\\DB.mdf;Integrated Security=True";
-                conn.ConnectionString = tmpconnect3; //Server=localhost\SQLEXPRESS;Database=master;Trusted_Connection=True;
-                conn.Open();
-                // Create the command
-                SqlCommand command = new SqlCommand("SELECT * FROM ENGLISCH", conn);
-                // Add the parameters.
-                //command.Parameters.Add(new SqlParameter("0", 1));
-
-                /* Get the rows and display on the screen! 
-                 * This section of the code has the basic code
-                 * that will display the content from the Database Table
-                 * on the screen using an SqlDataReader. */
-
-                using (SqlDataReader reader = command.ExecuteReader())
-                {
-                    Console.WriteLine("FirstColumn\tSecond Column\t\tThird Column\t\tForth Column\t");
-                    int i = 0;
-                    while (reader.Read())
-                    {
-                        Console.WriteLine(String.Format("{0} \t | {1}",
-                            reader[0], reader[1]));
-                        if (++i == 100)
-                        {
-                            break;
-                        }
-                    }
-                }
-                Console.WriteLine("Data displayed! Now press enter to move to the next section!");
-                Console.ReadLine();
-                Console.Clear();
-                
-
-                /* In this section there is an example of the Exception case
-                 * Thrown by the SQL Server, that is provided by SqlException 
-                 * Using that class object, we can get the error thrown by SQL Server.
-                 * In my code, I am simply displaying the error! */
-                Console.WriteLine("Now the error trial!");
-
-                // try block
-                try
-                {
-                    // Create the command to execute! With the wrong name of the table (Depends on your Database tables)
-                    SqlCommand errorCommand = new SqlCommand("SELECT * FROM someErrorColumn", conn);
-                    // Execute the command, here the error will pop up!
-                    // But since we're catching the code block's errors, it will be displayed inside the console.
-                    errorCommand.ExecuteNonQuery();
-                }
-                // catch block
-                catch (SqlException er)
-                {
-                    // Since there is no such column as someErrorColumn (Depends on your Database tables)
-                    // SQL Server will throw an error.
-                    Console.WriteLine("There was an error reported by SQL Server, " + er.Message);
-                }
-            }
-            // Final step, close the resources flush dispose them. ReadLine to prevent the console from closing.
+            //ThreadSyncDB("Data Source = localhost\\SQLEXPRESS;Initial Catalog = ProductionDB; User ID = dbuser; Password = d");
+            GetTextID("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\\Users\\win10\\Desktop\\2018_ClientServer\\Client\\config\\Sprachen.mdb;");
             Console.ReadLine();
         }
 
-        public void xmltest()
+        private static void GetTextID(string connetionString)
         {
-
-            XmlDocument xmlDoc = new XmlDocument();
-            XmlNode rootNode = xmlDoc.CreateElement("users");
-            xmlDoc.AppendChild(rootNode);
-
-            XmlNode userNode = xmlDoc.CreateElement("user");
-            XmlAttribute attribute = xmlDoc.CreateAttribute("age");
-            attribute.Value = "42";
-            userNode.Attributes.Append(attribute);
-            userNode.InnerText = "John Doe";
-            rootNode.AppendChild(userNode);
-
-            userNode = xmlDoc.CreateElement("user");
-            attribute = xmlDoc.CreateAttribute("age");
-            attribute.Value = "39";
-            userNode.Attributes.Append(attribute);
-            userNode.InnerText = "Jane Doe";
-            rootNode.AppendChild(userNode);
-
-            xmlDoc.Save("test-doc.xml");
-        }
-
-        public static void serialnumbertest()
-        {
-            System.IO.TextWriter txtFile = new System.IO.StreamWriter("SERIALNUMBERS.txt");
-            Random random = new Random();
-            string tmp = "";
-            for (int i = 0; i < 20000; i++)
+            try
             {
-                tmp += random.Next(1000000, 2147483647).ToString() + ", ";
+                using (OleDbConnection oleDbConnection = new OleDbConnection(connetionString))
+                {
+                    oleDbConnection.Open();
+                    OleDbCommand oleDbCommand = new OleDbCommand("SELECT TEXT FROM ENGLISCH WHERE NUMMER = 60000;", oleDbConnection);
+                    try
+                    {
+                        OleDbDataReader oleDbDataReader = oleDbCommand.ExecuteReader();
+                        while (oleDbDataReader.Read())
+                        {
+                            Console.WriteLine(oleDbDataReader[0].ToString());
+                        }
+                    }
+                    catch (Exception)
+                    {
+
+                        throw;
+                    }
+                    Console.WriteLine("done");
+                    oleDbConnection.Close();
+                }
             }
-            txtFile.Write(tmp);
-            txtFile.Close();
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
-        
+
+        private static void ThreadSyncDB(object connectionstring)
+        {
+
+            try
+            {
+                using (SqlConnection sqlConnection = new SqlConnection())
+                {
+                    sqlConnection.ConnectionString = connectionstring.ToString();
+                    sqlConnection.Open();
+
+                    using (SqlConnection sqlLocalConnection = new SqlConnection())
+                    {
+
+                        sqlLocalConnection.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + AppDomain.CurrentDomain.BaseDirectory + "DB.mdf" + ";Integrated Security=True";
+                        sqlLocalConnection.Open();
+
+                        for (int i = 80000; i < 100000; i+=1000)
+                        {
+                            try
+                            {
+
+                                // Create the command
+                                SqlCommand command = new SqlCommand("SELECT * FROM dbo.ENGLISCH WHERE NUMMER BETWEEN " + i + " AND " + (i + 999) + ";", sqlConnection);
+                                // Add the parameters.
+                                //command.Parameters.Add(new SqlParameter("0", 1));
+
+                                /* Get the rows and display on the screen! 
+                                 * This section of the code has the basic code
+                                 * that will display the content from the Database Table
+                                 * on the screen using an SqlDataReader. */
+
+                                using (SqlDataReader reader = command.ExecuteReader())
+                                {
+                                    while (reader.Read())
+                                    {
+                                        string strtext = CleanInput(reader[1].ToString());
+                                        strtext = strtext.Replace('@', ' ');
+                                        Console.WriteLine(String.Format("{0} \t | {1}", reader[0], strtext));
+                                        SqlCommand commandinsert = new SqlCommand("INSERT IGNORE INTO TWENGLISCH (NUMMER, TEXT) VALUES('" + reader[0] + "', '" + strtext + "');", sqlLocalConnection);
+                                        //SqlCommand commandinsert = new SqlCommand("INSERT INTO TWENGLISCH ('NUMMER', 'TEXT') VALUES("+ reader[0] + ", "+ reader[1] + ") ON DUPLICATE KEY UPDATE TEXT = '"+ reader[1] + "';", sqlLocalConnection); 
+                                        try
+                                        {
+                                            commandinsert.ExecuteNonQuery();
+                                        }
+                                        catch (Exception e)
+                                        {
+                                            //TODO
+                                            //MetroFramework.MetroMessageBox.Show(this, ex.ToString(), ex.Source, System.Windows.Forms.MessageBoxButtons.OK);
+
+                                            Console.WriteLine("Error on: \t" + String.Format("{0} \t | {1}", reader[0], strtext));
+                                            Console.WriteLine(e.ToString());
+                                        }
+                                    }
+                                }
+                            }
+                            catch (Exception)
+                            {
+                                
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            Console.WriteLine("FINISH");
+            Console.ReadLine();
+        }
+
+        static string CleanInput(string strIn)
+        {
+            // Replace invalid characters with empty strings.
+            try
+            {
+                return Regex.Replace(strIn, @"[^\w\.@-]", "",
+                                RegexOptions.None);
+            }
+            // If we timeout when replacing invalid characters, 
+            // we should return Empty.
+            catch (Exception)
+            {
+                return String.Empty;
+            }
+        }
     }
 }

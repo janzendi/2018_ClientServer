@@ -217,3 +217,12 @@ project.lock.json
 #####
 # End of core ignore list, below put you custom 'per project' settings (patterns or path)
 #####
+/Test/bin
+/Test/DB_log.ldf
+/Test/DB.mdf
+/Test/bin
+/Service/.vs/Service
+/Client/config/DB_log.ldf
+/Client/config/DB.mdf
+/Test/obj
+/Client/config/Sprachen.mdb

@@ -13,12 +13,10 @@ namespace Client.global.config
         {
             try
             {
-                using(SqlConnection sqlConnection = new SqlConnection())
-                {
-                    sqlConnection.ConnectionString = "Data Source="+config.ConfigReadWriter.SQLLOCALSERVERNAME+ ";AttachDbFilename="+ AppDomain.CurrentDomain.BaseDirectory+config.ConfigReadWriter.SQLLOCALFILEPATH+ ";Integrated Security=True";
-                    sqlConnection.Open();
-                    return sqlConnection;
-                }
+                SqlConnection sqlConnection = new SqlConnection();
+                sqlConnection.ConnectionString = "Data Source=" + config.ConfigReadWriter.SQLLOCALSERVERNAME + ";AttachDbFilename=" + AppDomain.CurrentDomain.BaseDirectory + config.ConfigReadWriter.SQLLOCALFILEPATH + ";Integrated Security=True";
+                sqlConnection.Open();
+                return sqlConnection;
             }
             catch (Exception)
             {

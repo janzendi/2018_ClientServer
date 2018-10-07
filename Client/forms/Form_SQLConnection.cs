@@ -101,15 +101,19 @@ namespace Client.forms
                             while (reader.Read())
                             {
                                 global.log.MetroLog.INSTANCE.DebugWriteLine("TODO " + String.Format("{0} \t | {1}", reader[0], reader[1]), global.log.MetroLog.LogType.INFO);
-                                SqlCommand commandinsert = new SqlCommand("INSERT INTO TWENLISCH (`NUMMER`, `TEXT`) VALUES("+ reader[0] + ", "+ reader[1] + ") ON DUPLICATE KEY UPDATE `TEXT` = "+ reader[1] + "; ", sqlLocalConnection);
+                                string strtext = reader[1].ToString().Replace('\'', ' ');
+                                SqlCommand commandinsert = new SqlCommand("INSERT INTO TWENGLISCH (NUMMER, TEXT) VALUES('"+ reader[0] + "', '"+ strtext + "');", sqlLocalConnection); 
+                                //SqlCommand commandinsert = new SqlCommand("INSERT INTO TWENGLISCH ('NUMMER', 'TEXT') VALUES("+ reader[0] + ", "+ reader[1] + ") ON DUPLICATE KEY UPDATE TEXT = '"+ reader[1] + "';", sqlLocalConnection); 
                                 try
                                 {
                                     commandinsert.ExecuteNonQuery();
                                 }
-                                catch (Exception)
+                                catch (Exception ex)
                                 {
-                                    global.log.MetroLog.INSTANCE.DebugWriteLine("TODO " + String.Format("{0} \t | {1}", reader[0], reader[1]), global.log.MetroLog.LogType.INFO);
-                                    throw;
+                                    //TODO
+                                    //MetroFramework.MetroMessageBox.Show(this, ex.ToString(), ex.Source, System.Windows.Forms.MessageBoxButtons.OK);
+                                    global.log.MetroLog.INSTANCE.DebugWriteLine("TODO " + ex.ToString()+" \nDATA: "+ String.Format("{0} \t | {1}", reader[0], reader[1]), global.log.MetroLog.LogType.INFO);
+                                    
                                 }
                             }
                         }

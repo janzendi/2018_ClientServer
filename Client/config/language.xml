@@ -89,6 +89,13 @@
     <text id="1084" tooltip="missing" objecttype="info">Zähler</text>
     <text id="1085" tooltip="missing" objecttype="info">Zähler Variable gefunden: </text>
     <text id="1086" tooltip="missing" objecttype="info">Daten der Tabelle hinzufügen</text>
+    <text id="1087" tooltip="missing" objecttype="info">Standard OPC erstellen</text>
+    <text id="1088" tooltip="missing" objecttype="info">SQL Verbindung</text>
+    <text id="1089" tooltip="missing" objecttype="info">SQL Verbindungseinstellungen</text>
+    <text id="1090" tooltip="missing" objecttype="info">SQL Serververbindungsname</text>
+    <text id="1091" tooltip="missing" objecttype="info">SQL Tabelle</text>
+    <text id="1092" tooltip="missing" objecttype="info">SQL Benutzername</text>
+    <text id="1093" tooltip="missing" objecttype="info">SQL Passwort</text>
     <text id="" tooltip="" objecttype="tag"></text>
   </language>
 	<language id="en" text="English">
@@ -180,6 +187,13 @@
     <text id="1084" tooltip="missing" objecttype="info">Counter</text>
     <text id="1085" tooltip="missing" objecttype="info">Counter variable found: </text>
     <text id="1086" tooltip="missing" objecttype="info">Add data to grid</text>
+    <text id="1087" tooltip="missing" objecttype="info">Create Standard OPC</text>
+    <text id="1088" tooltip="missing" objecttype="info">SQL Connection</text>
+    <text id="1089" tooltip="missing" objecttype="info">SQL connection settings</text>
+    <text id="1090" tooltip="missing" objecttype="info">SQL Server connection name</text>
+    <text id="1091" tooltip="missing" objecttype="info">SQL tabel</text>
+    <text id="1092" tooltip="missing" objecttype="info">SQL user id</text>
+    <text id="1093" tooltip="missing" objecttype="info">SQL password</text>
 	<text id="" tooltip="" objecttype="tag"></text>
 	</language>
 </languages>

@@ -6,10 +6,10 @@
   <language>Deutsch</language>
   <logfilepath>log</logfilepath>
   <keeplogfileforxdays>7</keeplogfileforxdays>
-  <debugmode>true</debugmode>
+  <debugmode>false</debugmode>
   <windowwidth>800</windowwidth>
   <windowlength>450</windowlength>
-  <fullscreen>true</fullscreen>
+  <fullscreen>false</fullscreen>
   <metrotheme>light</metrotheme> <!-- light and dark possible -->
   <metrostyle>4</metrostyle> <!-- Default = 0,  Black = 1,  White = 2,  Silver = 3,  Blue = 4,  Green = 5,  Lime = 6,  Teal = 7,  Orange = 8,  Brown = 9,  Pink = 10,  Magenta = 11,  Purple = 12,  Red = 13,  Yellow = 14 -->
   <license>
@@ -59,4 +59,12 @@
   </mainform>
   <global>
   </global>
+  <sql>
+	<dbserver>DESKTOP-88P6IC0\SQLEXPRESS</dbserver>
+	<dbtable>ProductionDB</dbtable>
+	<dbuser>dbuser</dbuser>
+	<dbpassword>CmK5m0AupRP4Ws59dR/yqw==</dbpassword>
+	<localserver>(LocalDB)\MSSQLLocalDB</localserver>
+	<localpath>config\DB.mdf</localpath>
+  </sql>
 </config>

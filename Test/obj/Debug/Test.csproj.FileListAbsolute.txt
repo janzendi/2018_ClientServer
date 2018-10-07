@@ -12,5 +12,10 @@ C:\Users\win10\Desktop\2018_ClientServer\Test\bin\Debug\ControlzEx.pdb
 C:\Users\win10\Desktop\2018_ClientServer\Test\bin\Debug\MahApps.Metro.pdb
 C:\Users\win10\Desktop\2018_ClientServer\Test\bin\Debug\MahApps.Metro.xml
 C:\Users\win10\Desktop\2018_ClientServer\Test\obj\Debug\Test.csproj.CopyComplete
+<<<<<<< HEAD
 C:\Users\win10\Desktop\2018_ClientServer\Test\bin\Debug\Database1.mdf
 C:\Users\win10\Desktop\2018_ClientServer\Test\bin\Debug\Database1_log.ldf
+=======
+C:\Users\win10\Desktop\2018_ClientServer\Test\bin\Debug\DB.mdf
+C:\Users\win10\Desktop\2018_ClientServer\Test\bin\Debug\DB_log.ldf
+>>>>>>> 6fab567a84d6a0b31e5689c96a0187314d66ca1c

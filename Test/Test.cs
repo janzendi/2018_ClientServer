@@ -30,10 +30,12 @@ namespace Test
                 // Create the connectionString
                 // Trusted_Connection is used to denote the connection uses Windows Authentication
                 string tmpconnect = "Data Source=DESKTOP-88P6IC0\\SQLEXPRESS;Initial Catalog = ProductionDB; User ID = dbuser; Password = d";
-                conn.ConnectionString = tmpconnect; //Server=localhost\SQLEXPRESS;Database=master;Trusted_Connection=True;
+                string tmpconnect2 = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\win10\\Desktop\\2018_ClientServer\\Client\\config\\DB.mdf;Integrated Security=True;User ID = dbuser; Password = DimitriJanzen";
+                string tmpconnect3 = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\win10\\Desktop\\2018_ClientServer\\Client\\config\\DB.mdf;Integrated Security=True";
+                conn.ConnectionString = tmpconnect3; //Server=localhost\SQLEXPRESS;Database=master;Trusted_Connection=True;
                 conn.Open();
                 // Create the command
-                SqlCommand command = new SqlCommand("SELECT * FROM dbo.ENGLISCH", conn);
+                SqlCommand command = new SqlCommand("SELECT * FROM ENGLISCH", conn);
                 // Add the parameters.
                 //command.Parameters.Add(new SqlParameter("0", 1));
 

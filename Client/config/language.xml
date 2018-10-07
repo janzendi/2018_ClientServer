@@ -96,6 +96,12 @@
     <text id="1091" tooltip="missing" objecttype="info">SQL Tabelle</text>
     <text id="1092" tooltip="missing" objecttype="info">SQL Benutzername</text>
     <text id="1093" tooltip="missing" objecttype="info">SQL Passwort</text>
+    <text id="1094" tooltip="Datenbank Verbindungsaddresse eingeben" objecttype="tag"></text>
+    <text id="1095" tooltip="SQL Tabellenname eingeben" objecttype="tag"></text>
+    <text id="1096" tooltip="Benutzername eingeben" objecttype="tag"></text>
+    <text id="1097" tooltip="Passwort eingeben" objecttype="tag"></text>
+    <text id="1098" tooltip="missing" objecttype="tag">Verbindung zur Datenbank aufbauen</text>
+    <text id="1099" tooltip="missing" objecttype="tag">Verbinden und synchronisieren</text>
     <text id="" tooltip="" objecttype="tag"></text>
   </language>
 	<language id="en" text="English">
@@ -189,11 +195,17 @@
     <text id="1086" tooltip="missing" objecttype="info">Add data to grid</text>
     <text id="1087" tooltip="missing" objecttype="info">Create Standard OPC</text>
     <text id="1088" tooltip="missing" objecttype="info">SQL Connection</text>
-    <text id="1089" tooltip="missing" objecttype="info">SQL connection settings</text>
-    <text id="1090" tooltip="missing" objecttype="info">SQL Server connection name</text>
-    <text id="1091" tooltip="missing" objecttype="info">SQL tabel</text>
-    <text id="1092" tooltip="missing" objecttype="info">SQL user id</text>
-    <text id="1093" tooltip="missing" objecttype="info">SQL password</text>
+    <text id="1089" tooltip="missing" objecttype="tag">SQL connection settings</text>
+    <text id="1090" tooltip="missing" objecttype="tag">SQL server connection name</text>
+    <text id="1091" tooltip="missing" objecttype="tag">SQL tabel</text>
+    <text id="1092" tooltip="missing" objecttype="tag">SQL user id</text>
+    <text id="1093" tooltip="missing" objecttype="tag">SQL password</text>
+    <text id="1094" tooltip="Enter the db address" objecttype="tag"></text>
+    <text id="1095" tooltip="Enter the SQL table name" objecttype="tag"></text>
+    <text id="1096" tooltip="Enter user name" objecttype="tag"></text>
+    <text id="1097" tooltip="Enter password" objecttype="tag"></text>
+    <text id="1098" tooltip="missing" objecttype="tag">Try to connect to DB</text>
+    <text id="1099" tooltip="missing" objecttype="tag">Connect and sync</text>
 	<text id="" tooltip="" objecttype="tag"></text>
 	</language>
 </languages>
